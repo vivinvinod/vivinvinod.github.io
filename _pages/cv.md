@@ -47,4 +47,4 @@ network big-data for population statistics.
   * Dept. of Economics, University of Pisa
   * Mathematical methods for economics
 
-[Download the full academic CV here](https://academicpages.github.io/files/VinodAcademicCV.pdf)
+[Download the full academic CV here](https://vivinvinod.github.io/files/VinodAcademicCV.pdf)
