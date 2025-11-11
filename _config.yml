@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Dr. Vivin Vinod"
   pronouns         : "he/him"  
-  bio              : "Vivin is a postdoctoral researcher specializing in low-cost high-accuracy multifidelity machine learning methods with applications to quantum chemistry. His current work integrates these methods into active learning sampling strategies and uncertainty quantification."
+  bio              : "Postdoctoral researcher for machine learning method development and application"
   location         : "Wuppertal, Germany"
   employer         : "University of Wuppertal"
   uri              : # URL
@@ -81,12 +81,12 @@ author:
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
-  books:
-    title: 'Books'
+  #books:
+  #  title: 'Books'
   manuscripts:
     title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
+  dissertations:
+    title: 'Dissertations'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews

@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Brief CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -11,54 +11,40 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Computer Science, University of Wuppertal, 2025
+* M.S. in Economics, University of Pisa, 2021
+* B.Sc. (Hons) in Physics, St. Stephen's College, delhi University, 2019
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* 2025 - present: Postdoctoral Researcher
+  * University of Wuppertal, Germany
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Apr 2025 - Jul 2025: teaching Assistant
+  * University of Wuppertal, Germany
+  * Mathematical Machine Learning SoSe 2025
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* 2023 - 2025: Research Associate
+  * University of Wuppertal
+  * Research as part of PhD in Computer Science
+  * Supervisor: Prof. Dr. Peter Zaspel
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* 2022 - 2023: Research Associate
+  * Constructor University Bremen gGmbH, Germany
+  * Research as part of PhD in Computer Science 
+  * Supervisor: Prof. Dr. Peter Zaspel
   
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Aug 2021 - Nov 2021: Package Development Intern
+  * EMOS, INS Spain, INE Romania
+  * Developed packages with the national institute of statistics in Spain and Romania to analyze synthetic mobile
+network big-data for population statistics.
+
+* Jan 2021 - Jun 2021: Junior Research Intern
+  * National Institute of Statistics, Italy (ISTAT)
+  * Developed U-NET DL hybrid to produce masks of orthophoto segmentation
+
+* 2021: Graduate Teaching Assistant
+  * Dept. of Economics, University of Pisa
+  * Mathematical methods for economics
+
+[Download the full academic CV here](https://academicpages.github.io/files/VinodAcademicCV.pdf)
