@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'PhDone: Vivin Vinod is now Dr. Vivin Vinod!'
 date: 2025-05-19
 permalink: /news/2025/PhDone
