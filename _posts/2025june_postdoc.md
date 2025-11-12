@@ -1,0 +1,11 @@
+---
+title: 'Vivin Vinod Begins his first postdoctoral assignment at the University of Wuppertal'
+date: 2025-06-01
+permalink: /posts/2025/postdoc1
+tags:
+  - postdoc
+  - research
+  - employment
+---
+
+Dr. Vivin Vinod will continue his research at the University of Wuppertal under the aegis of the Zaspel group. He will continue his work on multifidelity method development for quantum chemical applications. 
