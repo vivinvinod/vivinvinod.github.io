@@ -83,12 +83,12 @@ author:
 publication_category:
   #books:
   #  title: 'Books'
+  preprint:
+    title: 'Preprints'
   manuscript:
     title: 'Journal Articles'    
   dissertations:
     title: 'Dissertations'
-  preprint:
-    title: 'Preprints'
   dataset:
     title: 'Dataset'
 
