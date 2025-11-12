@@ -1,7 +1,7 @@
 ---
 title: 'Vivin Vinod Begins his first postdoctoral assignment at the University of Wuppertal'
 date: 2025-06-01
-permalink: /posts/2025/postdoc1
+permalink: /news/2025/postdoc1
 tags:
   - postdoc
   - research
