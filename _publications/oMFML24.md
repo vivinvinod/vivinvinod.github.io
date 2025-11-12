@@ -1,7 +1,7 @@
 ---
 title: "Optimized multifidelity machine learning for quantum chemistry"
 collection: publications
-category: manuscripts
+category: manuscript
 permalink: /publication/Vinod_oMFML2024
 excerpt: 'In this work we implement an optimization procedure to combine multifidelity models in a flexible scheme resulting in optimized MFML (o-MFML) that provides superior prediction capabilities. This work benchmarks the o-MFML method in predicting the atomization energies on the QM7b dataset, and again in the prediction of excitation energies for three molecules of growing size. '
 date: 2024-05-25

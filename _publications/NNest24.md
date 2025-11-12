@@ -1,7 +1,7 @@
 ---
 title: "Assessing non-nested configurations of multifidelity machine learning for quantum-chemical properties"
 collection: publications
-category: manuscripts
+category: manuscript
 permalink: /publication/Vinod_Nonnested2024
 excerpt: 'This work assesses the use of non-nested training data for two of these multifidelity methods, namely MFML and optimized MFML (o-MFML). The assessment is carried out for the prediction of ground state energies and first vertical excitation energies of a diverse collection of molecules of the CheMFi dataset.'
 date: 2024-10-07

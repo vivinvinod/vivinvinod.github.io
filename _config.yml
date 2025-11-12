@@ -83,10 +83,14 @@ author:
 publication_category:
   #books:
   #  title: 'Books'
-  manuscripts:
+  manuscript:
     title: 'Journal Articles'    
   dissertations:
     title: 'Dissertations'
+  preprint:
+    title: 'Preprints'
+  dataset:
+    title: 'Dataset'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
