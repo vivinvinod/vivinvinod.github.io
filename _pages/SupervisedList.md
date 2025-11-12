@@ -1,5 +1,9 @@
-
-## List of Supervised Students
+---
+layout: archive
+title: "Academic Supervision"
+permalink: /supervision/
+author_profile: true
+---
 
 #### Bachelor Theses
 * Emir-Kaan Saari (University of Wuppertal; Computer Science; Winter 2025)
