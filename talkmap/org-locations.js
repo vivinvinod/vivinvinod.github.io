@@ -1,22 +1,22 @@
 var addressPoints = [
   [
-    "Talk 2 on Relevant Topic in Your Field<br />London School of Testing; London, UK",
-    51.4893335,
-    -0.14405508452768728
+    "Optimized Multi-Fidelity Machine Learning for Quantum Chemical Properties.<br />Fritz Haber Institute, Theory Department, Berlin; Zuse Institute Berlin, Berlin, Germany",
+    52.4557415,
+    13.2979865
   ],
   [
-    "Tutorial 1 on Relevant Topic in Your Field<br />UC-Berkeley Institute for Testing Science; Berkeley, CA, USA",
-    37.8708393,
-    -122.272863
+    "Optimized Multi-Fidelity Machine Learning for Quantum Chemistry.<br />Young Chemists Summit (Salzburg); Paris Lodron University Salzburg, Salzburg, Austria",
+    47.7984448,
+    13.0503867
   ],
   [
-    "Conference Proceeding talk 3 on Relevant Topic in Your Field<br />Testing Institute of America 2014 Annual Conference; Los Angeles, CA, USA",
-    34.0536909,
-    -118.242766
+    "Delauney Triangulation for Voronoi Partition for implementation in Simulated Mobile Network Data.<br />International Conference Use of R in Official Statistics (uRosConf 2021); Bucharest, Romania",
+    44.4361414,
+    26.1027202
   ],
   [
-    "Talk 1 on Relevant Topic in Your Field<br />UC San Francisco, Department of Testing; San Francisco, CA, USA",
-    37.7792588,
-    -122.4193286
+    "simviz: a package to visualize simulated telecommunication mobile network event data.<br />International Conference Use of R in Official Statistics (uRosConf 2021); Bucharest, Romania",
+    44.4361414,
+    26.1027202
   ]
 ];
