@@ -1,9 +1,9 @@
 ---
-title: "Teaching experience 1"
+title: "Mathematical Methods for Economics"
 collection: teaching
 type: "Undergraduate course"
-permalink: /teaching/2014-spring-teaching-1
-venue: "University 1, Department"
+permalink: /teaching/MathforEcon
+venue: "University of Pisa, Department of Economics and Management"
 date: 2014-01-01
 location: "City, Country"
 ---
