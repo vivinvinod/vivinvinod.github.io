@@ -15,11 +15,17 @@ Vivin is a postdoctoral researcher specializing in low-cost, high-accuracy multi
 
 Feel free to look around the various webpages that are part of this website. Vivin is keen on collaborating with interdisciplinary individuals to develop machine learning methods. His aim is to go beyond mere applications. 
 
+Do read the [Privacy Policy](https://vivinvinod.github.io/terms/) to see what data is used and how it is handled on this webpage.
+
 Current Interests
 ======
 - Multifidelity machine learning methods for excitation energies
 - Active learning methods for optimal data set sampling
 - Multifidelity methods to bridge the fidelity gap in sparse data regimes 
 - Machine learning model development for kernel based methods
+
+Collaboration
+======
+Vivin is keenly interested in active collaboration in diverse field. If interested, please contact him via e-mail or LinkedIn.
 
 
