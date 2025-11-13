@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/news/2025/PhDone</loc>
+<loc>http://localhost:4000/posts/2025/PhDone</loc>
 <lastmod>2025-05-19T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/news/2025/postdoc1</loc>
+<loc>http://localhost:4000/posts/2025/postdoc1</loc>
 <lastmod>2025-06-01T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -46,7 +46,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/publications/dataefficiency25/</loc>
-<lastmod>2025-11-12T23:05:34+00:00</lastmod>
+<lastmod>2025-11-13T11:24:08+00:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/publication/Vinod_oMFML2024</loc>
@@ -157,7 +157,7 @@
 <loc>http://localhost:4000/terms/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/news/</loc>
+<loc>http://localhost:4000/posts/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/files/VinodAcademicCV.pdf</loc>

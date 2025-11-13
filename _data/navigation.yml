@@ -19,7 +19,7 @@ main:
     url: /teaching/    
         
   - title: "News"
-    url: /news/
+    url: /posts/
     
   - title: "CV"
     url: /cv/
