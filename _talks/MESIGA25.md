@@ -3,9 +3,9 @@ title: "Optimal Combination and Data Hierarchies in Multifidelity Machine Learni
 collection: talks
 type: "Talk"
 permalink: /talks/MESIGA25
-venue: "MESIGA25: Numerical Methods in Applied Mathematics"
+venue: "MESIGA25: Numerical Methods in Applied Mathematics, University of Potsdam"
 date: 2025-03-12
-location: "Campus Golm, Potsdam University, Potsdam, Germany"
+location: "Karl-Liebknecht-Straße 24 - 25, 14476 Potsdam, Germany"
 ---
 Meeting of the European SIAM and GAMM student chapters. See more at [the official webpage](https://www.math.uni-potsdam.de/studium/studierende/default-8819680ed3/standard-titel).
 

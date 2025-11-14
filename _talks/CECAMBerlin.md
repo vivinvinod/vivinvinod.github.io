@@ -5,7 +5,7 @@ type: "Talk"
 permalink: /talks/CECAMBerlin
 venue: "Fritz Haber Institute, Theory Department, Berlin"
 date: 2023-07-10
-location: "Zuse Institute Berlin, Berlin, Germany"
+location: "Zuse Institute Berlin, Takustraße 7 14195 Berlin Germany"
 ---
 
 [Official Page](https://www.cecam.org/workshop-details/machine-learning-of-first-principles-observables-1322)

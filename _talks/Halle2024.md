@@ -5,7 +5,7 @@ type: "Talk"
 permalink: /talks/Leopoldina_2024
 venue: "SPP-2363 Annual Meet"
 date: 2024-03-01
-location: "German National Academy of Sciences Leopoldina, Halle (Saale)"
+location: "Jägerberg 1, 06108 Halle (Saale)"
 ---
 
 

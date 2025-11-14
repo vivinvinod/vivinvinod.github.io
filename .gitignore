@@ -1,3 +1,6 @@
 .bundle/
 vendor/
 .sass-cache/
+.ipynb_checkpoints/
+.virtual_documents/
+
