@@ -46,7 +46,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/publications/dataefficiency25/</loc>
-<lastmod>2025-11-13T11:24:08+00:00</lastmod>
+<lastmod>2025-11-14T16:51:25+00:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/publication/Vinod_oMFML2024</loc>
@@ -162,5 +162,9 @@
 <url>
 <loc>http://localhost:4000/files/VinodAcademicCV.pdf</loc>
 <lastmod>2025-11-06T18:55:50+00:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/talkmap/map.html</loc>
+<lastmod>2025-11-14T16:51:25+00:00</lastmod>
 </url>
 </urlset>
