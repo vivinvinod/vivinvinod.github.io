@@ -2,7 +2,7 @@
 title: "Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies"
 collection: publications
 category: manuscript
-permalink: /publications/Vinod_monomers_2025
+permalink: /publications/Vinod_gammacurve_2025
 excerpt: 'Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.'
 date: 2025-03-25
 venue: 'Journal of Chemical Theory and Computation'

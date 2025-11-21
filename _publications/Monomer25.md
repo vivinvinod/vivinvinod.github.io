@@ -2,7 +2,7 @@
 title: "Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods"
 collection: publications
 category: manuscript
-permalink: /publication/Vinod_monomers_2025
+permalink: /publications/Vinod_monomers_2025
 excerpt: 'Application of several multifidelity methods in bridging the DFT and CCSD(T) gap for energies.'
 date: 2025-03-04
 venue: 'Journal of Computational Chemistry (Wiley)'

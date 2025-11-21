@@ -15,6 +15,9 @@ The focus in this theme is to develop novel methods at the intersection of mathe
 ### Machine Learning Methods
 Developing novel kernel-based regression methods for diverse applications, specifically focusing on Gaussian Process Regression (GPR) enhancements to address key challenges. Construction of neural network architectures specifically tailored for predicting electronic structure properties (e.g., forces, energy) with a focus on enforcing physical symmetries and equivariance.
 
+![](/assets/media/MFML.png "Multifidelity machine learning for training data copmuted at varying accuracy.")
+
+
 Previous research expertise in this domain includes:
 * Multifidelity machine learning
 * Data Adapted Multifidelity Combination

@@ -19,17 +19,17 @@
 
 
 
-<title>Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies - Vivin Vinod’s Webpage</title>
+<title>Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods - Vivin Vinod’s Webpage</title>
 
 
 
-<meta name="description" content="Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.">
+<meta name="description" content="Application of several multifidelity methods in bridging the DFT and CCSD(T) gap for energies.">
 
 
 
 
 
-  <meta property="article:published_time" content="2025-03-25T00:00:00+00:00">
+  <meta property="article:published_time" content="2025-03-04T00:00:00+00:00">
 
 
 
@@ -68,12 +68,12 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Vivin Vinod's Webpage"> 
-<meta property="og:title" content="Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies">
+<meta property="og:title" content="Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods">
 
   <meta property="og:type" content="article">
 
 
-  <meta property="og:description" name="description" content="Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.">
+  <meta property="og:description" name="description" content="Application of several multifidelity methods in bridging the DFT and CCSD(T) gap for energies.">
 
 
   <meta property="og:url" content="http://localhost:4000/publications/Vinod_monomers_2025">
@@ -268,33 +268,35 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies">
-    <meta itemprop="description" content="Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.">
-    <meta itemprop="datePublished" content="March 25, 2025">
+    <meta itemprop="headline" content="Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods">
+    <meta itemprop="description" content="Application of several multifidelity methods in bridging the DFT and CCSD(T) gap for energies.">
+    <meta itemprop="datePublished" content="March 04, 2025">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies
+          <h1 class="page__title" itemprop="headline">Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods
 </h1>
           
         
         
         
-          <p>Published in <i>Journal of Chemical Theory and Computation</i>, 2025 </p>
+          <p>Published in <i>Journal of Computational Chemistry (Wiley)</i>, 2025 </p>
             
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p><img src="/assets/media/2025/Gammacurve_TOC.png" alt="" title="Conceptual graphic of this publication." /></p>
+        <p>This work implements and analyzes several multi-fidelity methods including Δ-ML and MFML for the prediction of electronic molecular energies at DLPNO-CCSD(T) level, that is, at the level of coupled cluster theory including single and double excitations and perturbative triples corrections. The models for small organic molecules are evaluated not only on the basis of accuracy of prediction, but also on efficiency in terms of the time-cost of generating training data. In addition, the models are evaluated for the prediction of energies for molecules sampled from a public dataset, in particular for atmospherically relevant molecules, isomeric compounds, and highly conjugated complex molecules.</p>
 
-<p>Recent progress in machine learning (ML) has made high-accuracy quantum chemistry (QC) calculations more accessible. Of particular interest are multifidelity machine learning (MFML) methods, where training data from differing accuracies or fidelities are used. These methods usually employ a fixed scaling factor, γ, to relate the number of training samples across different fidelities, which reflects the cost and assumed sparsity of the data. This study investigates the impact of modifying γ on model efficiency and accuracy for the prediction of vertical excitation energies using the QeMFi benchmark data set. Further, this work introduces QC compute time-informed scaling factors, denoted as θ, that vary based on QC compute times at different fidelities. A novel error metric, error contours of MFML, is proposed to provide a comprehensive view of model error contributions from each fidelity. The results indicate that high model accuracy can be achieved with just 2 training samples at the target fidelity when a larger number of samples from lower fidelities are used. This is further illustrated through a novel concept, the Γ-curve, which compares model error against the time-cost of generatin</p>
+<p><img src="/assets/media/2025/monomers_results.jpg" alt="" title="The novel MFΔML method outperforms existing methods in accuracy." /></p>
+
+<p>Multi-fidelity methods in machine learning (ML) have seen increasing usage for the prediction of quantum chemical properties. These methods, such as Δ-ML and Multifidelity Machine Learning (MFML), have been shown to significantly reduce the computational cost of generating training data. This work implements and analyzes several multi-fidelity methods including Δ-ML and MFML for the prediction of electronic molecular energies at DLPNO-CCSD(T) level, that is, at the level of coupled cluster theory including single and double excitations and perturbative triples corrections. The models for small organic molecules are evaluated not only on the basis of accuracy of prediction, but also on efficiency in terms of the time-cost of generating training data. In addition, the models are evaluated for the prediction of energies for molecules sampled from a public dataset, in particular for atmospherically relevant molecules, isomeric compounds, and highly conjugated complex molecules.</p>
 
 
         
-          <p style="font-size: smaller">Recommended citation: Vivin Vinod and Peter Zaspel. Journal of Chemical Theory and Computation 2025 21 (6), 3077-3091. DOI: 10.1021/acs.jctc.4c01491 <br /><a href="https://pubs.acs.org/doi/full/10.1021/acs.jctc.4c01491">Download Paper</a> | <a href="https://academicpages.github.io/files/vinod_gamma_2025.bib">Download Bibtex</a></p>
+          <p style="font-size: smaller">Recommended citation: Vinod, V., Lyu, D., Ruth, M., R. Schreiner, P., Kleinekathöfer, U. and Zaspel, P. (2025), Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods. J Comput Chem, 46: e70056. https://doi.org/10.1002/jcc.70056<br /><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jcc.70056">Download Paper</a> | <a href="https://academicpages.github.io/files/vinod_monomers_2025.bib">Download Bibtex</a></p>
         
 
         
@@ -333,11 +335,11 @@
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/publication/Vinod_monomers_2025" class="pagination--pager" title="Predicting Molecular Energies of Small Organic Molecules With Multi-Fidelity Methods
+      <a href="http://localhost:4000/publications/Vinod_QeMFi2025" class="pagination--pager" title="QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules
 ">Previous</a>
     
     
-      <a href="http://localhost:4000/publication/Lyu_porphyrin_2025" class="pagination--pager" title="Excitation Energy Transfer between Porphyrin Dyes on a Clay Surface: A Study Employing Multifidelity Machine Learning
+      <a href="http://localhost:4000/publications/Vinod_gammacurve_2025" class="pagination--pager" title="Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies
 ">Next</a>
     
   </nav>

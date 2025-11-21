@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Vivin Vinod's Website"
+title: "Vivin Vinod's Academic Portfolio"
 author_profile: true
 redirect_from: 
   - /about/
