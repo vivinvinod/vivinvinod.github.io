@@ -23,7 +23,7 @@
 
 
 
-<meta name="description" content="Develops the novel Gamma-curve approach and assesses different data scaling hierarchies in multifidelity schemes.">
+<meta name="description" content="Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.">
 
 
 
@@ -73,7 +73,7 @@
   <meta property="og:type" content="article">
 
 
-  <meta property="og:description" name="description" content="Develops the novel Gamma-curve approach and assesses different data scaling hierarchies in multifidelity schemes.">
+  <meta property="og:description" name="description" content="Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.">
 
 
   <meta property="og:url" content="http://localhost:4000/publications/Vinod_monomers_2025">
@@ -269,7 +269,7 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Investigating Data Hierarchies in Multifidelity Machine Learning for Excitation Energies">
-    <meta itemprop="description" content="Develops the novel Gamma-curve approach and assesses different data scaling hierarchies in multifidelity schemes.">
+    <meta itemprop="description" content="Develops the novel Γ-curve method and assesses different data scaling hierarchies in multifidelity schemes.">
     <meta itemprop="datePublished" content="March 25, 2025">
     
 
@@ -288,7 +288,9 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>This study investigates the impact of modifying data scaling factor ($\gamma$) on model efficiency and accuracy for the prediction of vertical excitation energies using the QeMFi benchmark data set. A novel error metric, error contours of MFML, is proposed to provide a comprehensive view of model error contributions from each fidelity. This is further illustrated through a novel concept, the $\Gamma$-curve, which compares model error against the time-cost of generating training samples, demonstrating that multifidelity models can achieve high accuracy while minimizing training data costs.</p>
+        <p><img src="/assets/media/2025/Gammacurve_TOC.png" alt="" title="Conceptual graphic of this publication." /></p>
+
+<p>Recent progress in machine learning (ML) has made high-accuracy quantum chemistry (QC) calculations more accessible. Of particular interest are multifidelity machine learning (MFML) methods, where training data from differing accuracies or fidelities are used. These methods usually employ a fixed scaling factor, γ, to relate the number of training samples across different fidelities, which reflects the cost and assumed sparsity of the data. This study investigates the impact of modifying γ on model efficiency and accuracy for the prediction of vertical excitation energies using the QeMFi benchmark data set. Further, this work introduces QC compute time-informed scaling factors, denoted as θ, that vary based on QC compute times at different fidelities. A novel error metric, error contours of MFML, is proposed to provide a comprehensive view of model error contributions from each fidelity. The results indicate that high model accuracy can be achieved with just 2 training samples at the target fidelity when a larger number of samples from lower fidelities are used. This is further illustrated through a novel concept, the Γ-curve, which compares model error against the time-cost of generatin</p>
 
 
         
