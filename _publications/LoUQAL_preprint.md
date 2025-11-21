@@ -2,8 +2,8 @@
 title: "LoUQAL: Low-fidelity informed Uncertainty Quantification for Active Learning in the chemical configuration space"
 collection: publications
 category: preprint
-permalink: /publication/LoUQ_2025
-excerpt: 'Proposes a novel low-fidelity guided active learning scheme.'
+permalink: /publications/LoUQ_2025
+excerpt: 'Proposes a novel low-fidelity guided active learning scheme that reduces the bias of the model.'
 date: 2025-08-21
 venue: 'arXiv'
 paperurl: 'https://arxiv.org/abs/2508.15577'

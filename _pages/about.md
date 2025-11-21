@@ -15,6 +15,8 @@ Do read the [Privacy Policy](https://vivinvinod.github.io/terms/) to see what da
 
 About
 ======
+![](/assets/media/VV_Icon_transparent.png "Dr. Vivin Vinod's Icon")
+
 Vivin is a postdoctoral researcher specializing in low-cost, high-accuracy multifidelity machine learning. Focus areas include quantum chemistry applications, active learning sampling strategies, and uncertainty quantification. Vivin has a multi-disciplinary academic background including physics, economics, computer science, and quantum chemistry. This site serves as a portfolio for technical insights, personal projects, and open-source contributions.
 
 

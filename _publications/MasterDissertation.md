@@ -2,7 +2,7 @@
 title: "Credit Risk Modelling in Application: Catastrophe Swaps and Deep Learning Approaches"
 collection: publications
 category: dissertations
-permalink: /publication/Vinod_masters_dissertation
+permalink: /publications/Vinod_masters_dissertation
 date: 2021-07-12
 venue: 'University of Pisa'
 paperurl: 'https://etd.adm.unipi.it/t/etd-04142021-113103'

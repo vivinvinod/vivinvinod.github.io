@@ -23,13 +23,13 @@
 
 
 
-<meta name="description" content="Optimal combination of multifidelity models to achieve better accuracy in prediction.">
+<meta name="description" content="Data-adapted optimal combination of multifidelity models to achieve better accuracy in prediction.">
 
 
 
 
 
-  <meta property="article:published_time" content="2024-05-25T00:00:00+00:00">
+  <meta property="article:published_time" content="2024-03-25T00:00:00+00:00">
 
 
 
@@ -73,7 +73,7 @@
   <meta property="og:type" content="article">
 
 
-  <meta property="og:description" name="description" content="Optimal combination of multifidelity models to achieve better accuracy in prediction.">
+  <meta property="og:description" name="description" content="Data-adapted optimal combination of multifidelity models to achieve better accuracy in prediction.">
 
 
   <meta property="og:url" content="http://localhost:4000/publication/Vinod_oMFML2024">
@@ -269,8 +269,8 @@
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Optimized multifidelity machine learning for quantum chemistry">
-    <meta itemprop="description" content="Optimal combination of multifidelity models to achieve better accuracy in prediction.">
-    <meta itemprop="datePublished" content="May 25, 2024">
+    <meta itemprop="description" content="Data-adapted optimal combination of multifidelity models to achieve better accuracy in prediction.">
+    <meta itemprop="datePublished" content="March 25, 2024">
     
 
     <div class="page__inner-wrap">
@@ -288,7 +288,11 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>In this work we implement an optimization procedure to combine multifidelity models in a flexible scheme resulting in optimized MFML (o-MFML) that provides superior prediction capabilities. This work benchmarks the o-MFML method in predicting the atomization energies on the QM7b dataset, and again in the prediction of excitation energies for three molecules of growing size.</p>
+        <p>In this work we implement a data-adapted optimization procedure to combine multifidelity models in a flexible scheme resulting in optimized MFML (o-MFML) that provides superior prediction capabilities. This work benchmarks the o-MFML method in predicting the atomization energies on the QM7b dataset, and again in the prediction of excitation energies for three molecules of growing size.</p>
+
+<p><img src="/assets/media/2024/oMFML_TOC.png" alt="" title="Optimized Multifidelity Machine Learning" /></p>
+
+<p>Machine learning (ML) provides access to fast and accurate quantum chemistry (QC) calculations for various properties of interest such as excitation energies. It is often the case that high accuracy in prediction using a ML model, demands a large and costly training set. Various solutions and procedures have been presented to reduce this cost. These include methods such as Δ-ML, hierarchical-ML, and multifidelity machine learning (MFML). MFML combines various Δ-ML like sub-models for various fidelities according to a fixed scheme derived from the sparse grid combination technique. In this work we implement an optimization procedure to combine multifidelity models in a flexible scheme resulting in optimized MFML (o-MFML) that provides superior prediction capabilities. This hyperparameter optimization is carried out on a holdout validation set of the property of interest. This work benchmarks the o-MFML method in predicting the atomization energies on the QM7b dataset, and again in the prediction of excitation energies for three molecules of growing size. The results indicate that o-MFML is a strong methodological improvement over MFML and provides lower error of prediction. Even in cases of poor data distributions and lack of clear hierarchies among the fidelities, which were previously identified as issues for multifidelity methods, the o-MFML is advantageous for the prediction of quantum chemical properties</p>
 
 
         
@@ -331,11 +335,12 @@
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/publications/dataefficiency25/" class="pagination--pager" title="
+      <a href="http://localhost:4000/publications/Vinod_MFML2023" class="pagination--pager" title="Multifidelity machine learning for molecular excitation energies
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="http://localhost:4000/publication/Vinod_QeMFi2024_dataset" class="pagination--pager" title="QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules
+">Next</a>
     
   </nav>
 
