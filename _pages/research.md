@@ -7,23 +7,18 @@ author_profile: true
 
 {% include base_path %}
 
-Vivin's research falls under two broad categories. He is involved in both fundamental method development and active application of methods to challenging problems ranging from quantum chemistry to financial problems. Please take a look at the [Publications](https://vivinvinod.github.io/publications/) section for peer-reviewed and published research.
+Please take a look at the [Publications](https://vivinvinod.github.io/publications/) section for peer-reviewed and published research.
 
-## Method Development
-The focus in this theme is to develop novel methods at the intersection of mathematics and machine learning with strong knowledge on both themes. Identifying nuances in schemes is also of relevance. 
 
-### Machine Learning Methods
+## Machine Learning Method Development
 Developing novel kernel-based regression methods for diverse applications, specifically focusing on Gaussian Process Regression (GPR) enhancements to address key challenges. Construction of neural network architectures specifically tailored for predicting electronic structure properties (e.g., forces, energy) with a focus on enforcing physical symmetries and equivariance.
+
+### Multifidelity Methods
 
 ![](/assets/media/MFML.png "Multifidelity machine learning for training data copmuted at varying accuracy.")
 
 
-Previous research expertise in this domain includes:
-* Multifidelity machine learning
-* Data Adapted Multifidelity Combination
-* Data Scaling in Multifidelity Methods
-* Quantifying cost-efficiency in multifidelity models 
-
+Multifidelity methods combine data from different degrees of accuracy.
 
 ### Active Learning and Uncertainty Quantification
 Designing data sampling techniques to reduce redundancy. Assist in minimizing labelling costs for low-data regimes. Refine models and establish uncertainty bounds for predictions. 
