@@ -6,8 +6,6 @@ redirect_from:
   - /about/
   - /about.html
 ---
-This Website is a work-in-progress. Feel free to look around meanwhile.
-
 Welcome to Vivin Vinod's personal website! This is hosted via the [GitHub pages](https://
 pages.github.com/) service.  
 
