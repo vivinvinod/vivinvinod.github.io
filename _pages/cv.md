@@ -19,6 +19,10 @@ Work experience
 ======
 * 2025 - present: Postdoctoral Researcher
   * University of Wuppertal, Germany
+ 
+ * Jan 2026 - Mar 2026; Visiting Researcher
+  * Hausdorff Research Institute for Mathematics, University of Bonn, Germany
+  * Bridging multiscale, limited information, and low regularity in computational mathematics
 
 * Apr 2025 - Jul 2025: teaching Assistant
   * University of Wuppertal, Germany
