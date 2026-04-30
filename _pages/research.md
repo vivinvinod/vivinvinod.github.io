@@ -34,7 +34,7 @@ The primary focus of developed methods is their use in predicting quantum chemic
 
 
 ### Economics and Finance
-<img src="/assets/media/CDS.png" alt="Credit default swap transaction" style="width:200px;"/>
+<img src="/assets/media/CDS.png" alt="Credit default swap transaction" style="width:300px;"/>
 
 The use of Machine Learning techniques to price derivatives and options is an excitign field of research. Vivin has previous expertise on the use of deep-UNET models for the volatile [pricing of catastrophe swaps](/files/Masters_Thesis_VINOD.pdf). His work also extends to modelling the general credit risk as a Martingale process quantifying risk using machine learning models. This involves the application of stochastic calculus within a supervised learning framework to ensure that model predictions remain consistent with no-arbitrage conditions and fundamental financial theorems.
 
