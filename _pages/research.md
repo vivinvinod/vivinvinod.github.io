@@ -18,6 +18,7 @@ Developing novel kernel-based regression methods for diverse applications, speci
 ![](/assets/media/MFML.png "Multifidelity machine learning for training data computed at varying accuracy.")
 
 
+
 Multifidelity methods combine data from different degrees of accuracy. The central aim with these methods is to produce low-sot high-accuracy machine learning models that provide robust and fast predictions at a fraction of the cost of conventional methods. Analysing the hierarchical approach is the core of Vivin's current research. 
 
 ### Active Learning and Uncertainty Quantification
@@ -33,7 +34,8 @@ The primary focus of developed methods is their use in predicting quantum chemic
 
 
 ### Economics and Finance
-![](/assets/media/CDS.png "Credit default swap transaction")
+<img src="/assets/media/CDS.png" alt="Credit default swap transaction" style="width:200px;"/>
+
 The use of Machine Learning techniques to price derivatives and options is an excitign field of research. Vivin has previous expertise on the use of deep-UNET models for the volatile [pricing of catastrophe swaps](/files/Masters_Thesis_VINOD.pdf). His work also extends to modelling the general credit risk as a Martingale process quantifying risk using machine learning models. This involves the application of stochastic calculus within a supervised learning framework to ensure that model predictions remain consistent with no-arbitrage conditions and fundamental financial theorems.
 
 
