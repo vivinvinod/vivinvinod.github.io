@@ -4,8 +4,8 @@ collection: talks
 type: "Talk"
 permalink: /talks/ECCOMAS_2026
 venue: "17th World Congress on Computational Mechanics (WCCM) 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS)"
-date: 2026-07-22
-location: "Messe München GmbH, Messegelände, 81823 München, Germany"
+date: 2025-07-22
+location: "Messe München GmbH, Messegelände, 81823 Munich, Germany"
 ---
 
 See more at [the official webpage](https://wccm-eccomas2026.org/).

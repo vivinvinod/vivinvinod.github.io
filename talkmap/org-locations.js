@@ -1,5 +1,10 @@
 var addressPoints = [
   [
+    "Active Learning and Multifidelity Machine Learning for Molecular Simulations.<br />WCCM-ECCOMAS (2006); International Congress Center Messe München, 81823 München, Germany",
+    48.13663451957726,
+    11.692486617557769
+  ],
+  [
     "Optimized Multi-Fidelity Machine Learning for Quantum Chemistry.<br />SPP-2363 Annual Meet; J\u00e4gerberg 1, 06108 Halle (Saale)",
     51.4872888,
     11.9629364
