@@ -1,11 +1,11 @@
 ---
-title: "Active Learning amd Multifidelity Machine Learning for Molecular Simulations."
+title: "Active Learning and Multifidelity Machine Learning for Molecular Simulations."
 collection: talks
 type: "Talk"
 permalink: /talks/ECCOMAS_2026
 venue: "17th World Congress on Computational Mechanics (WCCM) 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS)"
 date: 2026-07-22
-location: "Am Messesee 2, 81823 Munich"
+location: "Messe München GmbH, Messegelände, 81823 München, Germany"
 ---
 
 See more at [the official webpage](https://wccm-eccomas2026.org/).
