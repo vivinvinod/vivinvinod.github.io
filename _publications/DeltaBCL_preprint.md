@@ -4,7 +4,7 @@ collection: publications
 category: preprint
 permalink: /publications/smaity_deltabcl
 excerpt: '∆-ML model enables DFT accuracy simulation of LH2 complex of purple bacteria.'
-date: 2025-08-21
+date: 2026-05-05
 venue: 'chemrxiv'
 paperurl: 'https://doi.org/10.26434/chemrxiv.15002714/v1'
 citation: 'chemrxiv.15002714/v1'
