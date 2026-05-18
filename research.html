@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | Vivin Vinod</title>
+    <title>Research Focus | Vivin Vinod</title>
     
     <!-- Open Graph SEO Metadata -->
     <meta property="og:title" content="Research Focus & Projects | Vivin Vinod">
@@ -54,8 +54,6 @@
                 <i class="ph ph-arrow-left"></i> Back to Home
             </a>
             <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="talks.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Talks</a>
-                <a href="teaching.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Teaching</a>
                 <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
                     <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
                     <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
@@ -66,52 +64,83 @@
 
     <main id="research-main" class="max-w-4xl mx-auto px-6 py-12 md:py-20">
         <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Active Areas of Research</h1>
-        <p class="text-lg text-slate-600 dark:text-slate-400 mb-12">
-            Development of novel methods and their applications, spanning from atomic scales to macro-economic systems. For peer-reviewed outputs, see the <a href="index.html#publications" class="text-accent-600 dark:text-accent-400 hover:underline">Publications section</a>.
+        <p class="text-lg text-slate-600 dark:text-slate-400 mb-12 leading-relaxed">
+            Development of low-cost, high-accuracy statistical models and active learning workflows. For peer-reviewed outputs, see the <a href="index.html#publications" class="text-accent-600 dark:text-accent-400 hover:underline">Publications section</a>.
         </p>
 
         <!-- Method Development -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">Machine Learning Method Development</h2>
-            <p class="mb-8 leading-relaxed text-slate-700 dark:text-slate-300">
-                Developing novel kernel-based regression methods for diverse applications, specifically focusing on Gaussian Process Regression (GPR) enhancements to address key challenges. Construction of neural network architectures specifically tailored for predicting electronic structure properties (e.g., forces, energy) with a focus on enforcing physical symmetries and equivariance.
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <i class="ph ph-cpu text-accent-600"></i> Machine Learning Method Development
+            </h2>
+            <p class="mb-10 leading-relaxed text-slate-700 dark:text-slate-300">
+                My work concentrates on addressing the bottleneck of expensive high-fidelity computations by building robust, physically informed kernel-based regressors. Using Gaussian Process Regression (GPR), we formulate workflows that scale efficiently without sacrificing the strict mathematical guarantees required by physical sciences.
             </p>
 
-            <div id="mfml" class="mb-12 scroll-mt-24">
-                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">Multifidelity Methods</h3>
-                <img src="assets/media/research/MFML.png" alt="Multifidelity machine learning" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 mb-6 bg-white dark:bg-white p-4">
-                <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                    Multifidelity methods combine data from different degrees of accuracy. The central aim with these methods is to produce low-cost high-accuracy machine learning models that provide robust and fast predictions at a fraction of the cost of conventional methods. Analysing the hierarchical approach is the core of current research.
+            <!-- Section: MFML -->
+            <div id="mfml" class="mb-16 scroll-mt-24">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-accent-500 rounded-full"></span> Multifidelity Machine Learning (MFML)
+                </h3>
+                <div class="bg-slate-50 dark:bg-slate-800/20 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 mb-6">
+                    <img src="assets/media/research/MFML.png" alt="Multifidelity machine learning" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
+                </div>
+                <p class="leading-relaxed text-slate-700 dark:text-slate-300 mb-6">
+                    Multifidelity methods bridge the gap between inexpensive, low-accuracy approximations and costly, high-accuracy reference computations. Standard delta-learning ($\Delta$-ML) operates on a simple difference formulation:
+                    $$f_{\text{high}}(\mathbf{x}) \approx f_{\text{low}}(\mathbf{x}) + \Delta(\mathbf{x})$$
+                    We expand on this framework by implementing hierarchical combinations. In our **Optimized Multifidelity Machine Learning ($o$-MFML)** approach, we solve an optimization problem to combine multiple low-fidelity baselines:
+                    $$\hat{f}(\mathbf{x}) = \sum_{k=1}^M \beta_k f_k(\mathbf{x}) + \delta(\mathbf{x})$$
+                    where the coefficients $\beta_k$ are optimized to minimize the empirical predictive variance across targeted latent spaces, yielding significant computational savings over single-fidelity GPR.
                 </p>
             </div>
 
-            <div id="al-uq" class="mb-12 scroll-mt-24">
-                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">Active Learning and Uncertainty Quantification</h3>
-                <img src="assets/media/research/AL_concept.png" alt="Active learning concept" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 mb-6 bg-white dark:bg-white p-4">
-                <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                    Active learning schemes enable the reduction in redundancy, and thereby cost, of generating training data. Novel sampling schemes for pool-based active learning enable minimizing labelling costs for low-data regimes such as quantum chemical simulations. This allows to refine machine learning models and establish uncertainty bounds for predictions. Several acquisition metrics target regions of high epistemic uncertainty while reducing overall empirical error.
+            <!-- Section: AL & UQ -->
+            <div id="al-uq" class="mb-16 scroll-mt-24">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-accent-500 rounded-full"></span> Active Learning & Uncertainty Quantification
+                </h3>
+                <div class="bg-slate-50 dark:bg-slate-800/20 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 mb-6">
+                    <img src="assets/media/research/AL_concept.png" alt="Active learning concept" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
+                </div>
+                <p class="leading-relaxed text-slate-700 dark:text-slate-300 mb-6">
+                    Generating training datasets for quantum systems is highly resource-intensive. Active Learning (AL) bypasses this by query-sampling only the most informative configurations from an unlabeled pool. The query selection relies on Kriging variance calculations:
+                    $$\sigma^2(\mathbf{x}^*) = K(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^T (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{k}_*$$
+                    To accelerate convergence, our **Low Fidelity as Bias (LFaB)** sampling scheme utilizes affordable low-fidelity calculations to guide active learning acquisition functions, avoiding redundant computations and achieving optimal sample efficiency.
                 </p>
             </div>
         </section>
 
         <!-- Applications -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">Applications</h2>
-            <div id="qc-ml" class="mb-12 scroll-mt-24">
-                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">Quantum Chemistry with Machine Learning</h3>
-                <img src="assets/media/research/MLQC_pipeline.png" alt="MLQC Pipeline" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 mb-6 bg-white dark:bg-white p-4">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <i class="ph ph-flask text-accent-600"></i> Domain Applications
+            </h2>
+            
+            <!-- Quantum Chemistry -->
+            <div id="qc-ml" class="mb-16 scroll-mt-24">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Quantum Chemistry with Machine Learning</h3>
+                <div class="bg-slate-50 dark:bg-slate-800/20 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 mb-6">
+                    <img src="assets/media/research/MLQC_pipeline.png" alt="MLQC Pipeline" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
+                </div>
                 <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                    The primary focus of developed methods is their use in predicting quantum chemical properties ranging from high accuracy <em>ab initio</em> potential energy surfaces to excited state energies of complex photochemical molecules and light harvesting complexes. Research involves mapping the high-dimensional nuclear coordinate space to electronic observables, facilitating long-time scale molecular dynamics simulations that would otherwise be computationally prohibitive.
+                    We map nuclear coordinate configurations $\mathbf{R}$ directly to electronic properties, bypassing explicit solutions of the Schrödinger equation. These methods facilitate long-time scale molecular dynamics simulations of excited-state configurations and photosynthesis-relevant porphyrin-clay systems, producing speedups up to $850\times$ without losing Coupled Cluster ($\text{CCSD(T)}$) accuracy.
                 </p>
             </div>
 
+            <!-- Econ and Finance -->
             <div id="econ-finance" class="mb-12 scroll-mt-24">
-                <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">Economics and Finance</h3>
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                    <img src="assets/media/research/CDS.png" alt="CDS Transaction" class="w-full md:w-64 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-white p-4 flex-shrink-0">
-                    <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                        The use of Machine Learning techniques to price derivatives and options is an exciting field of research. Previous expertise involves the use of deep-UNET models for the volatile pricing of catastrophe swaps. Work also extends to modelling general credit risk as a Martingale process quantifying risk using machine learning models. This involves the application of stochastic calculus within a supervised learning framework to ensure no-arbitrage conditions.
-                    </p>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Stochastic Modeling in Economics & Finance</h3>
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-64 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4 flex-shrink-0">
+                        <img src="assets/media/research/CDS.png" alt="CDS Transaction" class="w-full h-auto object-cover rounded">
+                    </div>
+                    <div class="flex-1">
+                        <p class="leading-relaxed text-slate-700 dark:text-slate-300">
+                            Our research extends into modeling volatile financial instruments. By training Deep-UNet architectures to evaluate catastrophe swaps and formulating credit defaults as Martingale processes:
+                            $$M_t = \mathbb{E}[X \mid \mathcal{F}_t]$$
+                            we satisfy strict mathematical non-arbitrage bounds while providing real-time pricing predictions across highly unstable and sparse transaction environments.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
