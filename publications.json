@@ -1,0 +1,110 @@
+[
+  {
+    "year": "2026",
+    "title": "∆-Machine Learning for LC-DFT-level Excitation Energies of Bacteriochlorophyll Molecules in a LH2 Complex",
+    "authors": "Sayan Maity and <strong>Vivin Vinod</strong> and Peter Zaspel and Ulrich Kleinekathöfer",
+    "venue": "Unknown Venue",
+    "links": {
+      "Scholar": "https://chemrxiv.org/doi/abs/10.26434/chemrxiv.15002714"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "Benchmarking data efficiency in Δ-ML and multifidelity models for quantum chemistry",
+    "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
+    "venue": "The Journal of Chemical Physics",
+    "links": {
+      "Scholar": "https://pubs.aip.org/aip/jcp/article/163/2/024134/3352328"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "Investigating data hierarchies in multifidelity machine learning for excitation energies",
+    "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
+    "venue": "Journal of Chemical Theory and Computation",
+    "links": {
+      "Scholar": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.4c01491"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "Predicting Molecular Energies of Small Organic Molecules With Multi‐Fidelity Methods",
+    "authors": "<strong>Vivin Vinod</strong> and Dongyu Lyu and Marcel Ruth and Peter R. Schreiner and Ulrich Kleinekathöfer and Peter Zaspel",
+    "venue": "Journal of Computational Chemistry",
+    "links": {
+      "Scholar": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.70056"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "LFaB: Low fidelity as Bias for Active Learning in the chemical configuration space",
+    "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
+    "venue": "arXiv preprint arXiv:2508.15577",
+    "links": {
+      "Scholar": "https://arxiv.org/abs/2508.15577"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "Excitation Energy Transfer between Porphyrin Dyes on a Clay Surface: A Study Employing Multifidelity Machine Learning",
+    "authors": "Dongyu Lyu and <strong>Vivin Vinod</strong> and Matthias Holzenkamp and Yannick Marcel Holtkamp and Sayan Maity and Carlos R Salazar and Ulrich Kleinekathöfer and Peter Zaspel",
+    "venue": "Advanced Theory and Simulations",
+    "links": {
+      "Scholar": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adts.202500271"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "Multifidelity machine learning methods for quantum chemical properties/by Dottore Magistrale Vivin Vinod",
+    "authors": "<strong>Vivin Vinod</strong>",
+    "venue": "Unknown Venue",
+    "links": {
+      "Scholar": "https://elekpub.bib.uni-wuppertal.de/ubwhs/content/titleinfo/7937320"
+    }
+  },
+  {
+    "year": "2025",
+    "title": "Multifidelity Machine Learning Methods for Quantum Chemical Properties",
+    "authors": "<strong>Vivin Vinod</strong>",
+    "venue": "Unknown Venue",
+    "links": {
+      "Scholar": "https://scholar.google.com/scholar?cluster=11595983326465430958&hl=en&oi=scholarr"
+    }
+  },
+  {
+    "year": "2024",
+    "title": "Optimized Multifidelity Machine Learning for Quantum Chemistry",
+    "authors": "<strong>Vivin Vinod</strong> and Ulrich Kleinekathöfer and Peter Zaspel",
+    "venue": "Machine Learning: Science and Technology",
+    "links": {
+      "Scholar": "https://iopscience.iop.org/article/10.1088/2632-2153/ad2cef/meta"
+    }
+  },
+  {
+    "year": "2024",
+    "title": "QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules",
+    "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
+    "venue": "arXiv preprint arXiv:2406.14149",
+    "links": {
+      "Scholar": "https://www.nature.com/articles/s41597-024-04247-3"
+    }
+  },
+  {
+    "year": "2024",
+    "title": "Assessing non-nested configurations of multifidelity machine learning for quantum-chemical properties",
+    "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
+    "venue": "Machine Learning: Science and Technology",
+    "links": {
+      "Scholar": "https://iopscience.iop.org/article/10.1088/2632-2153/ad7f25/meta"
+    }
+  },
+  {
+    "year": "2023",
+    "title": "Multifidelity machine learning for molecular excitation energies",
+    "authors": "<strong>Vivin Vinod</strong> and Sayan Maity and Peter Zaspel and Ulrich Kleinekathöfer",
+    "venue": "Journal of Chemical Theory and Computation",
+    "links": {
+      "Scholar": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.3c00882"
+    }
+  }
+]

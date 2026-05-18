@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivin Vinod | Academic Portfolio</title>
+    
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="Vivin Vinod | Academic Portfolio">
+    <meta property="og:description" content="Postdoctoral Researcher in Machine Learning & Computational Chemistry at the University of Wuppertal. Specializing in low-cost, high-accuracy multifidelity machine learning.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/index.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicons and Web Manifest -->
+    <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
+    <link rel="icon" href="assets/media/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/media/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="assets/media/apple-touch-icon-180x180.png">
+    <link rel="manifest" href="assets/media/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .nav-link { transition: color 0.2s ease-in-out; }
+        .nav-link:hover { color: #00786b; }
+        .dark .nav-link:hover { color: #00a896; }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased selection:bg-accent-100 selection:text-accent-700 dark:selection:bg-accent-900/50 dark:selection:text-accent-300 transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white">Vivin Vinod</a>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#news" class="nav-link">News</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="talks.html" class="nav-link">Talks</a>
+                <a href="teaching.html" class="nav-link">Teaching</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#cv" class="nav-link">CV</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden flex items-center gap-4">
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg text-slate-600"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+                <i class="ph ph-list text-2xl text-slate-600 dark:text-slate-300"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <!-- Hero / About Section -->
+        <section id="about" class="flex flex-col-reverse md:flex-row gap-10 items-center md:items-start mb-20 scroll-mt-24">
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Vivin Vinod</h1>
+                <h2 class="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium mb-6">
+                    Postdoctoral Researcher in Machine Learning & Computational Chemistry<br>
+                    <span class="text-sm">University of Wuppertal, Germany</span>
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                    I am a postdoctoral researcher specializing in low-cost, high-accuracy multifidelity machine learning. My focus areas include quantum chemistry applications, active learning sampling strategies, and uncertainty quantification. With a multi-disciplinary academic background spanning physics, economics, computer science, and quantum chemistry, I aim to bridge the fidelity gap in sparse data regimes and explore interdisciplinary workflows.
+                </p>
+                <!-- Social/Contact Links -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
+                    <a href="mailto:vinod@uni-wuppertal.de" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-500 transition-colors"><i class="ph-fill ph-envelope-simple text-lg"></i> Email</a>
+                    <a href="https://www.linkedin.com/in/vivin-vinod/" target="_blank" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-500 transition-colors"><i class="ph-fill ph-linkedin-logo text-lg"></i> LinkedIn</a>
+                    <a href="https://orcid.org/0000-0001-6218-5053" target="_blank" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-500 transition-colors"><i class="ph-fill ph-identification-card text-lg"></i> ORCID</a>
+                    <a href="https://scholar.google.com/citations?user=5HdwG1wAAAAJ&hl=en" target="_blank" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-500 transition-colors"><i class="ph-fill ph-graduation-cap text-lg"></i> Google Scholar</a>
+                    <a href="https://github.com/vivinvinod" target="_blank" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-accent-600 dark:hover:text-accent-500 transition-colors"><i class="ph-fill ph-github-logo text-lg"></i> GitHub</a>
+                </div>
+            </div>
+            <!-- Profile Image -->
+            <div class="w-40 h-40 md:w-56 md:h-56 flex-shrink-0">
+                <img src="assets/media/profile.jpg" alt="Vivin Vinod" class="w-full h-full object-cover rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="mb-20 scroll-mt-24">
+            <div class="flex justify-between items-end mb-6">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="ph ph-newspaper text-accent-600 dark:text-accent-500"></i> Recent News
+                </h3>
+                <a href="news.html" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">News Archive →</a>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 text-sm">
+                <ul class="space-y-4">
+                    <li class="flex gap-4 group cursor-pointer" onclick="window.location.href='news.html'">
+                        <span class="font-semibold text-slate-500 dark:text-slate-400 w-24 flex-shrink-0">Feb 2025</span>
+                        <p class="text-slate-700 dark:text-slate-300 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">Our new dataset paper, <strong class="dark:text-white">QeMFi: A Multifidelity Dataset...</strong>, has been published in <em class="dark:text-slate-200">Scientific Data</em>. <span class="text-accent-600 dark:text-accent-500 font-medium">Read more →</span></p>
+                    </li>
+                    <li class="flex gap-4 group cursor-pointer" onclick="window.location.href='news.html'">
+                        <span class="font-semibold text-slate-500 dark:text-slate-400 w-24 flex-shrink-0">Jan 2025</span>
+                        <p class="text-slate-700 dark:text-slate-300 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">Thrilled to share our work on <strong class="dark:text-white">Benchmarking data efficiency in Δ-ML...</strong>, now out in <em class="dark:text-slate-200">The Journal of Chemical Physics</em>. <span class="text-accent-600 dark:text-accent-500 font-medium">Read more →</span></p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="mb-20 scroll-mt-24">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                <i class="ph ph-flask text-accent-600 dark:text-accent-500"></i> Research Interests
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <a href="research.html#mfml" class="block p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md hover:border-accent-200 dark:hover:border-accent-800 transition-all hover:-translate-y-1 group">
+                    <div class="w-10 h-10 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-4 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/60 transition-colors"><i class="ph-fill ph-chart-line-up text-xl"></i></div>
+                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors flex justify-between items-center">ML Methods & Multifidelity <i class="ph ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Developing novel kernel-based regression methods (GPR) and robust neural network architectures...</p>
+                </a>
+                <!-- Card 2 -->
+                <a href="research.html#al-uq" class="block p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md hover:border-accent-200 dark:hover:border-accent-800 transition-all hover:-translate-y-1 group">
+                    <div class="w-10 h-10 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-4 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/60 transition-colors"><i class="ph-fill ph-target text-xl"></i></div>
+                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors flex justify-between items-center">Active Learning & UQ <i class="ph ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Designing novel sampling schemes for pool-based active learning to minimize labeling costs...</p>
+                </a>
+            </div>
+            
+            <!-- AI Synergy Brainstormer -->
+            <div class="mt-8 p-6 rounded-2xl border-2 border-accent-100 dark:border-accent-900/50 bg-gradient-to-br from-accent-50 to-white dark:from-slate-800 dark:to-slate-800/50 shadow-sm">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-accent-100 dark:bg-accent-900/40 text-accent-700 dark:text-accent-400 flex items-center justify-center flex-shrink-0">
+                        <i class="ph-fill ph-magic-wand text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-2">Collaboration Brainstormer</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Want to collaborate? Let AI brainstorm how my methods could accelerate research in your field.</p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="text" id="synergy-input" placeholder="e.g., Battery Materials..." class="flex-1 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white text-sm">
+                            <button id="synergy-btn" onclick="brainstormSynergy()" class="px-5 py-2 bg-accent-600 hover:bg-accent-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm whitespace-nowrap">✨ Find Synergies</button>
+                        </div>
+                        <div id="synergy-result" class="mt-4 text-sm text-slate-700 dark:text-slate-300 hidden bg-white dark:bg-slate-700 p-4 rounded-lg border border-slate-100 dark:border-slate-600"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Software Section (Highlighted Repos) -->
+        <section id="software" class="mb-20 scroll-mt-24">
+            <div class="flex justify-between items-end mb-6">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="ph ph-terminal-window text-accent-600 dark:text-accent-500"></i> Software Highlights
+                </h3>
+                <a href="https://github.com/vivinvinod" target="_blank" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">GitHub Profile →</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Repo 1 -->
+                <div class="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-3 text-accent-600 dark:text-accent-400">
+                            <i class="ph-bold ph-database text-2xl"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest bg-accent-50 dark:bg-accent-950/20 px-2.5 py-1 rounded">Dataset</span>
+                        </div>
+                        <h4 class="font-semibold text-slate-900 dark:text-white text-lg mb-2">QeMFi</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            A comprehensive, structured multifidelity dataset of quantum chemical properties of diverse molecular configurations, built to validate and benchmark high-accuracy, low-cost model performance.
+                        </p>
+                    </div>
+                    <a href="https://github.com/vivinvinod/QeMFi" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors mt-auto">
+                        <i class="ph ph-github-logo text-lg"></i> View Repository <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Repo 2 -->
+                <div class="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-3 text-accent-600 dark:text-accent-400">
+                            <i class="ph-bold ph-git-branch text-2xl"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest bg-accent-50 dark:bg-accent-950/20 px-2.5 py-1 rounded">Active Learning</span>
+                        </div>
+                        <h4 class="font-semibold text-slate-900 dark:text-white text-lg mb-2">LFaB-for-QC</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Implementation code for Low Fidelity as Bias (LFaB)—a novel bias-based active learning sampling scheme designed to guide configuration selection in high-accuracy quantum chemical potential energy surfaces.
+                        </p>
+                    </div>
+                    <a href="https://github.com/vivinvinod/LFaB-for-QC" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors mt-auto">
+                        <i class="ph ph-github-logo text-lg"></i> View Repository <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="mb-20 scroll-mt-24">
+            <div class="flex justify-between items-end mb-6">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="ph ph-books text-accent-600 dark:text-accent-500"></i> Recent Publications
+                </h3>
+                <a href="https://scholar.google.com/citations?hl=en&user=5HdwG1wAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">Full Publication List →</a>
+            </div>
+            
+            <div id="dynamic-publications-container" class="space-y-8 mb-8">
+                <div class="text-center py-8">
+                    <i class="ph ph-spinner animate-spin text-accent-600 text-3xl mb-2"></i>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Loading publications...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV / Experience Section -->
+        <section id="cv" class="mb-20 scroll-mt-24 border-t border-slate-100 dark:border-slate-800 pt-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="ph ph-file-text text-accent-600 dark:text-accent-500"></i> Curriculum Vitae
+                </h3>
+                <a href="https://vivinvinod.github.io/files/VinodAcademicCV.pdf" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 dark:bg-accent-600 hover:bg-slate-800 dark:hover:bg-accent-500 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+                    <i class="ph-bold ph-download-simple"></i> Download Full CV
+                </a>
+            </div>
+
+            <div class="relative border-l border-slate-200 dark:border-slate-700 ml-3 pl-6 space-y-8">
+                <!-- Item 1: Postdoc -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700">
+                        <div class="w-3 h-3 bg-accent-500 rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold tracking-widest text-accent-600 dark:text-accent-400 uppercase mb-1 block">2025 – Present</span>
+                    <h4 class="text-slate-900 dark:text-slate-100 font-semibold text-lg">Postdoctoral Researcher</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-1">University of Wuppertal | Wuppertal, Germany</p>
+                </div>
+
+                <!-- Item 2: PhD -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700">
+                        <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-1 block">2022 – 2025</span>
+                    <h4 class="text-slate-900 dark:text-slate-100 font-semibold text-lg">Ph.D. in Computer Science</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-1">University of Wuppertal & Constructor University Bremen</p>
+                </div>
+
+                <!-- Item 3: Masters -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700">
+                        <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-1 block">2019 – 2021</span>
+                    <h4 class="text-slate-900 dark:text-slate-100 font-semibold text-lg">M.S. in Economics</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-1">University of Pisa | Pisa, Italy</p>
+                </div>
+
+                <!-- Item 4: Bachelors -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700">
+                        <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full"></div>
+                    </div>
+                    <span class="text-xs font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-1 block">2016 – 2019</span>
+                    <h4 class="text-slate-900 dark:text-slate-100 font-semibold text-lg">B.Sc. (Hons) in Physics</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-1">St. Stephen's College, Delhi University | New Delhi, India</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">
+                © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. Designed with minimal aesthetics.<br>
+                <a href="terms.html" class="text-slate-400 dark:text-slate-500 hover:text-accent-600 dark:hover:text-accent-400 transition-colors mt-2 inline-block">Terms & Privacy Policy</a>
+            </p>
+            <div class="flex justify-center gap-4 text-slate-400 dark:text-slate-500">
+                <a href="mailto:vinod@uni-wuppertal.de" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"><i class="ph-fill ph-envelope-simple text-xl"></i></a>
+                <a href="https://www.linkedin.com/in/vivin-vinod/" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
+                <a href="https://github.com/vivinvinod" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"><i class="ph-fill ph-github-logo text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Data Fetching for Publications (Top 5 only, sorted chronologically descending)
+        async function loadPublications() {
+            const container = document.getElementById('dynamic-publications-container');
+            try {
+                const response = await fetch('publications.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const pubs = await response.json();
+                
+                const topPubs = pubs.slice(0, 5);
+                container.innerHTML = ''; 
+
+                topPubs.forEach(pub => {
+                    let linksHTML = '';
+                    if (pub.links) {
+                        for (const [linkName, linkUrl] of Object.entries(pub.links)) {
+                            let styleClasses = "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
+                            if(linkName.toLowerCase() === 'dataset') {
+                                styleClasses = "bg-accent-50 dark:bg-accent-900/30 hover:bg-accent-100 dark:hover:bg-accent-900/50 text-accent-700 dark:text-accent-400 border-accent-200 dark:border-accent-800/50";
+                            }
+                            linksHTML += `<a href="${linkUrl}" target="_blank" class="px-3 py-1 ${styleClasses} rounded-full transition-colors border">${linkName}</a>`;
+                        }
+                    }
+                    
+                    const safeTitle = pub.title.replace(/'/g, "\\'");
+                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}')" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ ELI5 Summary</button>`;
+
+                    const pubElement = document.createElement('div');
+                    pubElement.className = 'flex flex-col md:flex-row gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 bg-white dark:bg-slate-800/20 shadow-sm hover:shadow-md transition-shadow';
+                    pubElement.innerHTML = `
+                        <div class="flex-1">
+                            <h4 class="text-lg font-medium text-slate-900 dark:text-slate-100 leading-snug mb-1">${pub.title}</h4>
+                            <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm">${pub.authors}</p>
+                            <p class="text-slate-500 dark:text-slate-500 text-sm italic mb-3">${pub.venue}</p>
+                            <div class="flex flex-wrap gap-2 text-xs font-medium">
+                                ${linksHTML}
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(pubElement);
+                });
+
+            } catch (error) {
+                container.innerHTML = `<p class="text-red-500 text-sm">Failed to load publications. Ensure publications.json exists.</p>`;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadPublications);
+
+        // SECURE DEPLOYMENT CONFIGURATION (Option 2 Serverless Proxy)
+        // Set this to your deployed Vercel deployment URL (e.g. "https://your-vercel-project.vercel.app/api/gemini")
+        // If left as "", the site will fallback to direct API calls (which requires setting localApiKey below)
+        const proxyUrl = ""; 
+        const localApiKey = ""; // Only used for offline/local testing. DO NOT commit this key to GitHub!
+
+        async function callGemini(prompt, systemInstruction = null) {
+            // First Priority: Secure Proxy Call
+            if (proxyUrl) {
+                const payload = { prompt };
+                if (systemInstruction) payload.systemInstruction = systemInstruction;
+
+                let delay = 1000;
+                for (let i = 0; i < 5; i++) {
+                    try {
+                        const response = await fetch(proxyUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                        const data = await response.json();
+                        return data.text || "No insights could be generated.";
+                    } catch (error) {
+                        if (i === 4) throw error;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            } else {
+                // Fallback Priority: Direct browser-side call (Requires localApiKey for local tests)
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${localApiKey}`;
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
+
+                let delay = 1000;
+                for (let i = 0; i < 5; i++) {
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                        const data = await response.json();
+                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "No insights could be generated.";
+                    } catch (error) {
+                        if (i === 4) throw error;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+        }
+
+        async function explainPaper(buttonElement, title) {
+            const container = buttonElement.parentElement.parentElement;
+            let summaryDiv = container.querySelector('.ai-summary-box');
+            if (!summaryDiv) {
+                summaryDiv = document.createElement('div');
+                summaryDiv.className = 'ai-summary-box mt-3 p-4 bg-gradient-to-r from-slate-50 to-purple-50 dark:from-slate-800 dark:to-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800/30 text-sm text-slate-700 dark:text-slate-300 hidden transition-all';
+                container.appendChild(summaryDiv);
+            }
+            if (!summaryDiv.classList.contains('hidden') && summaryDiv.innerHTML.indexOf('animate-spin') === -1) {
+                summaryDiv.classList.add('hidden');
+                return;
+            }
+            summaryDiv.classList.remove('hidden');
+            summaryDiv.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Generating plain-language summary...</div>';
+
+            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience.";
+            const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
+            try {
+                const resultText = await callGemini(prompt, systemInstruction);
+                summaryDiv.innerHTML = `<strong>✨ AI Translation:</strong> ${resultText}`;
+            } catch (error) {
+                summaryDiv.innerHTML = `<span class="text-red-500">Sorry, the AI couldn't generate a summary right now.</span>`;
+            }
+        }
+        async function brainstormSynergy() {
+            const inputEl = document.getElementById('synergy-input');
+            const resultDiv = document.getElementById('synergy-result');
+            const btn = document.getElementById('synergy-btn');
+            const field = inputEl.value.trim();
+            if (!field) return;
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="ph ph-spinner animate-spin text-lg"></i> Thinking...';
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-accent-600 text-lg"></i> Analyzing cross-disciplinary applications...</div>';
+
+            const systemInstruction = "You represent Dr. Vivin Vinod, a postdoctoral researcher specializing in low-cost multifidelity machine learning, active learning sampling strategies, and quantum chemistry.";
+            const prompt = `A visitor works in: "${field}". Briefly brainstorm 1 exciting way Dr. Vinod's methods could be applied to their field. Keep it under 60 words. Address the user directly.`;
+
+            try {
+                const resultText = await callGemini(prompt, systemInstruction);
+                resultDiv.innerHTML = `<strong>✨ AI Idea:</strong> ${resultText}`;
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="text-red-500">Sorry, the brainstormer is resting. Please try again.</span>`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '✨ Find Synergies';
+            }
+        }
+    </script>
+</body>
+</html>

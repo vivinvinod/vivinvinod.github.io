@@ -1,0 +1,68 @@
+{
+  "courses": [
+    {
+      "title": "Mathematical Machine Learning",
+      "type": "Tutorials & Assignments",
+      "venue": "University of Wuppertal, Department of Mathematics and Natural Sciences",
+      "location": "Wuppertal, Germany",
+      "date": "Summer Semester 2025",
+      "description": "Led tutorials, designed theoretical and practical programming assignments covering the mathematical foundations of modern machine learning methods."
+    },
+    {
+      "title": "Mathematical Methods for Economics",
+      "type": "Undergraduate Tutorials",
+      "venue": "University of Pisa, Department of Economics and Management",
+      "location": "Pisa, Italy",
+      "date": "Winter Semester 2021",
+      "description": "Conducted tutorials covering optimization, linear algebra, multivariate calculus, and dynamical systems applied to economics."
+    }
+  ],
+  "supervision": {
+    "bachelor": [
+      {
+        "student": "Emir-Kaan Saari",
+        "institution": "University of Wuppertal",
+        "program": "Computer Science",
+        "term": "Winter 2025",
+        "topic": "Gradient Regularized Kernel Ridge Regression for Quantum Chemical Properties",
+        "advisory": false
+      }
+    ],
+    "master": [
+      {
+        "student": "Valmy Saint-Louis",
+        "institution": "Constructor University",
+        "program": "Data Engineering",
+        "term": "Spring 2023",
+        "topic": "Data Pipeline for S3 Storage and DVC coupling",
+        "advisory": true
+      },
+      {
+        "student": "Ani Shalikashvili",
+        "institution": "Constructor University",
+        "program": "Data Engineering",
+        "term": "Spring 2023",
+        "topic": "Input Feature Assessment for Machine Learning in Quantum Chemistry",
+        "advisory": true
+      }
+    ],
+    "misc": [
+      {
+        "student": "Anubhav Jain",
+        "institution": "DAAD Scholarship",
+        "program": "Research Internship",
+        "term": "2022",
+        "topic": "Kernel Ridge Regression for Quantum Machine Learning",
+        "advisory": false
+      },
+      {
+        "student": "Viet Ninh Nguyen",
+        "institution": "SPP-2363",
+        "program": "Student Assistant",
+        "term": "2026",
+        "topic": "Kernel based methods for bi-molecular quantum chemical properties",
+        "advisory": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching & Supervision | Vivin Vinod</title>
+    
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="Teaching & Academic Supervision | Vivin Vinod">
+    <meta property="og:description" content="Explore coursework, university tutorials, and academic student thesis supervision mentored by Vivin Vinod.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/teaching.html">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                <i class="ph ph-arrow-left"></i> Back to Home
+            </a>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="teaching.html#courses" class="hover:text-accent-600 dark:hover:text-accent-400">Courses</a>
+                <a href="teaching.html#supervision" class="hover:text-accent-600 dark:hover:text-accent-400">Supervision</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Teaching & Supervision</h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mb-16">
+            Courses,tutorials, and mentorship.
+        </p>
+
+        <!-- Courses Section -->
+        <section id="courses" class="mb-20 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <i class="ph ph-chalkboard-teacher text-accent-600"></i> Courses & Tutorials
+            </h2>
+            <div id="courses-container" class="space-y-8">
+                <!-- Dynamic Injection -->
+                <div class="text-center py-8"><i class="ph ph-spinner animate-spin text-accent-600 text-3xl"></i></div>
+            </div>
+        </section>
+
+        <!-- Supervision Section -->
+        <section id="supervision" class="scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                <i class="ph ph-users-three text-accent-600"></i> Academic Supervision
+            </h2>
+            
+            <div class="space-y-12">
+                <!-- Master's -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 bg-purple-500 rounded-full"></span> Master Theses
+                    </h3>
+                    <div id="master-container" class="space-y-4"></div>
+                </div>
+
+                <!-- Bachelor's -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 bg-accent-500 rounded-full"></span> Bachelor Theses
+                    </h3>
+                    <div id="bachelor-container" class="space-y-4"></div>
+                </div>
+
+                <!-- Misc / Scholars -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 bg-slate-400 rounded-full"></span> Additional Mentorship & Research Assistants
+                    </h3>
+                    <div id="misc-container" class="space-y-4"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10 mt-20">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
+            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod.
+            <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block ml-2">Terms & Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Fetch & Render Scripts -->
+    <script>
+        async function loadTeachingData() {
+            try {
+                const response = await fetch('teaching.json');
+                const data = await response.json();
+
+                // 1. Render Courses
+                const coursesContainer = document.getElementById('courses-container');
+                coursesContainer.innerHTML = '';
+                data.courses.forEach(course => {
+                    const card = document.createElement('div');
+                    card.className = 'p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/40 shadow-sm';
+                    card.innerHTML = `
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
+                            <div>
+                                <span class="px-2 py-0.5 bg-accent-50 dark:bg-accent-950/30 text-accent-700 dark:text-accent-400 rounded text-xs font-semibold uppercase tracking-wider">${course.type}</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1.5">${course.title}</h3>
+                            </div>
+                            <span class="text-sm font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">${course.date}</span>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 font-medium">${course.venue} • <span class="italic">${course.location}</span></p>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">${course.description}</p>
+                    `;
+                    coursesContainer.appendChild(card);
+                });
+
+                // Helper to render lists
+                const renderSupervisionList = (containerId, studentArray) => {
+                    const container = document.getElementById(containerId);
+                    container.innerHTML = '';
+                    if(!studentArray || studentArray.length === 0) {
+                        container.innerHTML = '<p class="text-slate-400 text-sm">None recorded.</p>';
+                        return;
+                    }
+                    studentArray.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/10 flex flex-col md:flex-row md:items-center justify-between gap-4';
+                        
+                        const advisoryBadge = item.advisory 
+                            ? `<span class="px-2 py-0.5 bg-purple-50 dark:bg-purple-950/20 text-purple-600 dark:text-purple-400 border border-purple-100 dark:border-purple-800/30 rounded text-[10px] font-bold uppercase tracking-wider">Advisory Capacity</span>` 
+                            : '';
+
+                        div.innerHTML = `
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                                    <strong class="text-slate-900 dark:text-white text-base">${item.student}</strong>
+                                    ${advisoryBadge}
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-300"><span class="font-medium text-slate-900 dark:text-slate-200">Topic:</span> ${item.topic}</p>
+                            </div>
+                            <div class="text-left md:text-right flex-shrink-0">
+                                <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 block">${item.institution}</span>
+                                <span class="text-xs text-slate-400 block">${item.program} • ${item.term}</span>
+                            </div>
+                        `;
+                        container.appendChild(div);
+                    });
+                };
+
+                // 2. Render Supervision
+                renderSupervisionList('master-container', data.supervision.master);
+                renderSupervisionList('bachelor-container', data.supervision.bachelor);
+                renderSupervisionList('misc-container', data.supervision.misc);
+
+            } catch (error) {
+                console.error("Error loading teaching data:", error);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadTeachingData);
+    </script>
+</body>
+</html>

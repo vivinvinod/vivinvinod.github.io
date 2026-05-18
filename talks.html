@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks & Presentations | Vivin Vinod</title>
+    <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Leaflet & MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    
+    <!-- Custom Marker Cluster Styling for Theme -->
+    <style>
+        .marker-cluster-small { background-color: rgba(0, 168, 150, 0.6); }
+        .marker-cluster-small div { background-color: rgba(0, 168, 150, 0.9); color: white; font-weight: bold; font-family: 'Inter', sans-serif;}
+        .leaflet-popup-content { font-family: 'Inter', sans-serif; }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            if (typeof syncMapTheme === 'function') syncMapTheme();
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                <i class="ph ph-arrow-left"></i> Back to Home
+            </a>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Talks & Presentations</h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400 mb-10">
+            A map of invited talks, conference presentations, and tutorials given around the world.
+        </p>
+
+        <!-- Leaflet Map Container -->
+        <div class="relative w-full h-[400px] mb-16 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-800 shadow-sm z-10 bg-slate-100 dark:bg-slate-800">
+            <div id="map" class="w-full h-full"></div>
+        </div>
+
+        <!-- Dynamic Talks Timeline -->
+        <div id="talks-timeline" class="relative border-l border-slate-200 dark:border-slate-700 ml-3 pl-6 md:pl-10 space-y-12">
+            <div class="text-center py-8">
+                <i class="ph ph-spinner animate-spin text-accent-600 text-3xl mb-2"></i>
+                <p class="text-sm text-slate-500">Loading talks data...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10 mt-10">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
+            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
+            <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block">Terms & Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Leaflet & JS Logic -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    
+    <script>
+        // 1. Initialize Map
+        const map = L.map('map').setView([51.1657, 10.4515], 5); // Centered on Germany
+
+        // 2. Define Theme Tiles (CartoDB)
+        const lightTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { 
+            maxZoom: 19, attribution: '&copy; OpenStreetMap contributors &copy; CARTO' 
+        });
+        const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { 
+            maxZoom: 19, attribution: '&copy; OpenStreetMap contributors &copy; CARTO' 
+        });
+
+        function syncMapTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                map.removeLayer(lightTiles);
+                darkTiles.addTo(map);
+            } else {
+                map.removeLayer(darkTiles);
+                lightTiles.addTo(map);
+            }
+        }
+        syncMapTheme(); // Initialize theme
+
+        // 3. Load Data & Build Timeline/Markers
+        async function loadTalks() {
+            const timelineContainer = document.getElementById('talks-timeline');
+            try {
+                const response = await fetch('talks.json');
+                const talks = await response.json();
+                
+                const markers = L.markerClusterGroup({
+                    showCoverageOnHover: false,
+                    maxClusterRadius: 50
+                });
+
+                timelineContainer.innerHTML = ''; // Clear loading text
+
+                talks.forEach((talk, index) => {
+                    const talkId = `talk-${index}`;
+
+                    // --- Build Map Marker ---
+                    if(talk.coordinates) {
+                        const popupHtml = `
+                            <div class="p-1">
+                                <p class="text-xs font-bold text-accent-600 uppercase mb-1">${talk.type || 'Talk'}</p>
+                                <strong class="text-sm text-slate-800 leading-tight">${talk.title}</strong><br>
+                                <span class="text-xs text-slate-500">${talk.location}</span>
+                            </div>
+                        `;
+                        const marker = L.marker(new L.LatLng(talk.coordinates[0], talk.coordinates[1]));
+                        marker.bindPopup(popupHtml);
+                        
+                        // Add click event to scroll to the timeline item
+                        marker.on('click', () => {
+                            const elem = document.getElementById(talkId);
+                            if(elem) elem.scrollIntoView({behavior: "smooth", block: "center"});
+                        });
+
+                        markers.addLayer(marker);
+                    }
+
+                    // --- Build Timeline Item ---
+                    let formattedDate = "";
+                    if (talk.date) {
+                        const dateObj = new Date(talk.date);
+                        formattedDate = isNaN(dateObj) ? talk.date : dateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                    }
+
+                    const itemHtml = `
+                        <div id="${talkId}" class="relative group transition-all duration-300">
+                            <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-accent-300 dark:group-hover:border-accent-700 z-0">
+                                <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-accent-500 transition-colors"></div>
+                            </div>
+                            <span class="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 group-hover:text-accent-600 dark:group-hover:text-accent-400 uppercase mb-2 block transition-colors">${formattedDate ? formattedDate + ' • ' : ''}${talk.type || 'Talk'}</span>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">${talk.title}</h3>
+                            <div class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">
+                                <i class="ph-fill ph-map-pin text-accent-600 dark:text-accent-500"></i> ${talk.location}
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-800/30 rounded-xl p-5 border border-slate-100 dark:border-slate-800">
+                                <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 ${talk.abstract ? 'mb-3 border-b border-slate-200 dark:border-slate-700 pb-2' : ''}">${talk.venue}</p>
+                                ${talk.abstract ? `<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">${talk.abstract}</p>` : ''}
+                                ${talk.link ? `<a href="${talk.link}" target="_blank" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 transition-colors mt-2">View Event Page <i class="ph ph-arrow-right"></i></a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    timelineContainer.innerHTML += itemHtml;
+                });
+
+                map.addLayer(markers);
+                if(talks.length > 0) {
+                     map.fitBounds(markers.getBounds().pad(0.1));
+                }
+
+            } catch(e) {
+                timelineContainer.innerHTML = `<p class="text-red-500 text-sm">Failed to load talks data. Ensure talks.json exists.</p>`;
+                console.error(e);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadTalks);
+    </script>
+</body>
+</html>
