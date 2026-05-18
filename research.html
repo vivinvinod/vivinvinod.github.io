@@ -13,15 +13,22 @@
     <meta property="og:type" content="website">
 
     <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
+    
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <!-- KaTeX for Beautiful Math Typesetting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -44,6 +51,17 @@
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         }
     </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .nav-link { transition: color 0.2s ease-in-out; }
+        .nav-link:hover { color: #00786b; }
+        .dark .nav-link:hover { color: #00a896; }
+    </style>
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
 
@@ -153,5 +171,20 @@
             <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block ml-2">Terms & Privacy Policy</a>
         </div>
     </footer>
+
+    <!-- Safe Math Rendering Trigger -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
 </body>
 </html>

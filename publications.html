@@ -195,7 +195,7 @@
                 }
                 
                 const safeTitle = pub.title.replace(/'/g, "\\'");
-                linksHTML += `<button onclick="event.stopPropagation(); explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1 shadow-sm">✨ ELI5 & Related Works</button>`;
+                linksHTML += `<button onclick="event.stopPropagation(); explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1 shadow-sm">✨ Summarize this work</button>`;
 
                 // Smart detection of "Unknown Venue"
                 let displayVenue = pub.venue || "Unknown Venue";

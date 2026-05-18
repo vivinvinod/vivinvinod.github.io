@@ -385,7 +385,7 @@
                     const safeTitle = pub.title.replace(/'/g, "\\'");
                     
                     // FIXED: Changed button text to "ELI5 & Related Works"
-                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ ELI5 & Related Works</button>`;
+                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ Summarize this work</button>`;
 
                     // Smart detection of "Unknown Venue"
                     let displayVenue = pub.venue || "Unknown Venue";
@@ -534,7 +534,7 @@
             }
 
             wrapper.classList.add('expanded');
-            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing and finding related works...</div>';
+            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing...</div>';
 
             const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using standard HTML <a> tags.";
             const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
