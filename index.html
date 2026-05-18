@@ -76,7 +76,7 @@
             transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
         }
         .expandable-container.expanded {
-            max-height: 800px;
+            max-height: 3000px;
             opacity: 1;
             padding-top: 1rem;
             padding-bottom: 0.5rem;
@@ -349,7 +349,27 @@
 
     <!-- Scripts -->
     <script>
-        // Data Fetching for Publications (Top 5 only, sorted chronologically descending)
+        // Toggle Accordion Details
+        function toggleDetails(index) {
+            const wrapper = document.getElementById(`details-wrapper-${index}`);
+            const chevron = document.getElementById(`chevron-${index}`);
+            
+            if (wrapper.classList.contains('expanded')) {
+                wrapper.classList.remove('expanded');
+                if (chevron) chevron.style.transform = 'rotate(0deg)';
+                
+                // Close the AI wrapper if it is open
+                const eli5Wrapper = document.getElementById(`eli5-wrapper-${index}`);
+                if (eli5Wrapper && eli5Wrapper.classList.contains('expanded')) {
+                    eli5Wrapper.classList.remove('expanded');
+                }
+            } else {
+                wrapper.classList.add('expanded');
+                if (chevron) chevron.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Data Fetching for Publications (Top 3 only, sorted chronologically descending)
         async function loadPublications() {
             const container = document.getElementById('dynamic-publications-container');
             try {
@@ -367,7 +387,8 @@
                            !venueLower.includes("thesis");
                 });
 
-                const topPubs = filteredPubs.slice(0, 5);
+                // Restrict to top 3 publications
+                const topPubs = filteredPubs.slice(0, 3);
                 container.innerHTML = ''; 
 
                 topPubs.forEach((pub, index) => {
@@ -378,14 +399,15 @@
                             if(linkName.toLowerCase() === 'dataset') {
                                 styleClasses = "bg-accent-50 dark:bg-accent-900/30 hover:bg-accent-100 dark:hover:bg-accent-900/50 text-accent-700 dark:text-accent-400 border-accent-200 dark:border-accent-800/50";
                             }
-                            linksHTML += `<a href="${linkUrl}" target="_blank" class="px-3 py-1 ${styleClasses} rounded-full transition-colors border">${linkName}</a>`;
+                            // Added stopPropagation() so clicking links doesn't trigger the accordion
+                            linksHTML += `<a href="${linkUrl}" target="_blank" onclick="event.stopPropagation();" class="px-3 py-1 ${styleClasses} rounded-full transition-colors border shadow-sm">${linkName}</a>`;
                         }
                     }
                     
                     const safeTitle = pub.title.replace(/'/g, "\\'");
                     
-                    // FIXED: Changed button text to "ELI5 & Related Works"
-                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ Summarize this work</button>`;
+                    // Reverted button text to "ELI5 Summary"
+                    linksHTML += `<button onclick="event.stopPropagation(); explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1 shadow-sm">✨ Summarize this work</button>`;
 
                     // Smart detection of "Unknown Venue"
                     let displayVenue = pub.venue || "Unknown Venue";
@@ -401,18 +423,53 @@
                     }
 
                     const pubElement = document.createElement('div');
-                    pubElement.className = 'flex flex-col md:flex-row gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 bg-white dark:bg-slate-800/20 shadow-sm hover:shadow-md transition-shadow';
+                    pubElement.className = 'relative group transition-opacity duration-300';
+                    
+                    // Add graphic styling logic
+                    const imageHTML = pub.image ? `
+                        <div class="w-full mb-6 flex justify-center bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-slate-100 dark:border-slate-700/50 p-2 md:p-4">
+                            <img src="${pub.image}" alt="Publication Graphic" class="max-w-full max-h-[400px] object-contain rounded-lg shadow-sm bg-white">
+                        </div>
+                    ` : '';
+
                     pubElement.innerHTML = `
-                        <div class="flex-1">
-                            <h4 class="text-lg font-medium text-slate-900 dark:text-slate-100 leading-snug mb-1">${pub.title}</h4>
-                            <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm">${pub.authors}</p>
-                            <p class="text-slate-500 dark:text-slate-500 text-sm italic mb-3">${displayVenue}</p>
-                            <div class="flex flex-wrap gap-2 text-xs font-medium">
-                                ${linksHTML}
+                        <!-- Timeline Node -->
+                        <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-accent-300 dark:group-hover:border-accent-700">
+                            <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-accent-500 transition-colors"></div>
+                        </div>
+                        
+                        <!-- Clickable Header / Accordion Trigger -->
+                        <div class="cursor-pointer flex justify-between items-center group/header" onclick="toggleDetails(${index})">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white leading-snug mb-1 group-hover/header:text-accent-600 dark:group-hover/header:text-accent-400 transition-colors">${pub.title}</h4>
+                                <p class="text-slate-600 dark:text-slate-400 mb-1 text-sm">${pub.authors}</p>
+                                <p class="text-slate-500 dark:text-slate-500 text-sm italic font-medium">${displayVenue}</p>
                             </div>
-                            <!-- Smooth Expandable Container -->
-                            <div id="eli5-wrapper-${index}" class="expandable-container">
-                                <div id="eli5-text-${index}" class="text-sm p-4 bg-purple-50/50 dark:bg-purple-950/20 rounded-lg border border-purple-100 dark:border-purple-800/30 ai-summary-box"></div>
+                            <div class="ml-4 flex-shrink-0 text-slate-400 group-hover/header:text-accent-500 transition-colors">
+                                <i id="chevron-${index}" class="ph-bold ph-caret-down text-xl transition-transform duration-300"></i>
+                            </div>
+                        </div>
+
+                        <!-- ALWAYS VISIBLE LINKS & AI BUTTON -->
+                        <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium">
+                            ${linksHTML}
+                        </div>
+
+                        <!-- Smooth Expandable Container for AI -->
+                        <div id="eli5-wrapper-${index}" class="expandable-container">
+                            <div id="eli5-text-${index}" class="text-sm p-5 mt-3 bg-purple-50/50 dark:bg-purple-950/20 rounded-xl border border-purple-100 dark:border-purple-800/30 ai-summary-box shadow-inner leading-relaxed"></div>
+                        </div>
+
+                        <!-- Hidden Collapsed Details -->
+                        <div id="details-wrapper-${index}" class="expandable-container">
+                            <div class="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800">
+                                
+                                ${imageHTML}
+                                
+                                <div class="w-full mb-2">
+                                    ${pub.description ? `<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">${pub.description}</p>` : ''}
+                                </div>
+                                
                             </div>
                         </div>
                     `;
@@ -472,13 +529,12 @@
         const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
         const localApiKey = ""; // Local-only development key.
 
-        // FIXED: Added paperTitle parameter to the callGemini function
         async function callGemini(prompt, systemInstruction = null, paperTitle = null) {
             if (proxyUrl) {
                 const payload = { prompt };
                 if (systemInstruction) payload.systemInstruction = systemInstruction;
                 
-                // FIXED: Now we correctly attach the paperTitle to the JSON payload!
+                // Passed paperTitle for proxy logic (though prompt handles ELI5)
                 if (paperTitle) payload.paperTitle = paperTitle;
 
                 let delay = 1000;
@@ -534,17 +590,16 @@
             }
 
             wrapper.classList.add('expanded');
-            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing...</div>';
+            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Generating plain-language summary...</div>';
 
             const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using standard HTML <a> tags.";
             const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
             
             try {
-                // FIXED: We now pass 'title' as the third argument so Semantic Scholar runs!
-                const resultText = await callGemini(prompt, systemInstruction, title);
+                // Pass 'null' for the paperTitle to bypass Semantic Scholar searches on the homepage
+                const resultText = await callGemini(prompt, systemInstruction, null);
                 
-                // FIXED: Use regex replace to ensure AI linebreaks show up properly in HTML
-                textBox.innerHTML = `<strong>✨ AI Overview & Recommendations:</strong><br><br>${resultText.replace(/\n/g, '<br>')}`;
+                textBox.innerHTML = `<strong>✨ AI Translation:</strong><br><br>${resultText.replace(/\n/g, '<br>')}`;
                 if (typeof renderMathInElement === 'function') renderMathInElement(textBox);
             } catch (error) {
                 textBox.innerHTML = `<span class="text-red-500">Sorry, the AI couldn't generate a summary right now.</span>`;

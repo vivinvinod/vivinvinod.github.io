@@ -233,7 +233,7 @@
 
                     <!-- Clickable Header / Accordion Trigger -->
                     <div class="cursor-pointer flex justify-between items-center group/header" onclick="toggleDetails(${index})">
-                        <div>
+                        <div class="flex-1">
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover/header:text-accent-600 dark:group-hover/header:text-accent-400 transition-colors">${pub.title}</h3>
                             <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">${pub.authors}</p>
                             <p class="text-slate-500 dark:text-slate-500 text-sm italic font-medium mt-1">${displayVenue}</p>
@@ -243,22 +243,24 @@
                         </div>
                     </div>
 
+                    <!-- ALWAYS VISIBLE LINKS & AI BUTTON -->
+                    <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium">
+                        ${linksHTML}
+                    </div>
+
+                    <!-- Smooth Expandable Container for AI -->
+                    <div id="eli5-wrapper-${index}" class="expandable-container">
+                        <div id="eli5-text-${index}" class="text-sm p-5 mt-3 bg-purple-50/50 dark:bg-purple-950/20 rounded-xl border border-purple-100 dark:border-purple-800/30 ai-summary-box shadow-inner leading-relaxed"></div>
+                    </div>
+
                     <!-- Hidden Collapsed Details -->
                     <div id="details-wrapper-${index}" class="expandable-container">
                         <div class="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800">
                             
                             ${imageHTML}
                             
-                            <div class="w-full mb-6">
-                                ${pub.description ? `<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-6">${pub.description}</p>` : ''}
-                                <div class="flex flex-wrap gap-2 text-xs font-medium mb-4">
-                                    ${linksHTML}
-                                </div>
-                            </div>
-                            
-                            <!-- Smooth Expandable Container for AI -->
-                            <div id="eli5-wrapper-${index}" class="expandable-container">
-                                <div id="eli5-text-${index}" class="text-sm p-5 bg-purple-50/50 dark:bg-purple-950/20 rounded-xl border border-purple-100 dark:border-purple-800/30 ai-summary-box shadow-inner leading-relaxed"></div>
+                            <div class="w-full mb-2">
+                                ${pub.description ? `<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">${pub.description}</p>` : ''}
                             </div>
                             
                         </div>
