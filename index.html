@@ -7,7 +7,7 @@
     
     <!-- Open Graph SEO Metadata -->
     <meta property="og:title" content="Vivin Vinod | Academic Portfolio">
-    <meta property="og:description" content="Postdoctoral Researcher in Machine Learning & Computational Chemistry at the University of Wuppertal. Specializing in low-cost, high-accuracy multifidelity machine learning.">
+    <meta property="og:description" content="Postdoctoral Researcher in Machine Learning for Quantum Chemistry. Specializing in low-cost, high-accuracy multifidelity machine learning.">
     <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
     <meta property="og:url" content="https://vivinvinod.github.io/index.html">
     <meta property="og:type" content="website">
@@ -119,7 +119,7 @@
             <div class="flex-1 text-center md:text-left">
                 <h1 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Vivin Vinod</h1>
                 <h2 class="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium mb-6">
-                    Postdoctoral Researcher in Machine Learning & Computational Chemistry<br>
+                    Postdoctoral Researcher in Machine Learning for Quantum Chemistry<br>
                     <span class="text-sm">University of Wuppertal, Germany</span>
                 </h2>
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
@@ -264,7 +264,7 @@
                 <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <i class="ph ph-books text-accent-600 dark:text-accent-500"></i> Recent Publications
                 </h3>
-                <a href="https://scholar.google.com/citations?hl=en&user=5HdwG1wAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">Full Publication List →</a>
+                <a href="publications.html" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">Full Publication List →</a>
             </div>
             
             <div id="dynamic-publications-container" class="space-y-8 mb-8">
@@ -470,10 +470,11 @@
         const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
         const localApiKey = ""; // Local-only development key.
 
-        async function callGemini(prompt, systemInstruction = null) {
+        async function callGemini(prompt, systemInstruction = null, paperTitle = null) {
             if (proxyUrl) {
                 const payload = { prompt };
                 if (systemInstruction) payload.systemInstruction = systemInstruction;
+                if (paperTitle) payload.paperTitle = paperTitle;
 
                 let delay = 1000;
                 for (let i = 0; i < 5; i++) {
@@ -527,13 +528,14 @@
             }
 
             wrapper.classList.add('expanded');
-            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing...</div>';
+            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing and finding related works...</div>';
 
-            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations.";
+            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using HTML <a> tags.";
             const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
             try {
-                const resultText = await callGemini(prompt, systemInstruction);
-                textBox.innerHTML = `<strong>✨ AI Translation:</strong> ${resultText}`;
+                const resultText = await callGemini(prompt, systemInstruction, title);
+                // Replace linebreaks with <br> for HTML rendering
+                textBox.innerHTML = `<strong>✨ AI Overview & Recommendations:</strong><br><br>${resultText.replace(/\n/g, '<br>')}`;
                 if (typeof renderMathInElement === 'function') renderMathInElement(textBox);
             } catch (error) {
                 textBox.innerHTML = `<span class="text-red-500">Sorry, the AI couldn't generate a summary right now.</span>`;

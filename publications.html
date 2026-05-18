@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Vivin Vinod</title>
+    
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="Publications | Vivin Vinod">
+    <meta property="og:description" content="A complete list of peer-reviewed articles, preprints, and datasets authored by Dr. Vivin Vinod.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/publications.html">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- KaTeX for Beautiful Math Typesetting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Smooth expandable transitions */
+        .expandable-container {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .expandable-container.expanded {
+            max-height: 1200px;
+            opacity: 1;
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+        }
+        .ai-summary-box a {
+            color: #00a896;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                <i class="ph ph-arrow-left"></i> Back to Home
+            </a>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="research.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Research</a>
+                <a href="talks.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Talks</a>
+                <a href="teaching.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Teaching</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">Publications</h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400">
+                    A complete record of peer-reviewed articles, preprints, datasets, and dissertations.
+                </p>
+            </div>
+            <a href="https://scholar.google.com/citations?hl=en&user=5HdwG1wAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-medium rounded-lg transition-colors border border-slate-200 dark:border-slate-700 shadow-sm whitespace-nowrap">
+                <i class="ph-bold ph-graduation-cap text-lg"></i> Google Scholar
+            </a>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2.5 mb-12" id="filter-container">
+            <button onclick="filterPubs('all')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-500 text-white border border-accent-500 transition-colors">All Types</button>
+            <button onclick="filterPubs('Articles')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Articles</button>
+            <button onclick="filterPubs('Preprints')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Preprints</button>
+            <button onclick="filterPubs('Datasets')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Datasets</button>
+            <button onclick="filterPubs('Dissertations')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Dissertations</button>
+        </div>
+
+        <!-- Full Publications Timeline -->
+        <div class="relative border-l border-slate-200 dark:border-slate-700 ml-3 pl-6 md:pl-10 space-y-12" id="full-publications-container">
+            <div class="text-center py-8">
+                <i class="ph ph-spinner animate-spin text-accent-600 text-3xl mb-2"></i>
+                <p class="text-sm text-slate-500">Loading full publication record...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10 mt-10">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
+            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
+            <span class="text-xs text-slate-400 dark:text-slate-500">Designed with minimal aesthetics and Gemini</span><br>
+            <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block ml-2">Terms & Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Fetch & Render Scripts -->
+    <script>
+        let allPubsData = [];
+
+        async function loadAllPublications() {
+            const container = document.getElementById('full-publications-container');
+            try {
+                const response = await fetch('publications.json');
+                allPubsData = await response.json();
+                
+                // Sort chronologically descending
+                allPubsData.sort((a, b) => {
+                    const yearA = parseInt(a.year) || 9999;
+                    const yearB = parseInt(b.year) || 9999;
+                    return yearB - yearA;
+                });
+
+                renderPublications(allPubsData);
+
+            } catch (error) {
+                container.innerHTML = `<p class="text-red-500 text-sm">Failed to load publications. Ensure publications.json exists.</p>`;
+                console.error(error);
+            }
+        }
+
+        function renderPublications(pubsToRender) {
+            const container = document.getElementById('full-publications-container');
+            container.innerHTML = ''; 
+
+            if(pubsToRender.length === 0) {
+                container.innerHTML = '<p class="text-slate-500 text-sm py-4">No publications available in this category.</p>';
+                return;
+            }
+
+            pubsToRender.forEach((pub, index) => {
+                let linksHTML = '';
+                if (pub.links) {
+                    for (const [linkName, linkUrl] of Object.entries(pub.links)) {
+                        let styleClasses = "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700";
+                        if(linkName.toLowerCase().includes('dataset')) {
+                            styleClasses = "bg-accent-50 dark:bg-accent-900/30 hover:bg-accent-100 dark:hover:bg-accent-900/50 text-accent-700 dark:text-accent-400 border-accent-200 dark:border-accent-800/50";
+                        }
+                        linksHTML += `<a href="${linkUrl}" target="_blank" class="px-3 py-1 ${styleClasses} rounded-full transition-colors border shadow-sm">${linkName}</a>`;
+                    }
+                }
+                
+                const safeTitle = pub.title.replace(/'/g, "\\'");
+                linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1 shadow-sm">✨ ELI5 & Related Works</button>`;
+
+                const pubElement = document.createElement('div');
+                pubElement.className = 'relative group transition-opacity duration-300';
+                pubElement.innerHTML = `
+                    <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-accent-300 dark:group-hover:border-accent-700">
+                        <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-accent-500 transition-colors"></div>
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 group-hover:text-accent-600 dark:group-hover:text-accent-400 uppercase transition-colors">${pub.year || 'Preprint'}</span>
+                        <span class="text-[10px] font-bold tracking-widest px-2 py-0.5 rounded uppercase border border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500">${pub.category || 'Article'}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">${pub.title}</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm leading-relaxed">${pub.authors}</p>
+                    <p class="text-slate-500 dark:text-slate-500 text-sm italic mb-4 font-medium">${pub.venue}</p>
+                    
+                    ${pub.description ? `<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-4">${pub.description}</p>` : ''}
+
+                    <div class="flex flex-wrap gap-2 text-xs font-medium mb-2">
+                        ${linksHTML}
+                    </div>
+
+                    <!-- Smooth Expandable Container for AI -->
+                    <div id="eli5-wrapper-${index}" class="expandable-container">
+                        <div id="eli5-text-${index}" class="text-sm p-5 bg-purple-50/50 dark:bg-purple-950/20 rounded-xl border border-purple-100 dark:border-purple-800/30 ai-summary-box shadow-inner leading-relaxed"></div>
+                    </div>
+                `;
+                container.appendChild(pubElement);
+            });
+
+            if (typeof renderMathInElement === 'function') renderMathInElement(container);
+        }
+
+        function filterPubs(category) {
+            // Update filter pill UI styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors";
+            });
+
+            const activeBtn = event.currentTarget;
+            activeBtn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-500 text-white border border-accent-500 transition-colors";
+
+            if (category === 'all') {
+                renderPublications(allPubsData);
+            } else {
+                const filtered = allPubsData.filter(item => item.category === category);
+                renderPublications(filtered);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAllPublications);
+
+        // SECURE DEPLOYMENT CONFIGURATION (Option 2 Serverless Proxy - GitHub Models)
+        const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
+        const localApiKey = ""; 
+
+        async function callGemini(prompt, systemInstruction = null, paperTitle = null) {
+            if (proxyUrl) {
+                const payload = { prompt };
+                if (systemInstruction) payload.systemInstruction = systemInstruction;
+                if (paperTitle) payload.paperTitle = paperTitle;
+
+                let delay = 1000;
+                for (let i = 0; i < 5; i++) {
+                    try {
+                        const response = await fetch(proxyUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                        const data = await response.json();
+                        return data.text || "No insights could be generated.";
+                    } catch (error) {
+                        if (i === 4) throw error;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            } else {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${localApiKey}`;
+                const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
+
+                let delay = 1000;
+                for (let i = 0; i < 5; i++) {
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                        const data = await response.json();
+                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "No insights could be generated.";
+                    } catch (error) {
+                        if (i === 4) throw error;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+        }
+
+        async function explainPaper(buttonElement, title, index) {
+            const wrapper = document.getElementById(`eli5-wrapper-${index}`);
+            const textBox = document.getElementById(`eli5-text-${index}`);
+            
+            if (wrapper.classList.contains('expanded')) {
+                wrapper.classList.remove('expanded');
+                return;
+            }
+
+            wrapper.classList.add('expanded');
+            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing and finding related works...</div>';
+
+            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using standard HTML <a> tags.";
+            const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
+            try {
+                const resultText = await callGemini(prompt, systemInstruction, title);
+                textBox.innerHTML = `<strong>✨ AI Overview & Recommendations:</strong><br><br>${resultText.replace(/\n/g, '<br>')}`;
+                if (typeof renderMathInElement === 'function') renderMathInElement(textBox);
+            } catch (error) {
+                textBox.innerHTML = `<span class="text-red-500">Sorry, the AI couldn't generate a summary right now.</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
