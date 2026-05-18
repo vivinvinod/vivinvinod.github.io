@@ -357,7 +357,7 @@
                 if (!response.ok) throw new Error('Network response was not ok');
                 const pubs = await response.json();
                 
-                // Filter out PhD dissertations/theses (if they happen to still be in the JSON)
+                // Filter out PhD dissertations/theses
                 const filteredPubs = pubs.filter(pub => {
                     const titleLower = (pub.title || "").toLowerCase();
                     const venueLower = (pub.venue || "").toLowerCase();
@@ -383,7 +383,9 @@
                     }
                     
                     const safeTitle = pub.title.replace(/'/g, "\\'");
-                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ ELI5 Summary</button>`;
+                    
+                    // FIXED: Changed button text to "ELI5 & Related Works"
+                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ ELI5 & Related Works</button>`;
 
                     // Smart detection of "Unknown Venue"
                     let displayVenue = pub.venue || "Unknown Venue";
@@ -410,7 +412,7 @@
                             </div>
                             <!-- Smooth Expandable Container -->
                             <div id="eli5-wrapper-${index}" class="expandable-container">
-                                <div id="eli5-text-${index}" class="text-sm p-4 bg-purple-50/50 dark:bg-purple-950/20 rounded-lg border border-purple-100 dark:border-purple-800/30"></div>
+                                <div id="eli5-text-${index}" class="text-sm p-4 bg-purple-50/50 dark:bg-purple-950/20 rounded-lg border border-purple-100 dark:border-purple-800/30 ai-summary-box"></div>
                             </div>
                         </div>
                     `;
@@ -470,10 +472,13 @@
         const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
         const localApiKey = ""; // Local-only development key.
 
+        // FIXED: Added paperTitle parameter to the callGemini function
         async function callGemini(prompt, systemInstruction = null, paperTitle = null) {
             if (proxyUrl) {
                 const payload = { prompt };
                 if (systemInstruction) payload.systemInstruction = systemInstruction;
+                
+                // FIXED: Now we correctly attach the paperTitle to the JSON payload!
                 if (paperTitle) payload.paperTitle = paperTitle;
 
                 let delay = 1000;
@@ -494,6 +499,7 @@
                     }
                 }
             } else {
+                // Fallback for direct API access
                 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${localApiKey}`;
                 const payload = { contents: [{ parts: [{ text: prompt }] }] };
                 if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
@@ -530,11 +536,14 @@
             wrapper.classList.add('expanded');
             textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing and finding related works...</div>';
 
-            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using HTML <a> tags.";
+            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using standard HTML <a> tags.";
             const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
+            
             try {
+                // FIXED: We now pass 'title' as the third argument so Semantic Scholar runs!
                 const resultText = await callGemini(prompt, systemInstruction, title);
-                // Replace linebreaks with <br> for HTML rendering
+                
+                // FIXED: Use regex replace to ensure AI linebreaks show up properly in HTML
                 textBox.innerHTML = `<strong>✨ AI Overview & Recommendations:</strong><br><br>${resultText.replace(/\n/g, '<br>')}`;
                 if (typeof renderMathInElement === 'function') renderMathInElement(textBox);
             } catch (error) {
