@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Vivin Vinod</title>
+    
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="Research Focus & Projects | Vivin Vinod">
+    <meta property="og:description" content="Deep dive into active areas of research: Multifidelity Methods, Active Learning schemes, and Machine Learning applications in Quantum Chemistry.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/research.html">
+    <meta property="og:type" content="website">
+
     <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
-    <link rel="icon" href="assets/media/favicon.svg" sizes="any" type="image/svg+xml">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/media/favicon-32x32.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- KaTeX for Beautiful Math Typesetting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -41,14 +53,18 @@
             <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
                 <i class="ph ph-arrow-left"></i> Back to Home
             </a>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
-                <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
-                <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
-            </button>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="talks.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Talks</a>
+                <a href="teaching.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Teaching</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+    <main id="research-main" class="max-w-4xl mx-auto px-6 py-12 md:py-20">
         <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Active Areas of Research</h1>
         <p class="text-lg text-slate-600 dark:text-slate-400 mb-12">
             Development of novel methods and their applications, spanning from atomic scales to macro-economic systems. For peer-reviewed outputs, see the <a href="index.html#publications" class="text-accent-600 dark:text-accent-400 hover:underline">Publications section</a>.
@@ -79,12 +95,8 @@
         </section>
 
         <!-- Applications -->
-        <section>
+        <section class="mb-16">
             <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">Applications</h2>
-            <p class="mb-8 leading-relaxed text-slate-700 dark:text-slate-300">
-                Development of methods is only effective if the methods are useful for hands-on applications. The second general area of research is identifying areas of implementation for the diverse methods developed.
-            </p>
-
             <div id="qc-ml" class="mb-12 scroll-mt-24">
                 <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">Quantum Chemistry with Machine Learning</h3>
                 <img src="assets/media/research/MLQC_pipeline.png" alt="MLQC Pipeline" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 mb-6 bg-white dark:bg-white p-4">
@@ -107,7 +119,9 @@
 
     <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10">
         <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
-            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod.
+            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
+            <span class="text-xs text-slate-400 dark:text-slate-500">Designed with minimal aesthetics and Gemini</span><br>
+            <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block ml-2">Terms & Privacy Policy</a>
         </div>
     </footer>
 </body>

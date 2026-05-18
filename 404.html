@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Vivin Vinod</title>
+    
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="Page Misplaced (404) | Vivin Vinod">
+    <meta property="og:description" content="This URL has experienced quantum decoherence and collapsed out of existence.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/404.html">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300 min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
+                <i class="ph ph-arrow-left"></i> Home
+            </a>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center justify-center px-6 text-center">
+        <h1 class="text-8xl md:text-9xl font-bold text-slate-900 dark:text-white tracking-tighter mb-4">404</h1>
+        <div class="w-16 h-1.5 bg-accent-500 rounded-full mb-8"></div>
+        
+        <p id="quote-container" class="text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-10 italic font-mono">
+            <!-- JavaScript will inject quote here -->
+        </p>
+
+        <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-accent-600 hover:bg-slate-800 dark:hover:bg-accent-500 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+            <i class="ph-bold ph-house"></i> Return to Safety
+        </a>
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
+            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <a href="terms.html" class="hover:text-accent-600 transition-colors ml-2">Terms</a>
+        </div>
+    </footer>
+
+    <script>
+        const quotes = [
+            '"The server requested silence." – This is the digital equivalent of a blank stare.',
+            'The content you sought appears to have been misplaced, deleted, or possibly never existed. This path is a dead end.',
+            'This page has experienced quantum decoherence and collapsed out of existence.',
+            '404 Error: The requested data falls outside our current uncertainty bounds.',
+            'We searched the entire latent space, but this page was nowhere to be found.',
+            'Like a poorly formulated optimization problem, this link has failed to converge.'
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-container').innerText = quotes[randomIndex];
+        });
+    </script>
+</body>
+</html>

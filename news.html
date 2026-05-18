@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Archive | Vivin Vinod</title>
+    
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="News & Milestones | Vivin Vinod">
+    <meta property="og:description" content="Keep up with current academic releases, publications, upcoming seminars, and collaborative updates.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/news.html">
+    <meta property="og:type" content="website">
+
     <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
-    <link rel="icon" href="assets/media/favicon.svg" sizes="any" type="image/svg+xml">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/media/favicon-32x32.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -41,82 +47,121 @@
             <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
                 <i class="ph ph-arrow-left"></i> Back to Home
             </a>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
-                <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
-                <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
-            </button>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="talks.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Talks</a>
+                <a href="teaching.html" class="hover:text-accent-600 dark:hover:text-accent-400 transition-colors">Teaching</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
         <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">News & Announcements</h1>
-        <p class="text-lg text-slate-600 dark:text-slate-400 mb-12">
-            An archive of recent publications, talks, career updates, and research milestones.
+        <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+            Keep up to date with my current research progress, academic publications, and speaking schedules.
         </p>
 
-        <!-- News Timeline -->
-        <div class="relative border-l border-slate-200 dark:border-slate-700 ml-3 pl-6 md:pl-10 space-y-12">
-            
-            <!-- Update 1 -->
-            <div class="relative group">
-                <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-accent-300 dark:group-hover:border-accent-700">
-                    <div class="w-3 h-3 bg-accent-500 rounded-full shadow-[0_0_10px_rgba(0,168,150,0.4)]"></div>
-                </div>
-                <span class="text-xs font-bold tracking-widest text-accent-600 dark:text-accent-400 uppercase mb-2 block">February 2025</span>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">QeMFi Dataset Published in Scientific Data</h3>
-                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800">
-                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                        Our new dataset paper, <strong class="dark:text-slate-100 text-slate-900">QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules</strong>, has been officially published in <em>Scientific Data</em> (Nature Portfolio). 
-                        This work provides a comprehensive, structured dataset aimed at bridging the fidelity gap in sparse data regimes, allowing for robust benchmarking of multifidelity machine learning models in quantum chemistry.
-                    </p>
-                    <a href="index.html#publications" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">
-                        View Publication <i class="ph ph-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2.5 mb-12" id="filter-container">
+            <button onclick="filterNews('all')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-500 text-white border border-accent-500 transition-colors">All Updates</button>
+            <button onclick="filterNews('Publication')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Publications</button>
+            <button onclick="filterNews('Talks')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Talks</button>
+            <button onclick="filterNews('Career')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Career</button>
+        </div>
 
-            <!-- Update 2 -->
-            <div class="relative group">
-                <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-slate-300 dark:group-hover:border-slate-600">
-                    <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-slate-400 dark:group-hover:bg-slate-500 transition-colors"></div>
-                </div>
-                <span class="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mb-2 block">January 2025</span>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">New Paper in The Journal of Chemical Physics</h3>
-                <div class="bg-white dark:bg-slate-800/30 rounded-xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                        Thrilled to share that our research, <strong class="dark:text-slate-100 text-slate-900">Benchmarking data efficiency in Δ-ML and multifidelity models for quantum chemistry</strong>, is now out. We conduct extensive benchmarks to highlight how incorporating varying degrees of accuracy can drastically reduce computational costs without sacrificing predictive power.
-                    </p>
-                    <a href="index.html#publications" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">
-                        View Publication <i class="ph ph-arrow-right"></i>
-                    </a>
-                </div>
+        <!-- News Dynamic Timeline -->
+        <div id="news-timeline" class="relative border-l border-slate-200 dark:border-slate-700 ml-3 pl-6 md:pl-10 space-y-12">
+            <div class="text-center py-8">
+                <i class="ph ph-spinner animate-spin text-accent-600 text-3xl mb-2"></i>
+                <p class="text-sm text-slate-500">Retrieving academic timeline...</p>
             </div>
-
-            <!-- Update 3 -->
-            <div class="relative group">
-                <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-slate-300 dark:group-hover:border-slate-600">
-                    <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-slate-400 dark:group-hover:bg-slate-500 transition-colors"></div>
-                </div>
-                <span class="text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mb-2 block">October 2024</span>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Excitation Energy Transfer Study Published</h3>
-                <div class="bg-white dark:bg-slate-800/30 rounded-xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
-                        I co-authored a collaborative study on <em class="dark:text-slate-200">Excitation Energy Transfer between Porphyrin Dyes on a Clay Surface</em>. This research heavily employs Multifidelity Machine Learning techniques and was published in <em>Advanced Theory and Simulations</em>.
-                    </p>
-                    <a href="index.html#publications" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">
-                        View Publication <i class="ph ph-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10 mt-10">
         <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
-            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod.
+            © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
+            <span class="text-xs text-slate-400 dark:text-slate-500">Designed with minimal aesthetics and Gemini</span><br>
+            <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block">Terms & Privacy Policy</a>
         </div>
     </footer>
+
+    <!-- Fetching & Sorting Script -->
+    <script>
+        let allNewsData = [];
+
+        async function fetchNews() {
+            const container = document.getElementById('news-timeline');
+            try {
+                const response = await fetch('news.json');
+                allNewsData = await response.json();
+                
+                // Sort news in chronological order (newest first)
+                allNewsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                renderNews(allNewsData);
+            } catch (error) {
+                container.innerHTML = `<p class="text-red-500 text-sm">Failed to retrieve news timeline. Verify news.json exists.</p>`;
+                console.error(error);
+            }
+        }
+
+        function renderNews(newsItems) {
+            const container = document.getElementById('news-timeline');
+            container.innerHTML = '';
+
+            if (newsItems.length === 0) {
+                container.innerHTML = '<p class="text-slate-400 text-sm py-4">No matching updates found.</p>';
+                return;
+            }
+
+            newsItems.forEach(news => {
+                const dateObj = new Date(news.date);
+                const displayDate = isNaN(dateObj) ? news.date : dateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                
+                const itemHtml = `
+                    <div class="relative group transition-opacity duration-300 news-card" data-category="${news.category}">
+                        <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-accent-300 dark:group-hover:border-accent-700">
+                            <div class="w-3 h-3 bg-accent-500 rounded-full shadow-[0_0_10px_rgba(0,168,150,0.4)]"></div>
+                        </div>
+                        <span class="text-xs font-bold tracking-widest text-accent-600 dark:text-accent-400 uppercase mb-2 block">${displayDate} • ${news.category}</span>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">${news.title}</h3>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                            <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4 text-sm">${news.content}</p>
+                            ${news.linkUrl ? `
+                                <a href="${news.linkUrl}" class="inline-flex items-center gap-1 text-xs font-semibold text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">
+                                    ${news.linkText || 'Read more'} <i class="ph ph-arrow-right"></i>
+                                </a>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += itemHtml;
+            });
+        }
+
+        function filterNews(category) {
+            // Update filter pill UI styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors";
+            });
+
+            const activeBtn = event.currentTarget;
+            activeBtn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-500 text-white border border-accent-500 transition-colors";
+
+            if (category === 'all') {
+                renderNews(allNewsData);
+            } else {
+                const filtered = allNewsData.filter(item => item.category === category);
+                renderNews(filtered);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchNews);
+    </script>
 </body>
 </html>

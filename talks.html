@@ -6,6 +6,13 @@
     <title>Talks & Presentations | Vivin Vinod</title>
     <link rel="icon" href="assets/media/favicon.ico" sizes="48x48">
     
+    <!-- Open Graph SEO Metadata -->
+    <meta property="og:title" content="Talks & Presentations | Vivin Vinod">
+    <meta property="og:description" content="Explore live presentations, invited colloquia, and seminars mapped globally with detailed abstracts.">
+    <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
+    <meta property="og:url" content="https://vivinvinod.github.io/talks.html">
+    <meta property="og:type" content="website">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,10 +23,15 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     
-    <!-- Custom Marker Cluster Styling for Theme -->
+    <!-- KaTeX for Beautiful Math Typesetting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <!-- Custom Leaflet Pin Styling & Cluster Design -->
     <style>
-        .marker-cluster-small { background-color: rgba(0, 168, 150, 0.6); }
-        .marker-cluster-small div { background-color: rgba(0, 168, 150, 0.9); color: white; font-weight: bold; font-family: 'Inter', sans-serif;}
+        .marker-cluster-small { background-color: rgba(0, 168, 150, 0.4) !important; }
+        .marker-cluster-small div { background-color: rgba(0, 168, 150, 0.85) !important; color: white !important; font-weight: bold; font-family: 'Inter', sans-serif;}
         .leaflet-popup-content { font-family: 'Inter', sans-serif; }
     </style>
 
@@ -55,10 +67,13 @@
             <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
                 <i class="ph ph-arrow-left"></i> Back to Home
             </a>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
-                <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
-                <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
-            </button>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="teaching.html" class="hover:text-accent-600 dark:hover:text-accent-400">Teaching</a>
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                    <i class="ph-fill ph-moon block dark:hidden text-lg"></i>
+                    <i class="ph-fill ph-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -85,6 +100,7 @@
     <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10 mt-10">
         <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
             © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
+            <span class="text-xs text-slate-400 dark:text-slate-500">Designed with minimal aesthetics and Gemini</span><br>
             <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block">Terms & Privacy Policy</a>
         </div>
     </footer>
@@ -95,7 +111,7 @@
     
     <script>
         // 1. Initialize Map
-        const map = L.map('map').setView([51.1657, 10.4515], 5); // Centered on Germany
+        const map = L.map('map').setView([45.0, 10.0], 4); 
 
         // 2. Define Theme Tiles (CartoDB)
         const lightTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { 
@@ -133,19 +149,31 @@
                 talks.forEach((talk, index) => {
                     const talkId = `talk-${index}`;
 
-                    // --- Build Map Marker ---
+                    // --- Custom Teal Pulsing DivIcon Map Marker ---
                     if(talk.coordinates) {
+                        const tealIcon = L.divIcon({
+                            html: `
+                                <div class="relative flex items-center justify-center w-6 h-6">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-500 opacity-30"></span>
+                                    <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent-500 border-2 border-white dark:border-slate-900 shadow-md"></span>
+                                </div>
+                            `,
+                            className: 'custom-teal-pin',
+                            iconSize: [24, 24],
+                            iconAnchor: [12, 12],
+                            popupAnchor: [0, -10]
+                        });
+
                         const popupHtml = `
                             <div class="p-1">
-                                <p class="text-xs font-bold text-accent-600 uppercase mb-1">${talk.type || 'Talk'}</p>
+                                <p class="text-[10px] font-bold text-accent-600 uppercase mb-0.5 tracking-wider">${talk.type || 'Talk'}</p>
                                 <strong class="text-sm text-slate-800 leading-tight">${talk.title}</strong><br>
                                 <span class="text-xs text-slate-500">${talk.location}</span>
                             </div>
                         `;
-                        const marker = L.marker(new L.LatLng(talk.coordinates[0], talk.coordinates[1]));
+                        const marker = L.marker(new L.LatLng(talk.coordinates[0], talk.coordinates[1]), { icon: tealIcon });
                         marker.bindPopup(popupHtml);
                         
-                        // Add click event to scroll to the timeline item
                         marker.on('click', () => {
                             const elem = document.getElementById(talkId);
                             if(elem) elem.scrollIntoView({behavior: "smooth", block: "center"});
@@ -173,7 +201,7 @@
                             </div>
                             <div class="bg-slate-50 dark:bg-slate-800/30 rounded-xl p-5 border border-slate-100 dark:border-slate-800">
                                 <p class="text-sm font-semibold text-slate-700 dark:text-slate-300 ${talk.abstract ? 'mb-3 border-b border-slate-200 dark:border-slate-700 pb-2' : ''}">${talk.venue}</p>
-                                ${talk.abstract ? `<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">${talk.abstract}</p>` : ''}
+                                ${talk.abstract ? `<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 whitespace-pre-line">${talk.abstract}</p>` : ''}
                                 ${talk.link ? `<a href="${talk.link}" target="_blank" class="inline-flex items-center gap-1 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 transition-colors mt-2">View Event Page <i class="ph ph-arrow-right"></i></a>` : ''}
                             </div>
                         </div>
@@ -185,6 +213,8 @@
                 if(talks.length > 0) {
                      map.fitBounds(markers.getBounds().pad(0.1));
                 }
+
+                if (typeof renderMathInElement === 'function') renderMathInElement(timelineContainer);
 
             } catch(e) {
                 timelineContainer.innerHTML = `<p class="text-red-500 text-sm">Failed to load talks data. Ensure talks.json exists.</p>`;

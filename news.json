@@ -1,0 +1,226 @@
+[
+  {
+    "date": "2026-07-22",
+    "title": "Presentation at WCCM-ECCOMAS 2026 (Munich)",
+    "category": "Talks",
+    "content": "Dr. Vivin Vinod will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
+    "linkText": "View Event Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2026-03-15",
+    "title": "Paper on LC-DFT-level Excitation Energies Released",
+    "category": "Publication",
+    "content": "Our new paper '∆-Machine Learning for LC-DFT-level Excitation Energies of Bacteriochlorophyll Molecules in a LH2 Complex' has been published on ChemRxiv. The work, co-authored with Sayan Maity, Peter Zaspel, and Ulrich Kleinekathöfer, introduces robust delta-ML models designed for high-dimensional excitation calculations in light-harvesting systems.",
+    "linkText": "View on ChemRxiv",
+    "linkUrl": "https://chemrxiv.org/doi/abs/10.26434/chemrxiv.15002714"
+  },
+  {
+    "date": "2025-08-20",
+    "title": "Co-authored Porphyrin Light-Harvesting Paper Published",
+    "category": "Publication",
+    "content": "Our collaborative study, 'Excitation Energy Transfer between Porphyrin Dyes on a Clay Surface: A Study Employing Multifidelity Machine Learning', has been published in Advanced Theory and Simulations. It showcases how multifidelity machine learning models can scale the simulation of complex light-harvesting complexes on surfaces with extreme computational efficiency.",
+    "linkText": "View Paper",
+    "linkUrl": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adts.202500271"
+  },
+  {
+    "date": "2025-08-15",
+    "title": "LFaB Active Learning Scheme Released on arXiv",
+    "category": "Publication",
+    "content": "Our paper 'LFaB: Low fidelity as Bias for Active Learning in the chemical configuration space' is now available on arXiv. This paper presents a novel active learning scheme utilizing affordable low-fidelity representations to bias the active selection process, drastically reducing high-fidelity training data requirements.",
+    "linkText": "View Preprint",
+    "linkUrl": "https://arxiv.org/abs/2508.15577"
+  },
+  {
+    "date": "2025-06-01",
+    "title": "Dr. Vivin Vinod Begins Postdoctoral Assignment in Wuppertal",
+    "category": "Career",
+    "content": "Dr. Vivin Vinod has officially started his postdoctoral research associate assignment at the University of Wuppertal. Continuing under the aegis of the Zaspel group, he will focus on kernel-based multifidelity method development and active learning strategies for molecular simulations.",
+    "linkText": "View Announcement Details",
+    "linkUrl": "news.html"
+  },
+  {
+    "date": "2025-05-19",
+    "title": "PhDone: Vivin Vinod Defends with Summa Cum Laude!",
+    "category": "Career",
+    "content": "Vivin Vinod successfully defended his Ph.D. dissertation titled 'Multifidelity machine learning methods for quantum chemical properties' at the University of Wuppertal. The examination committee (composed of Prof. Dr. Peter Zaspel, Prof. Dr. Ulrich Kleinekathöfer, Prof. Dr. Mario Barbatti, Prof. Dr. Matthias Bolten, and Prof. Dr. Matthias Ehrhardt) unanimously awarded Vivin his Dr. rer. nat. with the highest possible distinction: summa cum laude!",
+    "linkText": "View Dissertation Registry",
+    "linkUrl": "https://elekpub.bib.uni-wuppertal.de/doi/10.25926/BUW/0-851"
+  },
+  {
+    "date": "2025-04-12",
+    "title": "Small Organic Molecules Energy Prediction Paper Published",
+    "category": "Publication",
+    "content": "Our collaborative paper, 'Predicting Molecular Energies of Small Organic Molecules With Multi‐Fidelity Methods', has been published in the Journal of Computational Chemistry. It explores the applications of GPR-based multi-fidelity techniques on predicting ground-state energies of structurally diverse organic molecules.",
+    "linkText": "View Paper",
+    "linkUrl": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.70056"
+  },
+  {
+    "date": "2025-03-12",
+    "title": "Talk at University of Potsdam (MESIGA25)",
+    "category": "Talks",
+    "content": "Presented 'Optimal Combination and Data Hierarchies in Multifidelity Machine Learning' at the MESIGA25 Seminar on Numerical Methods in Applied Mathematics. Spoke on the performance gains of o-MFML over standard single-fidelity structures for life-process chemical simulations.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2025-02-28",
+    "title": "Paper on MFML Data Hierarchies Published in JCTC",
+    "category": "Publication",
+    "content": "Our paper, 'Investigating data hierarchies in multifidelity machine learning for excitation energies', is now available in the Journal of Chemical Theory and Computation. It analyzes non-homogeneous training set structures and validates the high-efficiency Gamma-curve technique.",
+    "linkText": "View Paper",
+    "linkUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.4c01491"
+  },
+  {
+    "date": "2025-01-10",
+    "title": "New Paper Published in The Journal of Chemical Physics",
+    "category": "Publication",
+    "content": "Our benchmarking study, 'Benchmarking data efficiency in Δ-ML and multifidelity models for quantum chemistry', is officially available in JCP. The paper provides extensive performance insights on GPR accuracy trends under restricted sample sizes.",
+    "linkText": "View Publication",
+    "linkUrl": "https://pubs.aip.org/aip/jcp/article/163/2/024134/3352328"
+  },
+  {
+    "date": "2024-10-15",
+    "title": "LoUQAL Active Learning Preprint Released",
+    "category": "Publication",
+    "content": "Released the preprint for our work, 'LoUQAL: Low-fidelity informed Uncertainty Quantification for Active Learning'. This paper presents advanced uncertainty quantification frameworks tailored specifically for pool-based active learning schemes in chemical physics.",
+    "linkText": "View Preprint",
+    "linkUrl": "index.html#publications"
+  },
+  {
+    "date": "2024-09-15",
+    "title": "Paper on Non-Nested ML Configurations Published in MLST",
+    "category": "Publication",
+    "content": "Our paper, 'Assessing non-nested configurations of multifidelity machine learning for quantum-chemical properties', has been published in Machine Learning: Science and Technology. It studies model predictions across unaligned multi-fidelity representations.",
+    "linkText": "View Paper",
+    "linkUrl": "https://iopscience.iop.org/article/10.1088/2632-2153/ad7f25/meta"
+  },
+  {
+    "date": "2024-06-15",
+    "title": "QeMFi Dataset Paper Published in Nature Scientific Data",
+    "category": "Publication",
+    "content": "Our paper, 'QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules', has been published in Nature's Scientific Data. QeMFi establishes a comprehensive open-source dataset explicitly engineered to benchmark high-accuracy, low-cost multifidelity algorithms in chemical configuration spaces.",
+    "linkText": "View Publication",
+    "linkUrl": "https://www.nature.com/articles/s41597-024-04247-3"
+  },
+  {
+    "date": "2024-03-01",
+    "title": "Seminar at SPP-2363 Annual Meet (Halle)",
+    "category": "Talks",
+    "content": "Presented a talk titled 'Optimized Multi-Fidelity Machine Learning for Quantum Chemistry' at the SPP-2363 Annual Meet, reviewing optimization bounds and dataset efficiencies.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2024-02-15",
+    "title": "Optimized MFML Method Published in MLST Journal",
+    "category": "Publication",
+    "content": "Our core methodology paper, 'Optimized Multifidelity Machine Learning for Quantum Chemistry', has been published in Machine Learning: Science and Technology (IOP). This work presents the formulation of o-MFML as a robust successor to standard MFML frameworks.",
+    "linkText": "View Paper",
+    "linkUrl": "https://iopscience.iop.org/article/10.1088/2632-2153/ad2cef/meta"
+  },
+  {
+    "date": "2024-02-01",
+    "title": "Presented at Salzburg Young Chemists Summit",
+    "category": "Talks",
+    "content": "Gave a talk titled 'Optimized Multi-Fidelity Machine Learning for Quantum Chemistry' at Paris Lodron University in Salzburg, Austria, showcasing our methods to early-career researchers.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2024-01-01",
+    "title": "Relocation Completed: Joining Bergische Universität Wuppertal",
+    "category": "Career",
+    "content": "The Zaspel research group has completed its relocation from Bremen to the Bergische Universität Wuppertal. Vivin Vinod has officially moved with the team to carry out his Ph.D. research in the new research space.",
+    "linkText": "Read Announcement",
+    "linkUrl": "news.html"
+  },
+  {
+    "date": "2023-11-01",
+    "title": "Excited State Energies Method Paper Published in JCTC",
+    "category": "Publication",
+    "content": "Our study, 'Multifidelity machine learning for molecular excitation energies', has been published in the Journal of Chemical Theory and Computation (ACS). It presents the core computational savings of combining TD-DFT and approximate methods.",
+    "linkText": "View Paper",
+    "linkUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.3c00882"
+  },
+  {
+    "date": "2023-07-10",
+    "title": "Seminar at Fritz Haber Institute (Berlin)",
+    "category": "Talks",
+    "content": "Gave a detailed invited talk titled 'Optimized Multi-Fidelity Machine Learning for Quantum Chemical Properties' at the Theory Department of the Fritz Haber Institute of the Max Planck Society / Zuse Institute Berlin.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2023-05-03",
+    "title": "Talk at SIMPLAIX Workshop (Heidelberg)",
+    "category": "Talks",
+    "content": "Presented 'Multi-Fidelity Machine Learning for Excited State Energies' at the SIMPLAIX Workshop on Machine Learning for Multi-scale Molecular Modeling in Heidelberg.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2023-03-12",
+    "title": "Contributed Talk at SPP-2363 Meet (Halle)",
+    "category": "Talks",
+    "content": "Contributed a collaborative talk titled 'Multifidelity Machine Learning and Active Learning Strategies for Quantum Chemistry' during the SPP-2363 Annual Meeting.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2022-09-06",
+    "title": "Poster Presentation at MLQCDyn Workshop (France)",
+    "category": "Talks",
+    "content": "Presented a poster on 'Multi-Fidelity Machine Learning for Excited State Energies' at the MLQCDyn Workshop hosted by Université Gustave Eiffel in Champs-sur-Marne, France.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2022-02-07",
+    "title": "Vivin Vinod Joins the Zaspel Research Group as a Ph.D. Associate",
+    "category": "Career",
+    "content": "Vivin Vinod has joined the research group of Prof. Dr. Peter Zaspel at Jacobs University, Bremen as a Ph.D. Research Associate. Coming from an interdisciplinary background in physics and economics, he will focus on kernel-based machine learning methods for complex quantum systems.",
+    "linkText": "Read Announcement",
+    "linkUrl": "news.html"
+  },
+  {
+    "date": "2021-11-01",
+    "title": "Talk on simviz Package at uRosConf 2021",
+    "category": "Talks",
+    "content": "Gave a collaborative talk at the International Conference on the Use of R in Official Statistics (uRosConf 2021) in Bucharest, Romania. Introduced the 'simviz' R package developed to simulate and visualize mobile telecommunication event data.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2021-11-01",
+    "title": "Voronoi Partition Talk at uRosConf 2021",
+    "category": "Talks",
+    "content": "Presented research titled 'Delauney Triangulation for Voronoi Partition for implementation in Simulated Mobile Network Data' during a session at the uRosConf 2021.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2021-07-19",
+    "title": "Policy Development Talk at University of Pisa",
+    "category": "Talks",
+    "content": "Delivered a policy development seminar titled 'Living conditions and Poverty in Italy - 2017. Small Area estimation and machine learning methods' organized by the Jean Monnet Chair EU.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2021-03-01",
+    "title": "Small Area Estimation Seminar at Scuola Sant'Anna (Pisa)",
+    "category": "Talks",
+    "content": "Delivered a seminar talk on 'Small area estimation methods for NUTS3 level poverty estimation in Italy' as part of the Small Area Estimation Seminar series in Pisa.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  },
+  {
+    "date": "2018-02-01",
+    "title": "Research Talk at St. Stephen's College (Delhi)",
+    "category": "Talks",
+    "content": "Presented an experimental research talk titled 'Chua diode circuit as a secure communication device using chaos theory' at the prestigious Meera Memorial Paper Presentation at St. Stephen's College, University of Delhi, India.",
+    "linkText": "View Talk Details",
+    "linkUrl": "talks.html"
+  }
+]

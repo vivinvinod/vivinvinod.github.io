@@ -29,6 +29,11 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- KaTeX for Beautiful Math Typesetting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -62,6 +67,20 @@
         .nav-link { transition: color 0.2s ease-in-out; }
         .nav-link:hover { color: #00786b; }
         .dark .nav-link:hover { color: #00a896; }
+
+        /* Smooth expandable transitions */
+        .expandable-container {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .expandable-container.expanded {
+            max-height: 800px;
+            opacity: 1;
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased selection:bg-accent-100 selection:text-accent-700 dark:selection:bg-accent-900/50 dark:selection:text-accent-300 transition-colors duration-300">
@@ -121,7 +140,7 @@
             </div>
         </section>
 
-        <!-- News Section -->
+        <!-- News Section (Dynamic Top 3) -->
         <section id="news" class="mb-20 scroll-mt-24">
             <div class="flex justify-between items-end mb-6">
                 <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -130,15 +149,11 @@
                 <a href="news.html" class="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors">News Archive →</a>
             </div>
             <div class="bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-2xl p-6 text-sm">
-                <ul class="space-y-4">
-                    <li class="flex gap-4 group cursor-pointer" onclick="window.location.href='news.html'">
-                        <span class="font-semibold text-slate-500 dark:text-slate-400 w-24 flex-shrink-0">Feb 2025</span>
-                        <p class="text-slate-700 dark:text-slate-300 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">Our new dataset paper, <strong class="dark:text-white">QeMFi: A Multifidelity Dataset...</strong>, has been published in <em class="dark:text-slate-200">Scientific Data</em>. <span class="text-accent-600 dark:text-accent-500 font-medium">Read more →</span></p>
-                    </li>
-                    <li class="flex gap-4 group cursor-pointer" onclick="window.location.href='news.html'">
-                        <span class="font-semibold text-slate-500 dark:text-slate-400 w-24 flex-shrink-0">Jan 2025</span>
-                        <p class="text-slate-700 dark:text-slate-300 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">Thrilled to share our work on <strong class="dark:text-white">Benchmarking data efficiency in Δ-ML...</strong>, now out in <em class="dark:text-slate-200">The Journal of Chemical Physics</em>. <span class="text-accent-600 dark:text-accent-500 font-medium">Read more →</span></p>
-                    </li>
+                <ul class="space-y-4" id="dynamic-news-container">
+                    <div class="text-center py-4">
+                        <i class="ph ph-spinner animate-spin text-accent-600 text-xl mb-1"></i>
+                        <p class="text-xs text-slate-400">Loading recent updates...</p>
+                    </div>
                 </ul>
             </div>
         </section>
@@ -149,34 +164,49 @@
                 <i class="ph ph-flask text-accent-600 dark:text-accent-500"></i> Research Interests
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Card 1 -->
-                <a href="research.html#mfml" class="block p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md hover:border-accent-200 dark:hover:border-accent-800 transition-all hover:-translate-y-1 group">
-                    <div class="w-10 h-10 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-4 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/60 transition-colors"><i class="ph-fill ph-chart-line-up text-xl"></i></div>
-                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors flex justify-between items-center">ML Methods & Multifidelity <i class="ph ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Developing novel kernel-based regression methods (GPR) and robust neural network architectures...</p>
+                <!-- Card 1 (ML Methods) -->
+                <a href="research.html#mfml" class="block p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md hover:border-accent-200 dark:hover:border-accent-800 transition-all hover:-translate-y-1 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-4 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/60 transition-colors"><i class="ph-fill ph-chart-line-up text-xl"></i></div>
+                        <h4 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors flex justify-between items-center">Multifidelity and Machine Learning<i class="ph ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">Developing novel kernel-based regression methods (GPR) and robust neural network architectures...</p>
+                    </div>
+                    <!-- Small embedded figure -->
+                    <div class="w-full h-24 rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-900/40 p-1 flex items-center justify-center">
+                        <img src="assets/media/research/MFML.png" alt="MFML Scheme" class="w-full h-full object-cover rounded opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'">
+                    </div>
                 </a>
-                <!-- Card 2 -->
-                <a href="research.html#al-uq" class="block p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md hover:border-accent-200 dark:hover:border-accent-800 transition-all hover:-translate-y-1 group">
-                    <div class="w-10 h-10 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-4 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/60 transition-colors"><i class="ph-fill ph-target text-xl"></i></div>
-                    <h4 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors flex justify-between items-center">Active Learning & UQ <i class="ph ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Designing novel sampling schemes for pool-based active learning to minimize labeling costs...</p>
+                <!-- Card 2 (Active Learning) -->
+                <a href="research.html#al-uq" class="block p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md hover:border-accent-200 dark:hover:border-accent-800 transition-all hover:-translate-y-1 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 flex items-center justify-center mb-4 group-hover:bg-accent-100 dark:group-hover:bg-accent-900/60 transition-colors"><i class="ph-fill ph-target text-xl"></i></div>
+                        <h4 class="font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-accent-600 group-hover:text-accent-400 transition-colors flex justify-between items-center">Active Learning and Uncertainty Quantification <i class="ph ph-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">Designing novel sampling schemes for pool-based active learning to minimize labeling costs...</p>
+                    </div>
+                    <!-- Small embedded figure -->
+                    <div class="w-full h-24 rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-900/40 p-1 flex items-center justify-center">
+                        <img src="assets/media/research/AL_concept.png" alt="Active Learning Concept" class="w-full h-full object-cover rounded opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'">
+                    </div>
                 </a>
             </div>
             
             <!-- AI Synergy Brainstormer -->
             <div class="mt-8 p-6 rounded-2xl border-2 border-accent-100 dark:border-accent-900/50 bg-gradient-to-br from-accent-50 to-white dark:from-slate-800 dark:to-slate-800/50 shadow-sm">
                 <div class="flex items-start gap-4">
-                    <div class="w-10 h-10 rounded-full bg-accent-100 dark:bg-accent-900/40 text-accent-700 dark:text-accent-400 flex items-center justify-center flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-accent-100 dark:bg-accent-900/40 text-accent-700 dark:text-accent-400 flex items-center justify-center flex-shrink-0 animate-pulse">
                         <i class="ph-fill ph-magic-wand text-xl"></i>
                     </div>
                     <div class="flex-1">
                         <h4 class="font-bold text-slate-900 dark:text-white mb-2">Collaboration Brainstormer</h4>
                         <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Want to collaborate? Let AI brainstorm how my methods could accelerate research in your field.</p>
                         <div class="flex flex-col sm:flex-row gap-3">
-                            <input type="text" id="synergy-input" placeholder="e.g., Battery Materials..." class="flex-1 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white text-sm">
+                            <input type="text" id="synergy-input" placeholder="e.g., Battery Materials..." class="flex-1 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-700 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-accent-500">
                             <button id="synergy-btn" onclick="brainstormSynergy()" class="px-5 py-2 bg-accent-600 hover:bg-accent-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm whitespace-nowrap">✨ Find Synergies</button>
                         </div>
-                        <div id="synergy-result" class="mt-4 text-sm text-slate-700 dark:text-slate-300 hidden bg-white dark:bg-slate-700 p-4 rounded-lg border border-slate-100 dark:border-slate-600"></div>
+                        <!-- Smooth Expandable Synergy Result Box -->
+                        <div id="synergy-wrapper" class="expandable-container mt-2">
+                            <div id="synergy-result" class="text-sm text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-4 rounded-lg border border-slate-100 dark:border-slate-700 shadow-inner"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -305,7 +335,8 @@
     <footer class="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 py-10">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">
-                © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. Designed with minimal aesthetics.<br>
+                © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
+                <span class="text-xs text-slate-400 dark:text-slate-500">Designed with minimal aesthetics and Gemini</span><br>
                 <a href="terms.html" class="text-slate-400 dark:text-slate-500 hover:text-accent-600 dark:hover:text-accent-400 transition-colors mt-2 inline-block">Terms & Privacy Policy</a>
             </p>
             <div class="flex justify-center gap-4 text-slate-400 dark:text-slate-500">
@@ -326,10 +357,20 @@
                 if (!response.ok) throw new Error('Network response was not ok');
                 const pubs = await response.json();
                 
-                const topPubs = pubs.slice(0, 5);
+                // Filter out PhD dissertations/theses (if they happen to still be in the JSON)
+                const filteredPubs = pubs.filter(pub => {
+                    const titleLower = (pub.title || "").toLowerCase();
+                    const venueLower = (pub.venue || "").toLowerCase();
+                    return !titleLower.includes("dissertation") && 
+                           !titleLower.includes("thesis") && 
+                           !venueLower.includes("dissertation") && 
+                           !venueLower.includes("thesis");
+                });
+
+                const topPubs = filteredPubs.slice(0, 5);
                 container.innerHTML = ''; 
 
-                topPubs.forEach(pub => {
+                topPubs.forEach((pub, index) => {
                     let linksHTML = '';
                     if (pub.links) {
                         for (const [linkName, linkUrl] of Object.entries(pub.links)) {
@@ -342,7 +383,20 @@
                     }
                     
                     const safeTitle = pub.title.replace(/'/g, "\\'");
-                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}')" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ ELI5 Summary</button>`;
+                    linksHTML += `<button onclick="explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1">✨ ELI5 Summary</button>`;
+
+                    // Smart detection of "Unknown Venue"
+                    let displayVenue = pub.venue || "Unknown Venue";
+                    if (displayVenue === "Unknown Venue") {
+                        const linksStr = JSON.stringify(pub.links || {}).toLowerCase();
+                        if (linksStr.includes("chemrxiv")) {
+                            displayVenue = "ChemRxiv preprint";
+                        } else if (linksStr.includes("arxiv")) {
+                            displayVenue = "arXiv preprint";
+                        } else {
+                            displayVenue = "Preprint";
+                        }
+                    }
 
                     const pubElement = document.createElement('div');
                     pubElement.className = 'flex flex-col md:flex-row gap-4 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 bg-white dark:bg-slate-800/20 shadow-sm hover:shadow-md transition-shadow';
@@ -350,29 +404,73 @@
                         <div class="flex-1">
                             <h4 class="text-lg font-medium text-slate-900 dark:text-slate-100 leading-snug mb-1">${pub.title}</h4>
                             <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm">${pub.authors}</p>
-                            <p class="text-slate-500 dark:text-slate-500 text-sm italic mb-3">${pub.venue}</p>
+                            <p class="text-slate-500 dark:text-slate-500 text-sm italic mb-3">${displayVenue}</p>
                             <div class="flex flex-wrap gap-2 text-xs font-medium">
                                 ${linksHTML}
+                            </div>
+                            <!-- Smooth Expandable Container -->
+                            <div id="eli5-wrapper-${index}" class="expandable-container">
+                                <div id="eli5-text-${index}" class="text-sm p-4 bg-purple-50/50 dark:bg-purple-950/20 rounded-lg border border-purple-100 dark:border-purple-800/30"></div>
                             </div>
                         </div>
                     `;
                     container.appendChild(pubElement);
                 });
 
+                if (typeof renderMathInElement === 'function') renderMathInElement(container);
+
             } catch (error) {
                 container.innerHTML = `<p class="text-red-500 text-sm">Failed to load publications. Ensure publications.json exists.</p>`;
             }
         }
-        document.addEventListener('DOMContentLoaded', loadPublications);
 
-        // SECURE DEPLOYMENT CONFIGURATION (Option 2 Serverless Proxy)
-        // Set this to your deployed Vercel deployment URL (e.g. "https://your-vercel-project.vercel.app/api/gemini")
-        // If left as "", the site will fallback to direct API calls (which requires setting localApiKey below)
+        // Data Fetching for News (Top 3 only, sorted chronologically descending)
+        async function loadNews() {
+            const container = document.getElementById('dynamic-news-container');
+            try {
+                const response = await fetch('news.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const news = await response.json();
+                
+                // Sort news items chronologically descending (newest first)
+                news.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                // Get only top 3 most recent news items
+                const topNews = news.slice(0, 3);
+                container.innerHTML = ''; 
+
+                topNews.forEach(item => {
+                    const dateObj = new Date(item.date);
+                    const displayDate = isNaN(dateObj) ? item.date : dateObj.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                    
+                    const liElement = document.createElement('li');
+                    liElement.className = 'flex gap-4 group cursor-pointer';
+                    liElement.onclick = () => { window.location.href = 'news.html'; };
+                    liElement.innerHTML = `
+                        <span class="font-semibold text-slate-500 dark:text-slate-400 w-24 flex-shrink-0">${displayDate}</span>
+                        <p class="text-slate-700 dark:text-slate-300 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                            <strong class="dark:text-white font-semibold">${item.title}</strong>: ${item.content.substring(0, 115)}... 
+                            <span class="text-accent-600 dark:text-accent-500 font-medium whitespace-nowrap">Read more →</span>
+                        </p>
+                    `;
+                    container.appendChild(liElement);
+                });
+
+            } catch (error) {
+                container.innerHTML = `<p class="text-red-500 text-sm">Failed to load recent news. Ensure news.json exists.</p>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPublications();
+            loadNews();
+        });
+
+        // SECURE DEPLOYMENT CONFIGURATION (Option 2 Serverless Proxy - GitHub Models)
         const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
-        const localApiKey = ""; // Only used for offline/local testing. DO NOT commit this key to GitHub!
+        const localApiKey = ""; // Local-only development key.
 
         async function callGemini(prompt, systemInstruction = null) {
-            // First Priority: Secure Proxy Call
             if (proxyUrl) {
                 const payload = { prompt };
                 if (systemInstruction) payload.systemInstruction = systemInstruction;
@@ -395,7 +493,6 @@
                     }
                 }
             } else {
-                // Fallback Priority: Direct browser-side call (Requires localApiKey for local tests)
                 const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${localApiKey}`;
                 const payload = { contents: [{ parts: [{ text: prompt }] }] };
                 if (systemInstruction) payload.systemInstruction = { parts: [{ text: systemInstruction }] };
@@ -420,48 +517,50 @@
             }
         }
 
-        async function explainPaper(buttonElement, title) {
-            const container = buttonElement.parentElement.parentElement;
-            let summaryDiv = container.querySelector('.ai-summary-box');
-            if (!summaryDiv) {
-                summaryDiv = document.createElement('div');
-                summaryDiv.className = 'ai-summary-box mt-3 p-4 bg-gradient-to-r from-slate-50 to-purple-50 dark:from-slate-800 dark:to-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800/30 text-sm text-slate-700 dark:text-slate-300 hidden transition-all';
-                container.appendChild(summaryDiv);
-            }
-            if (!summaryDiv.classList.contains('hidden') && summaryDiv.innerHTML.indexOf('animate-spin') === -1) {
-                summaryDiv.classList.add('hidden');
+        async function explainPaper(buttonElement, title, index) {
+            const wrapper = document.getElementById(`eli5-wrapper-${index}`);
+            const textBox = document.getElementById(`eli5-text-${index}`);
+            
+            if (wrapper.classList.contains('expanded')) {
+                wrapper.classList.remove('expanded');
                 return;
             }
-            summaryDiv.classList.remove('hidden');
-            summaryDiv.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Generating plain-language summary...</div>';
 
-            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience.";
+            wrapper.classList.add('expanded');
+            textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Summarizing...</div>';
+
+            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations.";
             const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
             try {
                 const resultText = await callGemini(prompt, systemInstruction);
-                summaryDiv.innerHTML = `<strong>✨ AI Translation:</strong> ${resultText}`;
+                textBox.innerHTML = `<strong>✨ AI Translation:</strong> ${resultText}`;
+                if (typeof renderMathInElement === 'function') renderMathInElement(textBox);
             } catch (error) {
-                summaryDiv.innerHTML = `<span class="text-red-500">Sorry, the AI couldn't generate a summary right now.</span>`;
+                textBox.innerHTML = `<span class="text-red-500">Sorry, the AI couldn't generate a summary right now.</span>`;
             }
         }
+
         async function brainstormSynergy() {
             const inputEl = document.getElementById('synergy-input');
+            const wrapper = document.getElementById('synergy-wrapper');
             const resultDiv = document.getElementById('synergy-result');
             const btn = document.getElementById('synergy-btn');
             const field = inputEl.value.trim();
             if (!field) return;
 
             btn.disabled = true;
-            btn.innerHTML = '<i class="ph ph-spinner animate-spin text-lg"></i> Thinking...';
-            resultDiv.classList.remove('hidden');
+            btn.innerHTML = '<i class="ph ph-spinner animate-spin text-sm"></i> Thinking...';
+            
+            wrapper.classList.add('expanded');
             resultDiv.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-accent-600 text-lg"></i> Analyzing cross-disciplinary applications...</div>';
 
-            const systemInstruction = "You represent Dr. Vivin Vinod, a postdoctoral researcher specializing in low-cost multifidelity machine learning, active learning sampling strategies, and quantum chemistry.";
+            const systemInstruction = "You represent Dr. Vivin Vinod, a postdoctoral researcher specializing in low-cost multifidelity machine learning, active learning sampling strategies, and quantum chemistry. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for mathematical formulation.";
             const prompt = `A visitor works in: "${field}". Briefly brainstorm 1 exciting way Dr. Vinod's methods could be applied to their field. Keep it under 60 words. Address the user directly.`;
 
             try {
                 const resultText = await callGemini(prompt, systemInstruction);
                 resultDiv.innerHTML = `<strong>✨ AI Idea:</strong> ${resultText}`;
+                if (typeof renderMathInElement === 'function') renderMathInElement(resultDiv);
             } catch (error) {
                 resultDiv.innerHTML = `<span class="text-red-500">Sorry, the brainstormer is resting. Please try again.</span>`;
             } finally {

@@ -3,7 +3,7 @@
     "year": "2026",
     "title": "∆-Machine Learning for LC-DFT-level Excitation Energies of Bacteriochlorophyll Molecules in a LH2 Complex",
     "authors": "Sayan Maity and <strong>Vivin Vinod</strong> and Peter Zaspel and Ulrich Kleinekathöfer",
-    "venue": "Unknown Venue",
+    "venue": "ChemRxiv preprint",
     "links": {
       "Scholar": "https://chemrxiv.org/doi/abs/10.26434/chemrxiv.15002714"
     }
@@ -54,24 +54,6 @@
     }
   },
   {
-    "year": "2025",
-    "title": "Multifidelity machine learning methods for quantum chemical properties/by Dottore Magistrale Vivin Vinod",
-    "authors": "<strong>Vivin Vinod</strong>",
-    "venue": "Unknown Venue",
-    "links": {
-      "Scholar": "https://elekpub.bib.uni-wuppertal.de/ubwhs/content/titleinfo/7937320"
-    }
-  },
-  {
-    "year": "2025",
-    "title": "Multifidelity Machine Learning Methods for Quantum Chemical Properties",
-    "authors": "<strong>Vivin Vinod</strong>",
-    "venue": "Unknown Venue",
-    "links": {
-      "Scholar": "https://scholar.google.com/scholar?cluster=11595983326465430958&hl=en&oi=scholarr"
-    }
-  },
-  {
     "year": "2024",
     "title": "Optimized Multifidelity Machine Learning for Quantum Chemistry",
     "authors": "<strong>Vivin Vinod</strong> and Ulrich Kleinekathöfer and Peter Zaspel",
@@ -84,7 +66,7 @@
     "year": "2024",
     "title": "QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules",
     "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
-    "venue": "arXiv preprint arXiv:2406.14149",
+    "venue": "Scientific Data",
     "links": {
       "Scholar": "https://www.nature.com/articles/s41597-024-04247-3"
     }
@@ -101,7 +83,7 @@
   {
     "year": "2023",
     "title": "Multifidelity machine learning for molecular excitation energies",
-    "authors": "<strong>Vivin Vinod</strong> and Sayan Maity and Peter Zaspel and Ulrich Kleinekathöfer",
+    "authors": "<strong>Vivin Vinod</strong> and Sayan Maity and Peter Zaspel and Ulrich Kleinekathöfer",
     "venue": "Journal of Chemical Theory and Computation",
     "links": {
       "Scholar": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.3c00882"
