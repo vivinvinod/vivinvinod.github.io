@@ -19,7 +19,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://pubs.aip.org/aip/jcp/article/163/2/024134/3352328",
-      "BibTeX": "https://academicpages.github.io/files/vinod_dataeff_2025.bib"
+      "BibTeX": "files/vinod_dataeff_2025.bib"
     },
     "image": "assets/media/2025/predicteddeltaML.png",
     "description": "The development of machine learning (ML) methods has made quantum chemistry (QC) calculations more accessible by reducing the computational cost incurred in conventional QC methods. This has since been translated into the overhead cost of generating training data. Increased work in reducing the cost of generating training data resulted in the development of Δ-ML and multifidelity machine learning methods, which use data at more than one QC level of accuracy, or fidelity. This work compares the data costs associated with Δ-ML, multifidelity machine learning (MFML), and optimized MFML in contrast with a newly introduced Multifidelity Δ-Machine Learning (MFΔML) method for the prediction of ground state energies, vertical excitation energies, and the magnitude of the electronic contribution of molecular dipole moments from the multifidelity benchmark dataset QeMFi. This assessment is made on the basis of the training data generation cost associated with each model and is compared with the single fidelity kernel ridge regression case. The results indicate that the use of multifidelity methods surpasses the standard Δ-ML approaches in cases of a large number of predictions. In applications where only a few numbers of predictions/evaluations are to be made using ML models, the herein developed MFΔML method is shown to provide an added advantage over conventional Δ-ML."
@@ -32,7 +32,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.4c01491",
-      "BibTeX": "https://academicpages.github.io/files/vinod_gamma_2025.bib"
+      "BibTeX": "files/vinod_gamma_2025.bib"
     },
     "image": "assets/media/2025/Gammacurve_TOC.png",
     "description": "Recent progress in machine learning (ML) has made high-accuracy quantum chemistry (QC) calculations more accessible. Of particular interest are multifidelity machine learning (MFML) methods, where training data from differing accuracies or fidelities are used. These methods usually employ a fixed scaling factor, γ, to relate the number of training samples across different fidelities, which reflects the cost and assumed sparsity of the data. This study investigates the impact of modifying γ on model efficiency and accuracy for the prediction of vertical excitation energies using the QeMFi benchmark data set. Further, this work introduces QC compute time-informed scaling factors, denoted as θ, that vary based on QC compute times at different fidelities. A novel error metric, error contours of MFML, is proposed to provide a comprehensive view of model error contributions from each fidelity. The results indicate that high model accuracy can be achieved with just 2 training samples at the target fidelity when a larger number of samples from lower fidelities are used. This is further illustrated through a novel concept, the Γ-curve, which compares model error against the time-cost of generating training data."
@@ -45,7 +45,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.70056",
-      "BibTeX": "https://academicpages.github.io/files/vinod_monomers_2025.bib"
+      "BibTeX": "files/vinod_monomers_2025.bib"
     },
     "image": "assets/media/2025/monomers_results.jpg",
     "description": "Multi-fidelity methods in machine learning (ML) have seen increasing usage for the prediction of quantum chemical properties. These methods, such as Δ-ML and Multifidelity Machine Learning (MFML), have been shown to significantly reduce the computational cost of generating training data. This work implements and analyzes several multi-fidelity methods including Δ-ML and MFML for the prediction of electronic molecular energies at DLPNO-CCSD(T) level, that is, at the level of coupled cluster theory including single and double excitations and perturbative triples corrections. The models for small organic molecules are evaluated not only on the basis of accuracy of prediction, but also on efficiency in terms of the time-cost of generating training data. In addition, the models are evaluated for the prediction of energies for molecules sampled from a public dataset, in particular for atmospherically relevant molecules, isomeric compounds, and highly conjugated complex molecules."
@@ -70,7 +70,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adts.202500271",
-      "BibTeX": "https://academicpages.github.io/files/lyuporphyrin25.bib"
+      "BibTeX": "files/lyuporphyrin25.bib"
     },
     "image": "assets/media/2025/porphyrin1.jpg",
     "description": "Natural light-harvesting antenna complexes efficiently capture solar energy mostly using chlorophyll molecules, i.e., magnesium porphyrin pigments, embedded in a protein matrix. Inspired by this natural configuration, artificial clay-porphyrin antenna structures have experimentally been synthesized and demonstrated to exhibit remarkable excitation energy transfer properties. The current study presents a computational design and simulations of a synthetic light-harvesting system that emulates natural mechanisms by arranging cationic free-base porphyrin molecules on an anionic clay surface. The transfer of excitation energy among the porphyrin dyes is investigated using a multiscale quantum mechanics/molecular mechanics (QM/MM) approach based on the semi-empirical density functional-based tight-binding theory for the ground state dynamics. To improve the accuracy of the results, an innovative multifidelity machine learning approach is incorporated, which allows the prediction of excitation energies at the numerically demanding time-dependent density functional theory level together with the def2-SVP basis set. This approach is applied to an extensive dataset of 640 k geometries for the 90-atom porphyrin structures, facilitating a thorough analysis of the excitation energy diffusion among the porphyrin molecules adsorbed to the clay surface. The insights gained from this study, inspired by natural light-harvesting complexes, demonstrate the potential of porphyrin-clay systems as effective energy transfer systems."
@@ -82,8 +82,8 @@
     "venue": "University of Wuppertal",
     "category": "Dissertations",
     "links": {
-      "Paper URL": "https://doi.org/10.25926/BUW/0-851",
-      "BibTeX": "https://academicpages.github.io/files/phd_dissertation.bib"
+      "Document URL": "https://doi.org/10.25926/BUW/0-851",
+      "BibTeX": "files/phd_dissertation.bib"
     },
     "description": "PhD Dissertation written under Prof. Dr. Peter Zaspel. Machine learning has made significant progress in being used as an augmented tool to progress research in many scientific fields. One such area is the field of quantum chemistry where machine learning methods have been employed to accelerate calculations by replacing high cost quantum chemistry computations with trained machine learning models. While this has significantly reduced the computational resource usage in making new calculations, there still remains the high cost of generating high accuracy, or high fidelity, training data for such models. This new overhead can be mitigated by the use of multifidelity methods which reduces the cost of training data required to achieve a certain model accuracy. This compiled-format dissertation develops and studies the use of multifidelity methods with machine learning for the prediction of quantum chemical properties. The Multifidelity Machine Learning approach is developed as a time-efficient alternative to the single fidelity machine learning methods."
   },
@@ -95,7 +95,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://iopscience.iop.org/article/10.1088/2632-2153/ad2cef/meta",
-      "BibTeX": "https://academicpages.github.io/files/Vinod_oMFML2024.bib"
+      "BibTeX": "files/Vinod_oMFML2024.bib"
     },
     "image": "assets/media/2024/oMFML_TOC.png",
     "description": "Machine learning (ML) provides access to fast and accurate quantum chemistry (QC) calculations for various properties of interest such as excitation energies. It is often the case that high accuracy in prediction using a ML model, demands a large and costly training set. Various solutions and procedures have been presented to reduce this cost. These include methods such as Δ-ML, hierarchical-ML, and multifidelity machine learning (MFML). MFML combines various Δ-ML like sub-models for various fidelities according to a fixed scheme derived from the sparse grid combination technique. In this work we implement an optimization procedure to combine multifidelity models in a flexible scheme resulting in optimized MFML (o-MFML) that provides superior prediction capabilities. This hyperparameter optimization is carried out on a holdout validation set of the property of interest. This work benchmarks the o-MFML method in predicting the atomization energies on the QM7b dataset, and again in the prediction of excitation energies for three molecules of growing size. The results indicate that o-MFML is a strong methodological improvement over MFML and provides lower error of prediction. Even in cases of poor data distributions and lack of clear hierarchies among the fidelities, which were previously identified as issues for multifidelity methods, the o-MFML is advantageous for the prediction of quantum chemical properties."
@@ -108,7 +108,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://www.nature.com/articles/s41597-024-04247-3",
-      "BibTeX": "https://academicpages.github.io/files/Vinod_QeMFi2025.bib"
+      "BibTeX": "files/Vinod_QeMFi2025.bib"
     },
     "image": "assets/media/2025/QeMFi_workflow.png",
     "description": "Progress in both Machine Learning (ML) and Quantum Chemistry (QC) methods have resulted in high accuracy ML models for QC properties. Datasets such as MD17 and WS22 have been used to benchmark these models at a given level of QC method, or fidelity, which refers to the accuracy of the chosen QC method. Multifidelity ML (MFML) methods, where models are trained on data from more than one fidelity, have shown to be effective over single fidelity methods. Much research is progressing in this direction for diverse applications ranging from energy band gaps to excitation energies. One hurdle for effective research here is the lack of a diverse multifidelity dataset for benchmarking. We provide the Quantum chemistry MultiFidelity (QeMFi) dataset consisting of five fidelities calculated with the TD-DFT formalism. The fidelities differ in their basis set choice: STO-3G, 3-21G, 6-31G, def2-SVP, and def2-TZVP. QeMFi offers to the community a variety of QC properties such as vertical excitation properties and molecular dipole moments. Further QeMFi offers QC computation times allowing for a time benefit benchmark of multifidelity models for ML-QC."
@@ -121,7 +121,7 @@
     "category": "Datasets",
     "links": {
       "Dataset URL": "https://zenodo.org/records/13925688",
-      "BibTeX": "https://academicpages.github.io/files/qemfizenodo.bib"
+      "BibTeX": "files/qemfizenodo.bib"
     },
     "description": "We provide the Quantum chemistry MultiFidelity (QeMFi) dataset consisting of five fidelities calculated with the TD-DFT formalism. The fidelities differ in their basis set choice: STO-3G, 3-21G, 6-31G, def2-SVP, and def2-TZVP. QeMFi offers to the community a variety of QC properties such as vertical excitation properties and molecular dipole moments. Further QeMFi offers QC computation times allowing for a time benefit benchmark of multifidelity models for ML-QC."
   },
@@ -133,7 +133,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://iopscience.iop.org/article/10.1088/2632-2153/ad7f25/meta",
-      "BibTeX": "https://academicpages.github.io/files/Vinod_Nonnested2024.bib"
+      "BibTeX": "files/Vinod_Nonnested2024.bib"
     },
     "image": "assets/media/2024/nonested_results.jpg",
     "description": "Multifidelity machine learning (MFML) for quantum chemical properties has seen strong development in the recent years. The method has been shown to reduce the cost of generating training data for high-accuracy low-cost ML models. In such a set-up, the ML models are trained on molecular geometries and some property of interest computed at various computational chemistry accuracies, or fidelities. These are then combined in training the MFML models. In some multifidelity models, the training data is required to be nested, that is the same molecular geometries are included to calculate the property across all the fidelities. In these multifidelity models, the requirement of a nested configuration restricts the kind of sampling that can be performed while selection training samples at different fidelities. This work assesses the use of non-nested training data for two of these multifidelity methods, namely MFML and optimized MFML (o-MFML). The assessment is carried out for the prediction of ground state energies and first vertical excitation energies of a diverse collection of molecules of the CheMFi dataset. Results indicate that the MFML method still requires a nested structure of training data across the fidelities. However, the o-MFML method shows promising results for non-nested multifidelity training data with model errors comparable to the nested configurations."
@@ -146,7 +146,7 @@
     "category": "Articles",
     "links": {
       "Paper URL": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.3c00882",
-      "BibTeX": "https://academicpages.github.io/files/Vinod_MFML2023.bib"
+      "BibTeX": "files/Vinod_MFML2023.bib"
     },
     "image": "assets/media/2023/MFMLarenes_TOC.png",
     "description": "The accurate but fast calculation of molecular excited states is still a very challenging topic. For many applications, detailed knowledge of the energy funnel in larger molecular aggregates is of key importance, requiring highly accurate excitation energies. To this end, machine learning techniques can be a very useful tool, though the cost of generating highly accurate training data sets still remains a severe challenge. To overcome this hurdle, this work proposes the use of multifidelity machine learning where very little training data from high accuracies is combined with cheaper and less accurate data to achieve the accuracy of the costlier level. In the present study, the approach is employed to predict vertical excitation energies to the first excited state for three molecules of increasing size, namely, benzene, naphthalene, and anthracene. The energies are trained and tested for conformations stemming from classical molecular dynamics and density functional based tight-binding simulations. It can be shown that the multifidelity machine learning model can achieve the same accuracy as a machine learning model built only on high-cost training data while expending a much lower computational effort to generate the data. The numerical gain observed in these benchmark test calculations was over a factor of 30 but certainly can be much higher for high-accuracy data."
@@ -158,9 +158,9 @@
     "venue": "University of Pisa",
     "category": "Dissertations",
     "links": {
-      "Paper URL": "https://etd.adm.unipi.it/t/etd-04142021-113103",
-      "PDF": "/files/Masters_Thesis_VINOD.pdf",
-      "BibTeX": "https://academicpages.github.io/files/masters_thesis.bib"
+      "Document URL": "https://etd.adm.unipi.it/t/etd-04142021-113103",
+      "PDF": "files/Masters_Thesis_VINOD.pdf",
+      "BibTeX": "files/masters_thesis.bib"
     },
     "image": "assets/media/2021/master_CDS.png",
     "description": "Master's thesis written under Prof. Dr. Davide Radi. This work begins with examining various structural models with machine learning extensions to analysing credit risk. This is followed by the applications of credit risk modelling in the form of CAT swaps and CD swaps. The study of catastrophe (CAT) swaps is relatively new in literature and has received very little scholarly attention despite its extensive usage in the financial market. Both pre and ex-ante pricing model for CAT swaps are thoroughly exhumed with a final culmination in fuzzy network modelled deep learning pricing strategies for CAT swaps is provided. Credit Default swaps are extensively analysed and thoroughly explained."
