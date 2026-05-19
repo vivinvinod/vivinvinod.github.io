@@ -89,11 +89,11 @@
 
         <!-- Method Development -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+            <h2 id=methoddev class="text-2xl font-bold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
                 <i class="ph ph-cpu text-accent-600"></i> Machine Learning Method Development
             </h2>
             <p class="mb-10 leading-relaxed text-slate-700 dark:text-slate-300">
-                My work concentrates on addressing the bottleneck of expensive high-fidelity computations by building robust, physically informed kernel-based regressors. Using Gaussian Process Regression (GPR), we formulate workflows that scale efficiently without sacrificing the strict mathematical guarantees required by physical sciences.
+                My work concentrates on addressing the bottleneck of expensive high-fidelity computations by building effective fidelity combination techniques. Using kernel based architectures, I formulate workflows that scale efficiently without compromising on accuracy of the surrogates.
             </p>
 
             <!-- Section: MFML -->
@@ -101,16 +101,25 @@
                 <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                     <span class="w-2.5 h-2.5 bg-accent-500 rounded-full"></span> Multifidelity Machine Learning (MFML)
                 </h3>
-                <div class="bg-slate-50 dark:bg-slate-800/20 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 mb-6">
-                    <img src="assets/media/research/MFML.png" alt="Multifidelity machine learning" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-full md:w-80 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4 flex-shrink-0">
+                        <img src="assets/media/research/MFML.png" alt="Multifidelity machine learning" class="w-full h-auto object-cover rounded">
+                    </div>
+                    <div class="flex-1">
+                        <p class="leading-relaxed text-slate-700 dark:text-slate-300">
+                            Multifidelity methods bridge the gap between inexpensive, low-accuracy approximations and costly, high-accuracy reference computations. This is achieved by comprehensively correcting fidelities in a recursive fashion as:
+                    $$P^f(x) = \rho(x)\cdot P^{f-1}(x)+\delta^{f,f-1}(x)~,$$
+                    for an ordered hierarchy of fidelities $f\in\{1,2,\ldots,F\}$. 
+                        </p>
+                    </div>
                 </div>
-                <p class="leading-relaxed text-slate-700 dark:text-slate-300 mb-6">
-                    Multifidelity methods bridge the gap between inexpensive, low-accuracy approximations and costly, high-accuracy reference computations. Standard delta-learning ($\Delta$-ML) operates on a simple difference formulation:
-                    $$f_{\text{high}}(\mathbf{x}) \approx f_{\text{low}}(\mathbf{x}) + \Delta(\mathbf{x})$$
-                    We expand on this framework by implementing hierarchical combinations. In our **Optimized Multifidelity Machine Learning ($o$-MFML)** approach, we solve an optimization problem to combine multiple low-fidelity baselines:
-                    $$\hat{f}(\mathbf{x}) = \sum_{k=1}^M \beta_k f_k(\mathbf{x}) + \delta(\mathbf{x})$$
-                    where the coefficients $\beta_k$ are optimized to minimize the empirical predictive variance across targeted latent spaces, yielding significant computational savings over single-fidelity GPR.
-                </p>
+                <p>
+                    The surrogate prediction of the MFML model can be seen as a telescopic sum given by:
+                    $$P_{\rm MFML}(\boldsymbol{x}) = \sum_{f=1}^F \left[P^{(f,N_f)}(\boldsymbol{x})-P^{(f-1,N_f)}(\boldsymbol{x})\right]~,$$
+                    with $P^{(0,\cdot)}\equiv0$. This formulation can be generalized to the weighted sum:
+                    $$P_{\rm MFML}(\boldsymbol{x}) = \sum_{s\in\mathcal{S}}\beta_s P^{(s)}(\boldsymbol{x})~,$$
+                    where the sum is over all selected sub-models for MFML. Notice that the MFML scheme is agnostic to the ML architecture used and can be extended to both kernel based models and nueral networks. My research includes the development of fundamental methods for multifidelity machine learning.
+                    </p>
             </div>
 
             <!-- Section: AL & UQ -->
@@ -122,16 +131,20 @@
                     <img src="assets/media/research/AL_concept.png" alt="Active learning concept" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
                 </div>
                 <p class="leading-relaxed text-slate-700 dark:text-slate-300 mb-6">
-                    Generating training datasets for quantum systems is highly resource-intensive. Active Learning (AL) bypasses this by query-sampling only the most informative configurations from an unlabeled pool. The query selection relies on Kriging variance calculations:
-                    $$\sigma^2(\mathbf{x}^*) = K(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^T (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{k}_*$$
-                    To accelerate convergence, our **Low Fidelity as Bias (LFaB)** sampling scheme utilizes affordable low-fidelity calculations to guide active learning acquisition functions, avoiding redundant computations and achieving optimal sample efficiency.
+                    Generating training datasets for quantum systems is highly resource-intensive. Active Learning (AL) bypasses this by query-sampling only the most informative configurations from an unlabeled pool. The query selection relies on quantiofying the uncertainty of the model to select the best samples:
+                    $$\boldsymbol{x}_{\rm optimal} = \argmax_{\boldsymbol{x}\in\mathcal{U}}\phi(\boldsymbol{x})~.$$
+                    Conventional methods carry out active learning sampling by identifying the variance of the model, such as with the native GPR variance:
+                    $$\phi_{\rm GPR}(\mathbf{x}^*) = K(\mathbf{x}^*, \mathbf{x}^*) - \mathbf{k}_*^T (\mathbf{K} + \sigma_n^2 \mathbf{I})^{-1} \mathbf{k}_*~.$$
+                    However, it is a common observation that such methods fail in most real-world applications such as quantum chemistry. To address this I introduced the novel low-fidelity as bias (LFaB) method which utilizes the information of the property at a cheap-to-compute whhich provides a proxy for the bias of the model computed as
+                    $$\phi_{\rm LFaB}(\boldsymbol{x}^*) = \left\lvert g_{ML}^{\rm low}(\boldsymbol{x}^*)-g^{\rm low}(\boldsymbol{x}^*)\right\rvert~.$$
+                    Ongoing research in active learning schemes helps to further reduce computational redundancy in the ML pipeline resulting in a lean-clean and robust ML model.
                 </p>
             </div>
         </section>
 
         <!-- Applications -->
         <section class="mb-16">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
+            <h2 id=applications class="text-2xl font-bold text-slate-900 dark:text-white mb-8 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center gap-2">
                 <i class="ph ph-flask text-accent-600"></i> Domain Applications
             </h2>
             
@@ -142,7 +155,8 @@
                     <img src="assets/media/research/MLQC_pipeline.png" alt="MLQC Pipeline" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
                 </div>
                 <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                    We map nuclear coordinate configurations $\mathbf{R}$ directly to electronic properties, bypassing explicit solutions of the Schrödinger equation. These methods facilitate long-time scale molecular dynamics simulations of excited-state configurations and photosynthesis-relevant porphyrin-clay systems, producing speedups up to $850\times$ without losing Coupled Cluster ($\text{CCSD(T)}$) accuracy.
+                    The cost of high-fidelity quantum chemical computations for molecular properties, and electronic properties such as excitation energies and transition dipole moments are limited by the unfavorable scaling with system size.  
+                    To avoid the expensive calculations, I develop ML methods that map the nuclear coordinates $\boldsymbol{R}$ to the properties using surrogate models. With a preliminary focus on kernel based architectures, I have successfully applied the above developed methods to reduce computational costs by over $\sim850\times$ in simulating artificial light harvesting in porpyhrins on a clay surface. 
                 </p>
             </div>
 
@@ -156,9 +170,9 @@
                     <div class="flex-1">
                         <p class="leading-relaxed text-slate-700 dark:text-slate-300">
                         Pricing of default swaps is a key process for modelling credit risks. This is of particular interest to financial instruments such as catastrophe swaps which allow insurance companies to hedge against insurance payouts for natural disaster destruction. In previous work, using Martingale process analysis of credit risk, I provided a comprehensive closed form solution of the floating and fixed legs of the catastrophe swap as 
-                        $$PV^{CDS}_{float} = \mathbb{E}^{\mathbb{Q}}_{0}\left[e^{-r\tau^{CDS}}(1-\delta)N\textbf{1}_{\tau^{CDS}\leq t_i}\right]$$ 
+                        $$PV^{\rm CDS}_{\rm float} = \mathbb{E}^{\mathbb{Q}}_{0}\left[e^{-r\tau^{CDS}}(1-\delta)N\textbf{1}_{\tau^{CDS}\leq t_i}\right]$$ 
                         and
-                        $$PV^{CDS}_{fixed} = \sum_{i=1}^n e^{-rt_i}E^{\mathbb{Q}}_0\left[s_{CDS}N\Delta t_i\textbf{1}_{\tau^{CDS}>t_i}\right] \\
+                        $$PV^{\rm CDS}_{\rm fixed} = \sum_{i=1}^n e^{-rt_i}E^{\mathbb{Q}}_0\left[s_{CDS}N\Delta t_i\textbf{1}_{\tau^{CDS}>t_i}\right] \\
     + \mathbb{E}^{\mathbb{Q}}_0\left[e^{-r\tau^{CDS}}s_{CDS}N\left(\tau^{CDS}-t_{i-1}\right)\textbf{1}_{t_{i-1}\leq\tau^{CDS}\leq t_i}\right]~.$$
                         The use of a deep UNET architecture to estimate the recovery rate and estiamted losses for hurricanes is also presented.
                         </p>
