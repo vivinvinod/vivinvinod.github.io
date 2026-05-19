@@ -83,7 +83,8 @@
     <main id="research-main" class="max-w-4xl mx-auto px-6 py-12 md:py-20">
         <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Active Areas of Research</h1>
         <p class="text-lg text-slate-600 dark:text-slate-400 mb-12 leading-relaxed">
-            Development of low-cost, high-accuracy statistical models and active learning workflows. For peer-reviewed outputs, see the <a href="index.html#publications" class="text-accent-600 dark:text-accent-400 hover:underline">Publications section</a>.
+            The overarching research focus is the development of novel data-surrogate models for diverse applications. I specifically focus on kernel based methods such as Gaussian Process Regression (GPR), with enhancements to address key challenges in quantum chemistry. In addition, I develop active learning strategies to reduce data redundancy.<br>
+            For peer-reviewed outputs, see the <a href="index.html#publications" class="text-accent-600 dark:text-accent-400 hover:underline">Publications section</a>.
         </p>
 
         <!-- Method Development -->
@@ -154,9 +155,12 @@
                     </div>
                     <div class="flex-1">
                         <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                            Our research extends into modeling volatile financial instruments. By training Deep-UNet architectures to evaluate catastrophe swaps and formulating credit defaults as Martingale processes:
-                            $$M_t = \mathbb{E}[X \mid \mathcal{F}_t]$$
-                            we satisfy strict mathematical non-arbitrage bounds while providing real-time pricing predictions across highly unstable and sparse transaction environments.
+                        Pricing of default swaps is a key process for modelling credit risks. This is of particular interest to financial instruments such as catastrophe swaps which allow insurance companies to hedge against insurance payouts for natural disaster destruction. In previous work, using Martingale process analysis of credit risk, I provided a comprehensive closed form solution of the floating and fixed legs of the catastrophe swap as 
+                        $$PV^{CDS}_{float} = \mathbb{E}^{\mathbb{Q}}_{0}\left[e^{-r\tau^{CDS}}(1-\delta)N\textbf{1}_{\tau^{CDS}\leq t_i}\right]$$ 
+                        and
+                        $$PV^{CDS}_{fixed} = \sum_{i=1}^n e^{-rt_i}E^{\mathbb{Q}}_0\left[s_{CDS}N\Delta t_i\textbf{1}_{\tau^{CDS}>t_i}\right] \\
+    + \mathbb{E}^{\mathbb{Q}}_0\left[e^{-r\tau^{CDS}}s_{CDS}N\left(\tau^{CDS}-t_{i-1}\right)\textbf{1}_{t_{i-1}\leq\tau^{CDS}\leq t_i}\right]~.$$
+                        The use of a deep UNET architecture to estimate the recovery rate and estiamted losses for hurricanes is also presented.
                         </p>
                     </div>
                 </div>
@@ -168,6 +172,7 @@
         <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 dark:text-slate-400 text-sm">
             © <script>document.write(new Date().getFullYear())</script> Vivin Vinod. <br>
             <span class="text-xs text-slate-400 dark:text-slate-500">Designed with minimal aesthetics and Gemini</span><br>
+            <span class="text-xs text-slate-400 dark:text-slate-500">Scraping this website for AI/LLM training purposes is strictly prohibited</span><br>
             <a href="terms.html" class="hover:text-accent-600 transition-colors mt-2 inline-block ml-2">Terms & Privacy Policy</a>
         </div>
     </footer>
