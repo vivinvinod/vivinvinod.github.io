@@ -151,13 +151,37 @@
             <!-- Quantum Chemistry -->
             <div id="qc-ml" class="mb-16 scroll-mt-24">
                 <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Quantum Chemistry with Machine Learning</h3>
+                
+                <!-- Main Pipeline Image -->
                 <div class="bg-slate-50 dark:bg-slate-800/20 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 mb-6">
                     <img src="assets/media/research/MLQC_pipeline.png" alt="MLQC Pipeline" class="w-full max-w-2xl mx-auto rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 bg-white p-4">
                 </div>
-                <p class="leading-relaxed text-slate-700 dark:text-slate-300">
-                    The cost of high-fidelity quantum chemical computations for molecular properties, and electronic properties such as excitation energies and transition dipole moments are limited by the unfavorable scaling with system size.  
-                    To avoid the expensive calculations, I develop ML methods that map the nuclear coordinates $\boldsymbol{R}$ to the properties using surrogate models. With a preliminary focus on kernel based architectures, I have successfully applied the above developed methods to reduce computational costs by over $\sim850\times$ in simulating artificial light harvesting in porpyhrins on a clay surface. 
-                </p>
+                
+                <!-- Text and Small Showcase Gallery -->
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="flex-1">
+                        <p class="leading-relaxed text-slate-700 dark:text-slate-300">
+                            The cost of high-fidelity quantum chemical computations for molecular properties, and electronic properties such as excitation energies and transition dipole moments are limited by the unfavorable scaling with system size.  
+                            To avoid the expensive calculations, I develop ML methods that map the nuclear coordinates $\boldsymbol{R}$ to the properties using surrogate models. With a preliminary focus on kernel based architectures, I have successfully applied the above developed methods to reduce computational costs by over $\sim850\times$ in simulating artificial light harvesting in porphyrins on a clay surface. My recent work attempts to further streamline the data-cost aware ML workflow for quantum chemistry and simulating large-scale systems such as entire light harvesting complexes in photosynthetic bacteria. 
+                        </p>
+                    </div>
+                    
+                    <!-- Small Image Showcase Grid -->
+                    <div class="w-full md:w-1/2 flex-shrink-0 grid grid-cols-2 gap-3 p-3 bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm">
+                        <!-- Image 1 -->
+                        <div class="group relative overflow-hidden rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 bg-white  h-32 md:h-40 cursor-pointer">
+                            <img src="assets/media/research/LH2.png" alt="LH2 Complex" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <!-- Image 2 -->
+                        <div class="group relative overflow-hidden rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 bg-white  h-32 md:h-40 cursor-pointer">
+                            <img src="assets/media/research/porphyrin.jpg" alt="Porphyrin on Clay" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <!-- Image 3 (Spans both columns) -->
+                        <div class="group relative overflow-hidden rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 bg-white h-32 md:h-48 col-span-2 p-1 cursor-pointer">
+                            <img src="assets/media/research/mfml_simple.png" alt="MFML workflow" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Econ and Finance -->
