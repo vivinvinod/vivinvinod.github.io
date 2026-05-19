@@ -8,6 +8,14 @@
     "linkUrl": "talks.html"
   },
   {
+    "date": "2026-05-20",
+    "title": "Novel bias based Active Learning Scheme published in JCTC",
+    "category": "Publication",
+    "content": "Our paper 'LFaB: Low fidelity as Bias for Active Learning in the chemical configuration space' is now published with ACS JCTC. This work presents a novel bias-based active learning scheme utilizing affordable low-fidelity outputs. LFaB is shown to drastically reducing the number of training samples needed to achieve a certain model error.",
+    "linkText": "View Publication",
+    "linkUrl": "https://doi.org/10.1021/acs.jctc.6c00009"
+  },
+  {
     "date": "2026-03-15",
     "title": "Paper on LC-DFT-level Excitation Energies Released",
     "category": "Publication",
