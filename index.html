@@ -528,7 +528,7 @@
             loadNews();
         });
 
-        // SECURE DEPLOYMENT CONFIGURATION (Option 2 Serverless Proxy - GitHub Models)
+        // SECURE DEPLOYMENT CONFIGURATION (Serverless Proxy - GitHub Models)
         const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
         const localApiKey = ""; // Local-only development key.
 
@@ -596,7 +596,7 @@
             textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Generating plain-language summary...</div>';
 
             const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using standard HTML <a> tags.";
-            const prompt = `Please explain the potential real-world impact and basic concept of this paper in 2 short sentences. Paper Title: "${title}"`;
+            const prompt = `Please explain the potential real-world impact and basic concept of this paper in a few short sentences. Paper Title: "${title}"`;
             
             try {
                 // Pass 'null' for the paperTitle to bypass Semantic Scholar searches on the homepage
@@ -623,8 +623,8 @@
             wrapper.classList.add('expanded');
             resultDiv.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-accent-600 text-lg"></i> Analyzing cross-disciplinary applications...</div>';
 
-            const systemInstruction = "You represent Dr. Vivin Vinod, a postdoctoral researcher specializing in low-cost multifidelity machine learning, active learning sampling strategies, and quantum chemistry. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for mathematical formulation.";
-            const prompt = `A visitor works in: "${field}". Briefly brainstorm 1 exciting way Dr. Vinod's methods could be applied to their field. Keep it under 60 words. Address the user directly.`;
+            const systemInstruction = "You represent a postdoctoral researcher specializing in low-cost multifidelity machine learning, active learning sampling strategies, and quantum chemistry. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for mathematical formulation.";
+            const prompt = `A visitor works in: "${field}". Briefly brainstorm a few exciting ways the researcher's methods could be applied to their field. Keep it to about 100 words intended to initiate thought of collaboration. Address the user directly on behalf of the researcher (do not refer to the researcher in the response but only to the methods).`;
 
             try {
                 const resultText = await callGemini(prompt, systemInstruction);
