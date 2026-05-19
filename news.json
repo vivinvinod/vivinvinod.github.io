@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-07-22",
-    "title": "Presentation at WCCM-ECCOMAS 2026 (Munich)",
+    "title": "Talk at WCCM-ECCOMAS 2026 (Munich)",
     "category": "Talks",
     "content": "Dr. Vivin Vinod will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
     "linkText": "View Event Details",
@@ -12,20 +12,20 @@
     "title": "Novel bias based Active Learning Scheme published in JCTC",
     "category": "Publication",
     "content": "Our paper 'LFaB: Low fidelity as Bias for Active Learning in the chemical configuration space' is now published with ACS JCTC. This work presents a novel bias-based active learning scheme utilizing affordable low-fidelity outputs. LFaB is shown to drastically reducing the number of training samples needed to achieve a certain model error.",
-    "linkText": "View Publication",
+    "linkText": "View Paper",
     "linkUrl": "https://doi.org/10.1021/acs.jctc.6c00009"
   },
   {
-    "date": "2026-03-15",
-    "title": "Paper on LC-DFT-level Excitation Energies Released",
+    "date": "2026-05-04",
+    "title": "Preprint on LC-DFT-level Excitation Energies for Light Harvesting Complexes",
     "category": "Publication",
-    "content": "Our new paper '∆-Machine Learning for LC-DFT-level Excitation Energies of Bacteriochlorophyll Molecules in a LH2 Complex' has been published on ChemRxiv. The work, co-authored with Sayan Maity, Peter Zaspel, and Ulrich Kleinekathöfer, introduces robust delta-ML models designed for high-dimensional excitation calculations in light-harvesting systems.",
+    "content": "Our new preprint '∆-Machine Learning for LC-DFT-level Excitation Energies of Bacteriochlorophyll Molecules in a LH2 Complex' has been published on ChemRxiv. The work, co-authored with Sayan Maity, Peter Zaspel, and Ulrich Kleinekathöfer, introduces robust delta-ML models designed for high-fidelity excitation calculations in light-harvesting systems.",
     "linkText": "View on ChemRxiv",
     "linkUrl": "https://chemrxiv.org/doi/abs/10.26434/chemrxiv.15002714"
   },
   {
     "date": "2025-08-20",
-    "title": "Co-authored Porphyrin Light-Harvesting Paper Published",
+    "title": "MFML enables fast simulations of Porphyrin Light-Harvesting Complexes",
     "category": "Publication",
     "content": "Our collaborative study, 'Excitation Energy Transfer between Porphyrin Dyes on a Clay Surface: A Study Employing Multifidelity Machine Learning', has been published in Advanced Theory and Simulations. It showcases how multifidelity machine learning models can scale the simulation of complex light-harvesting complexes on surfaces with extreme computational efficiency.",
     "linkText": "View Paper",
@@ -33,19 +33,27 @@
   },
   {
     "date": "2025-08-15",
-    "title": "LFaB Active Learning Scheme Released on arXiv",
+    "title": "LFaB Active Learning Scheme Released on arXiv as a preprint",
     "category": "Publication",
     "content": "Our paper 'LFaB: Low fidelity as Bias for Active Learning in the chemical configuration space' is now available on arXiv. This paper presents a novel active learning scheme utilizing affordable low-fidelity representations to bias the active selection process, drastically reducing high-fidelity training data requirements.",
     "linkText": "View Preprint",
     "linkUrl": "https://arxiv.org/abs/2508.15577"
   },
   {
+    "date": "2026-01-12",
+    "title": "Visiting Researcher to the Hausdorf Institute of Mathematics, Bonn",
+    "category": "Career",
+    "content": "Dr. Vivin will join the Hausdorff Research Institute for Mathematics at the University of Bonn, as part of the DFG Flagship Winter School ‘Bridging multiscale, limited information, and low regularity in computational mathematics’. The Winter SChool is part of hte Junior Trimester Programe funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany‘s Excellence Strategy – EXC-2047/2 – 390685813.",
+    "linkText": "View Webpage",
+    "linkUrl": "https://www.mathematics.uni-bonn.de/him/programs/past/him-junior-trimester-program-computational-multifidelity-multilevel-and-multiscale-methods"
+  },
+  {
     "date": "2025-06-01",
     "title": "Dr. Vivin Vinod Begins Postdoctoral Assignment in Wuppertal",
     "category": "Career",
     "content": "Dr. Vivin Vinod has officially started his postdoctoral research associate assignment at the University of Wuppertal. Continuing under the aegis of the Zaspel group, he will focus on kernel-based multifidelity method development and active learning strategies for molecular simulations.",
-    "linkText": "View Announcement Details",
-    "linkUrl": "news.html"
+    "linkText": "View Website",
+    "linkUrl": "https://hpc.uni-wuppertal.de/en/personen/"
   },
   {
     "date": "2025-05-19",
@@ -57,7 +65,7 @@
   },
   {
     "date": "2025-04-12",
-    "title": "Small Organic Molecules Energy Prediction Paper Published",
+    "title": "MFML enables fast and accurate predictions of CCSD(T) energies",
     "category": "Publication",
     "content": "Our collaborative paper, 'Predicting Molecular Energies of Small Organic Molecules With Multi‐Fidelity Methods', has been published in the Journal of Computational Chemistry. It explores the applications of GPR-based multi-fidelity techniques on predicting ground-state energies of structurally diverse organic molecules.",
     "linkText": "View Paper",
@@ -73,43 +81,43 @@
   },
   {
     "date": "2025-02-28",
-    "title": "Paper on MFML Data Hierarchies Published in JCTC",
+    "title": "Novel multifidelity method for predicting excitation energies reveals intricate fidelity hierarchy for ML-QC",
     "category": "Publication",
-    "content": "Our paper, 'Investigating data hierarchies in multifidelity machine learning for excitation energies', is now available in the Journal of Chemical Theory and Computation. It analyzes non-homogeneous training set structures and validates the high-efficiency Gamma-curve technique.",
+    "content": "Our paper, 'Investigating data hierarchies in multifidelity machine learning for excitation energies', is now available in the Journal of Chemical Theory and Computation. It analyzes the training data hierarchy and validates the high-efficiency Gamma-curve technique.",
     "linkText": "View Paper",
     "linkUrl": "https://pubs.acs.org/doi/abs/10.1021/acs.jctc.4c01491"
   },
   {
     "date": "2025-01-10",
-    "title": "New Paper Published in The Journal of Chemical Physics",
+    "title": "Benchmark study on data-cost efficiency places multifidelity methods at the epicenter of future research",
     "category": "Publication",
     "content": "Our benchmarking study, 'Benchmarking data efficiency in Δ-ML and multifidelity models for quantum chemistry', is officially available in JCP. The paper provides extensive performance insights on GPR accuracy trends under restricted sample sizes.",
     "linkText": "View Publication",
     "linkUrl": "https://pubs.aip.org/aip/jcp/article/163/2/024134/3352328"
   },
   {
-    "date": "2024-10-15",
-    "title": "LoUQAL Active Learning Preprint Released",
-    "category": "Publication",
-    "content": "Released the preprint for our work, 'LoUQAL: Low-fidelity informed Uncertainty Quantification for Active Learning'. This paper presents advanced uncertainty quantification frameworks tailored specifically for pool-based active learning schemes in chemical physics.",
-    "linkText": "View Preprint",
-    "linkUrl": "index.html#publications"
-  },
-  {
     "date": "2024-09-15",
-    "title": "Paper on Non-Nested ML Configurations Published in MLST",
+    "title": "Work on assessing heterogenous multifidelity data Published in IOP:MLST",
     "category": "Publication",
     "content": "Our paper, 'Assessing non-nested configurations of multifidelity machine learning for quantum-chemical properties', has been published in Machine Learning: Science and Technology. It studies model predictions across unaligned multi-fidelity representations.",
     "linkText": "View Paper",
     "linkUrl": "https://iopscience.iop.org/article/10.1088/2632-2153/ad7f25/meta"
   },
   {
-    "date": "2024-06-15",
-    "title": "QeMFi Dataset Paper Published in Nature Scientific Data",
+    "date": "2025-02-03",
+    "title": "QeMFi Dataset Descriptor Paper Published in Nature Scientific Data",
     "category": "Publication",
     "content": "Our paper, 'QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules', has been published in Nature's Scientific Data. QeMFi establishes a comprehensive open-source dataset explicitly engineered to benchmark high-accuracy, low-cost multifidelity algorithms in chemical configuration spaces.",
     "linkText": "View Publication",
     "linkUrl": "https://www.nature.com/articles/s41597-024-04247-3"
+  },
+  {
+    "date": "2025-02-03",
+    "title": "QeMFi Dataset Published on Zenodo to help time-cost benchmarks in ML-QC",
+    "category": "Publication",
+    "content": "Our dataset, 'QeMFi: A Multifidelity Dataset of Quantum Chemical Properties of Diverse Molecules', has been published on Zenodo. QeMFi establishes a comprehensive TD-DFT dataset of five fidelities with properties such as excitation energies and transition dipole moments, to benchmark high-accuracy, low-cost multifidelity algorithms in chemical configuration spaces.",
+    "linkText": "Access Dataset",
+    "linkUrl": "https://zenodo.org/records/13925688"
   },
   {
     "date": "2024-03-01",
@@ -123,7 +131,7 @@
     "date": "2024-02-15",
     "title": "Optimized MFML Method Published in MLST Journal",
     "category": "Publication",
-    "content": "Our core methodology paper, 'Optimized Multifidelity Machine Learning for Quantum Chemistry', has been published in Machine Learning: Science and Technology (IOP). This work presents the formulation of o-MFML as a robust successor to standard MFML frameworks.",
+    "content": "Our novel methodology paper, 'Optimized Multifidelity Machine Learning for Quantum Chemistry', has been published in Machine Learning: Science and Technology (IOP). This work presents the formulation of o-MFML as a robust successor to standard MFML frameworks.",
     "linkText": "View Paper",
     "linkUrl": "https://iopscience.iop.org/article/10.1088/2632-2153/ad2cef/meta"
   },
