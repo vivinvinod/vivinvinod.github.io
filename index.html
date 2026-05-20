@@ -595,12 +595,11 @@
             wrapper.classList.add('expanded');
             textBox.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-purple-600 text-lg"></i> Generating plain-language summary...</div>';
 
-            const systemInstruction = "You are a helpful science communicator. Your goal is to explain complex academic papers to a general audience. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for any mathematical equations. Output any links using standard HTML <a> tags.";
             const prompt = `Please explain the potential real-world impact and basic concept of this paper in a few short sentences. Paper Title: "${title}"`;
             
             try {
-                // Pass 'null' for the paperTitle to bypass Semantic Scholar searches on the homepage
-                const resultText = await callGemini(prompt, systemInstruction, null);
+                // Pass the title so the backend API knows to use the "Paper Summarization" rules!
+                const resultText = await callGemini(prompt, null, title);
                 
                 textBox.innerHTML = `<strong>✨ AI Translation:</strong><br><br>${resultText.replace(/\n/g, '<br>')}`;
                 if (typeof renderMathInElement === 'function') renderMathInElement(textBox);
@@ -623,11 +622,11 @@
             wrapper.classList.add('expanded');
             resultDiv.innerHTML = '<div class="flex items-center gap-2"><i class="ph ph-spinner animate-spin text-accent-600 text-lg"></i> Analyzing cross-disciplinary applications...</div>';
 
-            const systemInstruction = "You represent a postdoctoral researcher specializing in low-cost multifidelity machine learning, active learning sampling strategies, and quantum chemistry. Use standard LaTeX syntax wrapped in $ (inline) or $$ (block) for mathematical formulation.";
-            const prompt = `A visitor works in: "${field}". Briefly brainstorm a few exciting ways the researcher's methods could be applied to their field. Keep it to about 100 words intended to initiate thought of collaboration. Address the user directly on behalf of the researcher (do not refer to the researcher in the response but only to the methods).`;
+            // Clean prompt without contradictory instructions
+            const prompt = `Topic to evaluate: "${field}". Please brainstorm a few exciting ways multifidelity machine learning or active learning could be applied to this field in about 100 words.`;
 
             try {
-                const resultText = await callGemini(prompt, systemInstruction);
+                const resultText = await callGemini(prompt);
                 resultDiv.innerHTML = `<strong>✨ AI Idea:</strong> ${resultText}`;
                 if (typeof renderMathInElement === 'function') renderMathInElement(resultDiv);
             } catch (error) {
