@@ -3,6 +3,23 @@
  * Consolidated Security Gateway & Enhanced Academic Persona
  */
 
+const { initializeApp } = require('firebase/app');
+const { getFirestore, collection, addDoc } = require('firebase/firestore');
+const { getAuth, signInAnonymously } = require('firebase/auth');
+
+// Initialize Firebase once per serverless instance
+let app, db, auth;
+try {
+    if (process.env.FIREBASE_CONFIG) {
+        const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+        app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+    }
+} catch (e) {
+    console.error("Firebase init error. Ensure FIREBASE_CONFIG is a valid JSON string.", e);
+}
+
 module.exports = async (req, res) => {
     // Enable CORS
     res.setHeader('Access-Control-Allow-Credentials', 'true');
