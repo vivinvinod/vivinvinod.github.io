@@ -403,6 +403,23 @@
                 if (chevron) chevron.style.transform = 'rotate(180deg)';
             }
         }
+        /**
+         * Trigger synergy brainstorming from quick-select tags
+         * @param {string} topic - The scientific topic to investigate
+         */
+        function fillAndSubmitSynergy(topic) {
+            const inputEl = document.getElementById('synergy-input');
+            if (!inputEl) return;
+            
+            // 1. Set the input text
+            inputEl.value = topic;
+            
+            // 2. Trigger the brainstorm function immediately
+            brainstormSynergy();
+            
+            // 3. Optional: Smoothly scroll the input into view if the user is further down the page
+            inputEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
 
         // Data Fetching for Publications (Top 3 only, sorted chronologically descending)
         async function loadPublications() {
