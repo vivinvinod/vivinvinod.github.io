@@ -41,6 +41,7 @@ module.exports = async (req, res) => {
     if (forbiddenKeywords.some(word => prompt.toLowerCase().includes(word))) {
         return res.status(403).json({ text: "I am designed for research collaboration only and cannot fulfill that request." });
     }
+    
 
     // 2. FIRESTORE LOGGING
     // We await this operation so Vercel doesn't terminate the function before saving the log.
@@ -62,6 +63,18 @@ module.exports = async (req, res) => {
         }
     } else {
         console.warn("Skipping logging: FIREBASE_CONFIG environment variable is not set.");
+    }
+    const sensitiveKeywords = [
+        'genocide', 'war crime', 'massacre', 'terrorism', 'hate speech', 
+        'abuse', 'violence', 'illegal', 'israel', 'toys'
+    ];
+    
+    // Check if input contains prohibited topics
+    const promptLower = prompt.toLowerCase();
+    if (sensitiveKeywords.some(word => promptLower.includes(word))) {
+        return res.status(403).json({ 
+            text: "I am programmed to explore synergies exclusively within scientific, mathematical, and engineering disciplines. Please provide a valid academic or technical field." 
+        });
     }
 
     // 3. SEMANTIC SCHOLAR: Dynamic external works
