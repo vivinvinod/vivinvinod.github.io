@@ -444,6 +444,7 @@
                 });
 
                 // Restrict to top 3 publications
+                filteredPubs.sort((a, b) => new Date(b.date) - new Date(a.date));
                 const topPubs = filteredPubs.slice(0, 3);
                 container.innerHTML = ''; 
 
