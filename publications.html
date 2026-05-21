@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications | Vivin Vinod</title>
     
-    <!-- Open Graph SEO Metadata -->
     <meta property="og:title" content="Publications | Vivin Vinod">
     <meta property="og:description" content="A complete list of peer-reviewed articles, preprints, and datasets authored by Dr. Vivin Vinod.">
     <meta property="og:image" content="https://vivinvinod.github.io/assets/media/profile.jpg">
@@ -17,7 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- KaTeX for Beautiful Math Typesetting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
@@ -60,7 +58,7 @@
             transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out, padding 0.5s ease-in-out;
         }
         .expandable-container.expanded {
-            max-height: 3000px; /* Increased to accommodate images and AI recommendations safely */
+            max-height: 3000px;
             opacity: 1;
             padding-top: 1rem;
             padding-bottom: 0.5rem;
@@ -74,7 +72,6 @@
 </head>
 <body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
 
-    <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
         <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="font-semibold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">
@@ -102,7 +99,6 @@
             </a>
         </div>
 
-        <!-- Category Filters -->
         <div class="flex flex-wrap gap-2.5 mb-12" id="filter-container">
             <button onclick="filterPubs('all')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-accent-500 text-white border border-accent-500 transition-colors">All Types</button>
             <button onclick="filterPubs('Articles')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Articles</button>
@@ -111,7 +107,6 @@
             <button onclick="filterPubs('Dissertations')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Dissertations</button>
         </div>
 
-        <!-- Full Publications Timeline -->
         <div class="relative border-l border-slate-200 dark:border-slate-700 ml-3 pl-6 md:pl-10 space-y-12" id="full-publications-container">
             <div class="text-center py-8">
                 <i class="ph ph-spinner animate-spin text-accent-600 text-3xl mb-2"></i>
@@ -129,7 +124,6 @@
         </div>
     </footer>
 
-    <!-- Fetch & Render Scripts -->
     <script>
         let allPubsData = [];
 
@@ -139,11 +133,11 @@
                 const response = await fetch('publications.json');
                 allPubsData = await response.json();
                 
-                // Sort chronologically descending
+                // Sort chronologically descending by exact date
                 allPubsData.sort((a, b) => {
-                    const yearA = parseInt(a.year) || 9999;
-                    const yearB = parseInt(b.year) || 9999;
-                    return yearB - yearA;
+                    const dateA = a.date ? new Date(a.date) : new Date(0);
+                    const dateB = b.date ? new Date(b.date) : new Date(0);
+                    return dateB - dateA;
                 });
 
                 renderPublications(allPubsData);
@@ -162,7 +156,6 @@
                 wrapper.classList.remove('expanded');
                 chevron.style.transform = 'rotate(0deg)';
                 
-                // Keep things tidy: Close the AI wrapper if it is open
                 const eli5Wrapper = document.getElementById(`eli5-wrapper-${index}`);
                 if (eli5Wrapper && eli5Wrapper.classList.contains('expanded')) {
                     eli5Wrapper.classList.remove('expanded');
@@ -190,7 +183,6 @@
                         if(linkName.toLowerCase().includes('dataset')) {
                             styleClasses = "bg-accent-50 dark:bg-accent-900/30 hover:bg-accent-100 dark:hover:bg-accent-900/50 text-accent-700 dark:text-accent-400 border-accent-200 dark:border-accent-800/50";
                         }
-                        // Note: stopPropagation() prevents the accordion click trigger when clicking links
                         linksHTML += `<a href="${linkUrl}" target="_blank" onclick="event.stopPropagation();" class="px-3 py-1 ${styleClasses} rounded-full transition-colors border shadow-sm">${linkName}</a>`;
                     }
                 }
@@ -198,7 +190,6 @@
                 const safeTitle = pub.title.replace(/'/g, "\\'");
                 linksHTML += `<button onclick="event.stopPropagation(); explainPaper(this, '${safeTitle}', ${index})" class="px-3 py-1 bg-gradient-to-r from-purple-50 to-accent-50 dark:from-purple-900/20 dark:to-accent-900/20 hover:from-purple-100 hover:to-accent-100 dark:hover:from-purple-900/40 dark:hover:to-accent-900/40 text-slate-700 dark:text-slate-300 rounded-full transition-colors border border-purple-200 dark:border-purple-800/30 flex items-center gap-1 shadow-sm">✨ Summarize this work</button>`;
 
-                // Smart detection of "Unknown Venue"
                 let displayVenue = pub.venue || "Unknown Venue";
                 if (displayVenue === "Unknown Venue") {
                     const linksStr = JSON.stringify(pub.links || {}).toLowerCase();
@@ -214,7 +205,6 @@
                 const pubElement = document.createElement('div');
                 pubElement.className = 'relative group transition-opacity duration-300';
                 
-                // Add graphic styling logic - UPDATED for large, centered top-image
                 const imageHTML = pub.image ? `
                     <div class="w-full mb-6 flex justify-center bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-slate-100 dark:border-slate-700/50 p-2 md:p-4">
                         <img src="${pub.image}" alt="Publication Graphic" class="max-w-full max-h-[400px] object-contain rounded-lg shadow-sm bg-white">
@@ -222,7 +212,6 @@
                 ` : '';
 
                 pubElement.innerHTML = `
-                    <!-- Timeline Node -->
                     <div class="absolute -left-[31px] md:-left-[47px] bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-200 dark:border-slate-700 transition-colors group-hover:border-accent-300 dark:group-hover:border-accent-700">
                         <div class="w-3 h-3 bg-slate-300 dark:bg-slate-600 rounded-full group-hover:bg-accent-500 transition-colors"></div>
                     </div>
@@ -232,7 +221,6 @@
                         <span class="text-[10px] font-bold tracking-widest px-2 py-0.5 rounded uppercase border border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500">${pub.category || 'Article'}</span>
                     </div>
 
-                    <!-- Clickable Header / Accordion Trigger -->
                     <div class="cursor-pointer flex justify-between items-center group/header" onclick="toggleDetails(${index})">
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover/header:text-accent-600 dark:group-hover/header:text-accent-400 transition-colors">${pub.title}</h3>
@@ -244,26 +232,20 @@
                         </div>
                     </div>
 
-                    <!-- ALWAYS VISIBLE LINKS & AI BUTTON -->
                     <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium">
                         ${linksHTML}
                     </div>
 
-                    <!-- Smooth Expandable Container for AI -->
                     <div id="eli5-wrapper-${index}" class="expandable-container">
                         <div id="eli5-text-${index}" class="text-sm p-5 mt-3 bg-purple-50/50 dark:bg-purple-950/20 rounded-xl border border-purple-100 dark:border-purple-800/30 ai-summary-box shadow-inner leading-relaxed"></div>
                     </div>
 
-                    <!-- Hidden Collapsed Details -->
                     <div id="details-wrapper-${index}" class="expandable-container">
                         <div class="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800">
-                            
                             ${imageHTML}
-                            
                             <div class="w-full mb-2">
                                 ${pub.description ? `<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">${pub.description}</p>` : ''}
                             </div>
-                            
                         </div>
                     </div>
                 `;
@@ -274,7 +256,6 @@
         }
 
         function filterPubs(category) {
-            // Update filter pill UI styles
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => {
                 btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors";
@@ -293,7 +274,6 @@
 
         document.addEventListener('DOMContentLoaded', loadAllPublications);
 
-        // SECURE DEPLOYMENT CONFIGURATION (Option 2 Serverless Proxy - GitHub Models)
         const proxyUrl = "https://vivinvinod-github-io.vercel.app/api/ai"; 
         const localApiKey = ""; 
 
