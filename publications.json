@@ -51,15 +51,16 @@
     "description": "Multi-fidelity methods in machine learning (ML) have seen increasing usage for the prediction of quantum chemical properties. These methods, such as Δ-ML and Multifidelity Machine Learning (MFML), have been shown to significantly reduce the computational cost of generating training data. This work implements and analyzes several multi-fidelity methods including Δ-ML and MFML for the prediction of electronic molecular energies at DLPNO-CCSD(T) level, that is, at the level of coupled cluster theory including single and double excitations and perturbative triples corrections. The models for small organic molecules are evaluated not only on the basis of accuracy of prediction, but also on efficiency in terms of the time-cost of generating training data. In addition, the models are evaluated for the prediction of energies for molecules sampled from a public dataset, in particular for atmospherically relevant molecules, isomeric compounds, and highly conjugated complex molecules."
   },
   {
-    "year": "2025",
+    "year": "2026",
     "title": "LFaB: Low fidelity as Bias for Active Learning in the chemical configuration space",
     "authors": "<strong>Vivin Vinod</strong> and Peter Zaspel",
-    "venue": "arXiv preprint arXiv:2508.15577",
-    "category": "Preprints",
+    "venue": "Journal of Chemical Theory and Computation",
+    "category": "Articles",
     "links": {
-      "Paper URL": "https://arxiv.org/abs/2508.15577"
+    "Paper URL": "https://doi.org/10.1021/acs.jctc.6c00009",
+    "BibTex": "files/vinod_LFaB.bib"
     },
-    "image": "assets/media/2025/LFaB_TOC.png",
+    "image": "assets/media/2026/LFaB_TOC.png",
     "description": "This work proposes a novel low-fidelity informed uncertainty quantification for active learning with applications in predicting diverse quantum chemical properties such as excitation energies and ab initio potential energy surfaces. Computational experiments are carried out in order to assess the proposed method with results demonstrating that models trained with the novel method outperform alternatives in terms of empirical error and number of iterations required. The effect of the choice of fidelity is also studied to perform a thorough benchmark. Active learning promises to provide an optimal training sample selection procedure in the construction of machine learning models. It often relies on minimizing the model's variance, which is assumed to decrease the prediction error. Still, it is frequently even less efficient than a pure random sampling. Motivated by the bias-variance decomposition, we propose to minimize the model's bias instead of its variance. By doing so, we are able to almost exactly match the best-case error over all possible greedy sample selection procedures. Our bias approximation is based on using cheap to calculate low-fidelity data as known from Δ-ML or multifidelity machine learning. We exemplify our approach for a wider class of applications in quantum chemistry including predicting excitation energies and ab initio potential energy surfaces. Here, the proposed method reduces training data consumption by up to an order of magnitude compared to standard active learning."
   },
   {
