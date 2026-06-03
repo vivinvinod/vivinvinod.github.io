@@ -5,7 +5,15 @@
     "category": "Talks",
     "content": "Dr. Vivin Vinod will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
     "linkText": "View Event Details",
-    "linkUrl": "talks.html"
+    "linkUrl": "https://wccm-eccomas2026.org/"
+  },
+  {
+    "date": "2026-06-03",
+    "title": "Preprint on an adaptive algorithm for MFML that reduces computational cost by up to 30 times!",
+    "category": "Publication",
+    "content": "Our most recent preprint 'Improvise, Adapt, Overcome: An On-The-Fly Multifidelity Algorithm for Efficient Machine Learning' has been hosted on arXiv. The work, co-authored with Peter Zaspel, develops and benchmarks a novel adaptive algorithm to determine the number of training samples at each fidelity in a multifidelity machine learning model enabling streamlining of data generation for quantum chemical machine learning.",
+    "linkText": "View on arXiv",
+    "linkUrl": "https://doi.org/10.48550/arXiv.2606.02662"
   },
   {
     "date": "2026-05-20",
