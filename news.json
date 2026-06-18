@@ -1,9 +1,17 @@
 [
   {
+    "date": "2026-07-08",
+    "title": "Visting FEMTO-ST Besançon, FR",
+    "category": "Talks",
+    "content": "I will be visiting the FEMTO-ST Institute in Besançon, France, to deliver an invited seminar and launch new collaborative discussions. The visit will focus on fundamental developments in multifidelity machine learning and active learning sampling strategies applied to computational chemistry. The discussions will explore how merging multifidelity data sources can bridge the gap between low-fidelity approximations and high-fidelity quantum calculations to reduce computational overhead. Ultimately, the visit aims to establish cross-disciplinary partnerships in predictive modeling for complex physical systems.",
+    "linkText": "FEMTO-ST Webpage",
+    "linkUrl": "https://www.femto-st.fr/en"
+  },
+  {
     "date": "2026-07-22",
     "title": "Talk at WCCM-ECCOMAS 2026 (Munich)",
     "category": "Talks",
-    "content": "Dr. Vivin Vinod will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
+    "content": "I will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
     "linkText": "View Event Details",
     "linkUrl": "https://wccm-eccomas2026.org/"
   },
