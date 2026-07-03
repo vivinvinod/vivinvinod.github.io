@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026-07-22",
+    "title": "Talk at WCCM-ECCOMAS 2026 (Munich)",
+    "category": "Talks",
+    "content": "I will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
+    "linkText": "View Event Details",
+    "linkUrl": "https://wccm-eccomas2026.org/"
+  },
+  {
     "date": "2026-07-08",
     "title": "Visting FEMTO-ST Besançon, FR",
     "category": "Talks",
@@ -8,12 +16,12 @@
     "linkUrl": "https://www.femto-st.fr/en"
   },
   {
-    "date": "2026-07-22",
-    "title": "Talk at WCCM-ECCOMAS 2026 (Munich)",
-    "category": "Talks",
-    "content": "I will give a talk titled 'Active Learning and Multifidelity Machine Learning for Molecular Simulations' at the 17th World Congress on Computational Mechanics (WCCM) / 10th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS) in Munich. He will present active learning schemes, such as Low Fidelity as Bias (LFaB), alongside traditional multifidelity algorithms.",
-    "linkText": "View Event Details",
-    "linkUrl": "https://wccm-eccomas2026.org/"
+    "date": "2026-07-03",
+    "title": "MFML-4-QC python package v1.0.0 released!",
+    "category": "Publication",
+    "content": "A numba-compiled model-agnostic multifidelity machine learning package has been released for use in quantum chemistry and related fields. Users can patch their own QC engines and ML model architectures making this a very modular package.",
+    "linkText": "View PyPI Release",
+    "linkUrl": "https://pypi.org/project/mfml-4-qc/"
   },
   {
     "date": "2026-06-03",
