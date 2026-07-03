@@ -281,16 +281,17 @@
                 <div class="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                     <div>
                         <div class="flex items-center gap-2.5 mb-3 text-accent-600 dark:text-accent-400">
-                            <i class="ph-bold ph-git-branch text-2xl"></i>
-                            <span class="text-xs font-bold uppercase tracking-widest bg-accent-50 dark:bg-accent-950/20 px-2.5 py-1 rounded">Active Learning</span>
+                            <i class="ph-bold ph-package text-2xl"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest bg-accent-50 dark:bg-accent-950/20 px-2.5 py-1 rounded">Multifidelity Package</span>
                         </div>
-                        <h4 class="font-semibold text-slate-900 dark:text-white text-lg mb-2">LFaB-for-QC</h4>
+                        <h4 class="font-semibold text-slate-900 dark:text-white text-lg mb-2">MFML-4-QC</h4>
                         <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                            Implementation code for Low Fidelity as Bias (LFaB)—a novel bias-based active learning sampling scheme designed to guide configuration selection for high-accuracy quantum chemical properties.
+                            Python package to perform numba compiled model-agnostic multifidelity machine learning for quantum chemical application.
                         </p>
                     </div>
-                    <a href="https://github.com/vivinvinod/LFaB-for-QC" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors mt-auto">
-                        <i class="ph ph-github-logo text-lg"></i> View Repository <i class="ph ph-arrow-right"></i>
+                    <a href="https://pypi.org/project/mfml-4-qc/" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors mt-auto">
+                        <i class="ph ph-github-logo text-lg"></i> View PyPI <i class="ph ph-arrow-right"></i>
+                        <i class="ph ph-book-open-text text-lg"></i> View Documentation <i class="ph ph-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -415,13 +416,13 @@
             const inputEl = document.getElementById('synergy-input');
             if (!inputEl) return;
             
-            // 1. Set the input text
+            // Set the input text
             inputEl.value = topic;
             
-            // 2. Trigger the brainstorm function immediately
+            // Trigger the brainstorm function immediately
             brainstormSynergy();
             
-            // 3. Optional: Smoothly scroll the input into view if the user is further down the page
+            // Optional: Smoothly scroll the input into view if the user is further down the page
             inputEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
