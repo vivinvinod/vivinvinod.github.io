@@ -1,5 +1,13 @@
 [
   {
+    "date": "2026-09-30",
+    "title": "Visiting researcher at Xiamen University, China",
+    "category": "Talks",
+    "content": "I will be vsiting the Dral group for 2 months based in Xiamen University to develop active learning methods and multifidelity ML schemes for excited state dynamics and QM/MM settings.",
+    "linkText": "View Pavlo Group",
+    "linkUrl": "http://dr-dral.com/"
+  },
+  {
     "date": "2026-07-22",
     "title": "Talk at WCCM-ECCOMAS 2026 (Munich)",
     "category": "Talks",
